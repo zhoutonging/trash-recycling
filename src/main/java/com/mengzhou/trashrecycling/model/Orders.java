@@ -25,10 +25,10 @@ public class Orders extends Model<Orders> {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private String id;
 
-    @TableField("userId")
-    private Integer userId;
+    @TableField("openId")
+    private String openId;
 
     /**
      * 商品名称
@@ -37,7 +37,7 @@ public class Orders extends Model<Orders> {
     private String productName;
 
     /**
-     * 兑换商品绿色值
+     * 单价
      */
     @TableField("productPrice")
     private Integer productPrice;
@@ -55,13 +55,13 @@ public class Orders extends Model<Orders> {
     private Integer totalMoney;
 
     /**
-     * 0.已支付 1.未支付 2.支付未发货 3.支付已经发货
+     * 0.已支付 1.未支付 2.已取消 3.支付已经发货
      */
     private Integer status;
 
-    @TableField("caeateTime")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date caeateTime;
+    @TableField("createTime")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    private Date createTime;
 
     @Override
     protected Serializable pkVal() {

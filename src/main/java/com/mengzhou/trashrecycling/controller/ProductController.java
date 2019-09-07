@@ -106,6 +106,7 @@ public class ProductController {
 
         PageInfo pageInfo = new PageInfo(productList);
         return LayuiResult.success(pageInfo.getTotal(), productList);
+
     }
 
     /**

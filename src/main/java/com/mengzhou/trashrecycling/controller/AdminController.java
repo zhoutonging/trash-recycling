@@ -91,4 +91,15 @@ public class AdminController {
     public String productUpdate() {
         return "product/productUpdate";
     }
+
+
+    /**
+     * 订单首页
+     *
+     * @return
+     */
+    @GetMapping("orderIndex")
+    public String orderIndex() {
+        return "orders/orderIndex";
+    }
 }

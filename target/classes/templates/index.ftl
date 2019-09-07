@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>通用后台管理模板系统</title>
+    <title>智能回收箱管理系统</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/static/common/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/common/layuiadmin/style/admin.css" media="all">
 </head>
+
 <body class="layui-layout-body">
 
 <div id="LAY_app">
@@ -117,7 +118,7 @@
                             </dd>
 
                             <dd data-name="console">
-                                <a lay-href="roleManage">兑换订单</a>
+                                <a lay-href="orderIndex">兑换订单</a>
                             </dd>
 
                             <dd data-name="console">
