@@ -39,7 +39,7 @@ public interface ProductService extends IService<Product> {
      *
      * @param status
      */
-    void modifyByStatus(Integer id,Integer status);
+    void modifyByStatus(Integer id, Integer status);
 
     /**
      * 根据Id查询商品信息
@@ -56,5 +56,10 @@ public interface ProductService extends IService<Product> {
      */
     List<Product> findAll(Product product);
 
-
+    /**
+     * 查询商品信息(微信)
+     *
+     * @return
+     */
+    List<Product> findAllByWechar(String productName);
 }

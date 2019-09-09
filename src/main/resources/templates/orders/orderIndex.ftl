@@ -31,7 +31,7 @@
                             <div class="layui-inline">
                                 <div class="layui-input-inline">
                                     <input class="layui-input" type="text" name="productName" id="productName"
-                                           placeholder="请输入商品名称" autocomplete="off" class="layui-input">
+                                           placeholder="请输入订单号" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline">
@@ -51,10 +51,6 @@
                             </div>
                         </div>
                     </form>
-
-                    <div class="layui-btn-group test-table-operate-btn" style="margin-bottom: 10px;">
-                        <button class="layui-btn" data-type="getCheckData">添加商品</button>
-                    </div>
 
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
@@ -84,10 +80,11 @@
             page: true,
             height: 'full-160',
             cellMinWidth: 80,
-            id: 'idTest',
+            toolbar: 'default',
+        id: 'idTest',
             cols: [[
                 {type: 'numbers', title: '序号', align: 'center'},
-                {field: 'openId', title: '客户标识', align: 'center'},
+                {field: 'openId', title: '订单号', align: 'center'},
                 {field: 'productName', title: '商品名称', align: 'center'},
                 {field: 'productPrice', title: '绿色值', align: 'center'},
                 {field: 'productCount', title: '数量', align: 'center'},
@@ -145,25 +142,6 @@
                 // });
             }
         });
-
-        //商品添加
-        var $ = layui.$, active = {
-            //添加角色
-            getCheckData: function () {
-                //弹出即全屏
-                var index = layer.open({
-                    type: 2,
-                    title: '添加商品',
-                    content: '/productSave',
-                    area: ['100%', '100%']
-                });
-            }
-        };
-        $('.test-table-operate-btn .layui-btn').on('click', function () {
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-        });
-
 
         //条件查询
         form.on('submit(seek)', function () {

@@ -81,6 +81,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     public List<Product> findAll(Product product) {
 
+
         //如果product为空则查询所有
         if (product == null) {
             List<Product> productList = productMapper.selectList(new EntityWrapper<Product>().orderBy("createTime", false));
@@ -106,5 +107,30 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         return productList;
 
+    }
+
+    @Override
+    public List<Product> findAllByWechar(String productName) {
+
+        if (productName == null) {
+
+            //如果为空查询所有
+            if (redisUtil.exists("productList")) {
+                List<Product> productList = (List<Product>) redisUtil.get("productList");
+                return productList;
+            }
+
+            //如果缓存没有则查询已上架的商品
+            List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
+                    .eq("status", 0));
+            redisUtil.set("productList", productList);
+            return productList;
+        }
+
+        //根据商品名查询
+        List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
+                .eq("status", 0).like("productName", productName));
+
+        return productList;
     }
 }

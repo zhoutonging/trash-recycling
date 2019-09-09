@@ -29,8 +29,6 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-
-
     @GetMapping("/findAll")
     public LayuiResult findAll() {
         List<Category> categoryList = categoryService.findAll();
