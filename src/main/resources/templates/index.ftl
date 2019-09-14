@@ -100,7 +100,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console">
-                                <a lay-href="home/homepage1.html">展示图</a>
+                                <a lay-href="slideShowIndex">广告</a>
                             </dd>
                             <dd data-name="console">
                                 <a lay-href="home/homepage2.html">主页二</a>

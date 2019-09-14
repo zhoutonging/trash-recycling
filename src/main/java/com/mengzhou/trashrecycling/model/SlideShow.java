@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -35,6 +36,11 @@ public class SlideShow extends Model<SlideShow> {
     private String image;
 
     /**
+     * 首页轮播图名称
+     */
+    private String slideName;
+
+    /**
      * 显示权重
      */
     private Integer sort;
@@ -45,9 +51,15 @@ public class SlideShow extends Model<SlideShow> {
     /**
      * 创建时间
      */
-    @TableField("caeateTime")
-    @CreatedDate
-    private Date caeateTime;
+    @TableField("createTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date createTime;
+
+    /**
+     * 描述
+     */
+    @TableField("describe")
+    private String describe;
 
     @Override
     protected Serializable pkVal() {

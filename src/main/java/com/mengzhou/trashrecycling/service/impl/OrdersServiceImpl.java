@@ -3,8 +3,10 @@ package com.mengzhou.trashrecycling.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mengzhou.trashrecycling.model.Orders;
 import com.mengzhou.trashrecycling.mapper.OrdersMapper;
+import com.mengzhou.trashrecycling.model.Product;
 import com.mengzhou.trashrecycling.service.OrdersService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.mengzhou.trashrecycling.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,21 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Autowired
     private OrdersMapper ordersMapper;
+
+    @Autowired
+    private ProductService productService;
+
+    @Override
+    public void save(Integer productId, Integer ProductCount) {
+
+        // 查询商品信息
+        Product product = productService.selectById(productId);
+
+        //计算总金额
+        int totalMoney = product.getProductPrice() * ProductCount;
+
+        //TODO
+    }
 
     @Override
     public List<Orders> findAll() {

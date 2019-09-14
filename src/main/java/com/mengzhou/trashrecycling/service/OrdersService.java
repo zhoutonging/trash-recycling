@@ -13,7 +13,13 @@ import java.util.List;
  */
 public interface OrdersService extends IService<Orders> {
 
-
+    /**
+     * 添加订单
+     *
+     * @param productId    商品ID
+     * @param ProductCount 商品数量
+     */
+    void save(Integer productId, Integer ProductCount);
 
     /**
      * 查询所有订单

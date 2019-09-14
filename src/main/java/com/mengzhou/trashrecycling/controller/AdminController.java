@@ -43,16 +43,6 @@ public class AdminController {
     }
 
     /**
-     * 类别管理
-     *
-     * @return
-     */
-    @GetMapping("categoryIndex")
-    public String categoryIndex() {
-        return "category/categoryIndex";
-    }
-
-    /**
      * 商品管理首页
      *
      * @return
@@ -102,4 +92,26 @@ public class AdminController {
     public String orderIndex() {
         return "orders/orderIndex";
     }
+
+    /**
+     * 广告首页
+     *
+     * @return
+     */
+    @GetMapping("slideShowIndex")
+    public String slideShowIndex() {
+        return "slideShow/slideShowIndex";
+    }
+
+    /**
+     * 广告首页
+     *
+     * @return
+     */
+    @GetMapping("slideShowSave")
+    public String slideShowSave() {
+        return "slideShow/slideShowSave";
+    }
+
+
 }

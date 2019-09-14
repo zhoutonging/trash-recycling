@@ -1,11 +1,14 @@
 package com.mengzhou.trashrecycling.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mengzhou.trashrecycling.model.SlideShow;
 import com.mengzhou.trashrecycling.mapper.SlideShowMapper;
 import com.mengzhou.trashrecycling.service.SlideShowService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -23,11 +26,13 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
 
     @Override
     public void save(SlideShow slideShow) {
-
-        if (slideShow.getImage() == null) {
-            throw new RuntimeException("图片不能为空");
-        }
-
         slideShowMapper.insert(slideShow);
+    }
+
+    @Override
+    public List<SlideShow> findAll() {
+        List<SlideShow> slideShowList = slideShowMapper.selectList(new EntityWrapper<SlideShow>()
+                .orderBy("createTime", false));
+        return slideShowList;
     }
 }
