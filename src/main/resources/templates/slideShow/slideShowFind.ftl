@@ -34,11 +34,7 @@
                     <div class="layui-form-item">
                         <div class="layui-upload">
                             <label class="layui-form-label">广告图片:</label>
-                            <div class="layui-upload-drag" id="test1">
-                                <i class="layui-icon"></i>
-                                <p>点击上传，或将文件拖拽到此处</p>
-                            </div>
-                            <div class="layui-upload-list" style="display: none">
+                            <div class="layui-upload-list" >
                                 <img class="layui-upload-img" id="demo1" style="width: 400px;height: 250px">
                                 <p id="demoText"></p>
                             </div>
@@ -52,14 +48,6 @@
 
         </div>
         <div id="editor"></div>
-        <div class="layui-form-item" style="text-align: center;margin-top: 20px;padding-bottom: 25px;">
-            <div class="layui-input-block">
-                <div class="layui-footer" style="left: 0;">
-                    <button class="layui-btn" lay-submit="" lay-filter="component-form-demo1">立即提交</button>
-                    <button class="layui-btn layui-btn-primary" id="component-form-demo2">返回</button>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </div>
@@ -94,7 +82,19 @@
         });
 
         var id = location.search.substr(location.search.lastIndexOf("=") + 1);
+        $.get('slideShow/findById', {
+            id: id
+        }, function (res) {
+            var data = res.data;
+            console.log(res.data)
+            $('#slideName').val(data.slideName);
+            $("#demo1").attr("src", data.image);
 
+            editor.txt.html(data.describe);
+            editor.$textElem.attr('contenteditable', false);
+            $("input").attr("readonly", true);
+
+        });
 
     });
 </script>

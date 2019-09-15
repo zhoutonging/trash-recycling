@@ -53,18 +53,31 @@ public class SlideShowController {
         return LayuiResult.success("添加成功");
     }
 
+    @GetMapping("modifyByStatus")
+    public LayuiResult modifyByStatus(Integer id, Integer status) {
+        if (id == null || status == null) {
+            log.debug("id或状态为空");
+            return LayuiResult.fail("id或状态为空");
+        }
+
+        slideShowService.modifyByStatus(id, status);
+        return LayuiResult.success("更改状态成功");
+    }
+
     /**
      * 根据ID查询广告信息
      *
      * @param id
      * @return
      */
+    @GetMapping("findById")
     public LayuiResult findById(Integer id) {
 
         if (id == null) {
             log.error("广告Id为空");
             return LayuiResult.fail("广告Id不能为空");
         }
+
         SlideShow slideShow = slideShowService.findById(id);
         return LayuiResult.success(slideShow);
     }

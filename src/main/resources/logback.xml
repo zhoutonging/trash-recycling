@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 定义参数常量 -->
     <!-- TRACE<DEBUG<INFO<WARN<ERROR -->
     <!-- logger.trace("msg") logger.debug... -->
-    <property name="log.level" value="debug"/>
-    <property name="log.maxHistory" value="30"/>
-    <property name="log.filePath" value="../logs"/>
+    <property name="log.level" value="debug" />
+    <property name="log.maxHistory" value="30" />
+    <property name="log.filePath" value="${catalina.base}/logs/webapps" />
     <property name="log.pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />
     <!-- 控制台设置 -->
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -15,8 +15,7 @@
         </encoder>
     </appender>
     <!-- DEBUG -->
-    <appender name="debugAppender"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="debugAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 文件路径 -->
         <file>${log.filePath}/debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -36,8 +35,7 @@
         </filter>
     </appender>
     <!-- INFO -->
-    <appender name="infoAppender"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 文件路径 -->
         <file>${log.filePath}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -57,8 +55,7 @@
         </filter>
     </appender>
     <!-- ERROR -->
-    <appender name="errorAppender"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 文件路径 -->
         <file>${log.filePath}/erorr.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -77,7 +74,7 @@
             <onMismatch>DENY</onMismatch>
         </filter>
     </appender>
-    <logger name="com.wstx.card" level="${log.level}" additivity="true">
+    <logger name="com.mengzhou.trashrecycling" level="${log.level}" additivity="true">
         <appender-ref ref="debugAppender"/>
         <appender-ref ref="infoAppender"/>
         <appender-ref ref="errorAppender"/>

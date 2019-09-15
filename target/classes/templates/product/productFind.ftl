@@ -117,6 +117,7 @@
             editor.txt.html(data.productDescription);
             //富文本禁用状态
             editor.$textElem.attr('contenteditable', false)
+
         } else {
             layer.msg('查询失败', {time: 2000, icon: 2});
         }

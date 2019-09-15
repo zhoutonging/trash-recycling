@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.mengzhou.trashrecycling.common.enums.SlideShowEnum;
 import com.mengzhou.trashrecycling.model.SlideShow;
 import com.mengzhou.trashrecycling.mapper.SlideShowMapper;
 import com.mengzhou.trashrecycling.service.SlideShowService;
@@ -33,6 +34,27 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
         //TODO 枚举类
         slideShow.setStatus(1);
         slideShowMapper.insert(slideShow);
+    }
+
+    @Override
+    public void modifyByStatus(Integer id, Integer status) {
+        try {
+            SlideShow slideShow = this.findById(id);
+
+            //1.可用 0.禁用
+            if (status == 1) {
+                slideShow.setStatus(SlideShowEnum.USABLE.getCode());
+                slideShowMapper.updateById(slideShow);
+                return;
+            }
+
+            slideShow.setStatus(SlideShowEnum.DISABLED.getCode());
+            slideShowMapper.updateById(slideShow);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("设置广告状态时出错:" + e.getMessage());
+        }
     }
 
     @Override

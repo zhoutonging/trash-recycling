@@ -1,0 +1,26 @@
+# Created by .ignore support plugin (hsz.mobi)
+target
+.gitignore
+.idea/libraries/Maven__ch_hsr_geohash_1_3_0.xml
+catalina.base_IS_UNDEFINED/
+target/classes/META-INF/
+target/classes/com/mengzhou/trashrecycling/common/enums/OrderStatusEnum.class
+target/classes/com/mengzhou/trashrecycling/common/enums/SlideShowEnum.class
+target/classes/com/mengzhou/trashrecycling/controller/OrdersController.class
+target/classes/com/mengzhou/trashrecycling/controller/wechar/
+target/classes/com/mengzhou/trashrecycling/mapper/OrdersMapper.class
+target/classes/com/mengzhou/trashrecycling/model/Orders.class
+target/classes/com/mengzhou/trashrecycling/service/OrdersService.class
+target/classes/com/mengzhou/trashrecycling/service/impl/OrdersServiceImpl.class
+target/classes/com/mengzhou/trashrecycling/utils/AddressUtil.class
+target/classes/com/mengzhou/trashrecycling/utils/GenerateNum.class
+target/classes/logback.xml
+target/classes/mapper/OrdersMapper.xml
+target/classes/static/favicon.ico
+target/classes/templates/orders/
+target/classes/templates/slideShow/slideShowFind.ftl
+target/classes/templates/slideShow/slideShowSave.ftl
+target/generated-sources/
+target/generated-test-sources/
+target/test-classes/com/mengzhou/trashrecycling/Test.class
+target/test-classes/com/mengzhou/trashrecycling/Test1.class

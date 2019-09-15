@@ -21,6 +21,14 @@ public interface SlideShowService extends IService<SlideShow> {
     void save(SlideShow slideShow);
 
     /**
+     * 设置广告状态
+     *
+     * @param id
+     * @param status
+     */
+    void modifyByStatus(Integer id, Integer status);
+
+    /**
      * 根据ID查询广告信息
      *
      * @param id

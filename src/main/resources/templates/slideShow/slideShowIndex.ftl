@@ -47,10 +47,10 @@
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
 <script type="text/html" id="statusTemp">
     {{#  if(d.status==1){ }}
-    <input type="checkbox" name="status" lay-skin="switch" lay-text="可用|禁用" value="{{d.id}}"
+    <input type="checkbox" name="status" lay-skin="switch" lay-text="展示|禁用" value="{{d.id}}"
            lay-filter="status">
     {{#  } else { }}
-    <input type="checkbox" name="status" checked lay-skin="switch" lay-text="可用|禁用" value="{{d.id}}"
+    <input type="checkbox" name="status" checked lay-skin="switch" lay-text="展示|禁用" value="{{d.id}}"
            lay-filter="status">
     {{#  } }}
 </script>
@@ -87,8 +87,8 @@
                 //弹出即全屏
                 var index = layer.open({
                     type: 2,
-                    title: '查看商品',
-                    content: "productFind?id=" + data.id,
+                    title: '查看广告',
+                    content: "slideShowFind?id=" + data.id,
                     area: ['100%', '100%']
                 });
             } else if (obj.event === 'del') {
@@ -140,15 +140,15 @@
             var id = data.value;
             var status = this.checked ? '1' : '0';
 
-            $.get('product/modifyByStatus', {
+            $.get('slideShow/modifyByStatus', {
                 id: id,
                 status: status
             }, function (res) {
                 if (res.code == 0) {
                     if (status == 1) {
-                        layer.msg('上架成功', {time: 2000, icon: 1});
+                        layer.msg('展示成功', {time: 2000, icon: 1});
                     } else {
-                        layer.msg('下架成功', {time: 2000, icon: 1});
+                        layer.msg('禁用成功', {time: 2000, icon: 1});
                     }
                 } else {
                     layer.msg('更新失败', {time: 2000, icon: 2});
