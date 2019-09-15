@@ -31,8 +31,7 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
     @Override
     public void save(SlideShow slideShow) {
         slideShow.setCreateTime(new Date());
-        //TODO 枚举类
-        slideShow.setStatus(1);
+        slideShow.setStatus(SlideShowEnum.USABLE.getCode());
         slideShowMapper.insert(slideShow);
     }
 
@@ -41,7 +40,7 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
         try {
             SlideShow slideShow = this.findById(id);
 
-            //1.可用 0.禁用
+            //1.禁用 0.可用
             if (status == 1) {
                 slideShow.setStatus(SlideShowEnum.USABLE.getCode());
                 slideShowMapper.updateById(slideShow);

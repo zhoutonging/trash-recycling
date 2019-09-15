@@ -47,7 +47,7 @@
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
 <script type="text/html" id="statusTemp">
     {{#  if(d.status==1){ }}
-    <input type="checkbox" name="status" lay-skin="switch" lay-text="展示|禁用" value="{{d.id}}"
+    <input type="checkbox" name="status"  lay-skin="switch" lay-text="展示|禁用" value="{{d.id}}"
            lay-filter="status">
     {{#  } else { }}
     <input type="checkbox" name="status" checked lay-skin="switch" lay-text="展示|禁用" value="{{d.id}}"
@@ -117,9 +117,9 @@
             }
         });
 
-        //商品添加
+        //广告添加
         var $ = layui.$, active = {
-            //添加角色
+            //添加广告
             getCheckData: function () {
                 //弹出即全屏
                 var index = layer.open({
