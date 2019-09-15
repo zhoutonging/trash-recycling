@@ -54,6 +54,22 @@ public class SlideShowController {
     }
 
     /**
+     * 根据ID查询广告信息
+     *
+     * @param id
+     * @return
+     */
+    public LayuiResult findById(Integer id) {
+
+        if (id == null) {
+            log.error("广告Id为空");
+            return LayuiResult.fail("广告Id不能为空");
+        }
+        SlideShow slideShow = slideShowService.findById(id);
+        return LayuiResult.success(slideShow);
+    }
+
+    /**
      * 查询广告列表
      *
      * @param page

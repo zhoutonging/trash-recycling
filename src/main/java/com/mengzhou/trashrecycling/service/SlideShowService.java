@@ -21,6 +21,14 @@ public interface SlideShowService extends IService<SlideShow> {
     void save(SlideShow slideShow);
 
     /**
+     * 根据ID查询广告信息
+     *
+     * @param id
+     * @return
+     */
+    SlideShow findById(Integer id);
+
+    /**
      * 查询所有广告
      *
      * @return
