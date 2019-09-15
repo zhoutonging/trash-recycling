@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +27,9 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
 
     @Override
     public void save(SlideShow slideShow) {
+        slideShow.setCreateTime(new Date());
+        //TODO 枚举类
+        slideShow.setStatus(1);
         slideShowMapper.insert(slideShow);
     }
 

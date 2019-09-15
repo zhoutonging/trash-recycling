@@ -25,7 +25,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">广告名称:</label>
                             <div class="layui-input-inline">
-                                <input type="tel" name="phone" lay-verify="required" autocomplete="off"
+                                <input type="tel" id="slideName" lay-verify="required" autocomplete="off"
                                        class="layui-input">
                             </div>
                         </div>
@@ -111,11 +111,52 @@
                 }
                 if (res.data.length != 0) {
                     productIcon = res.data[0];
+                    console.log(productIcon)
                     $(".layui-upload-list").css("display", "inline-block");
                     $("#test1").css("display", "none");
                 }
             }
         });
+
+        //提交信息
+        form.on('submit(component-form-demo1)', function (data) {
+            var slideName = $('#slideName').val();
+
+            var describe = editor.txt.html(); //获取富文本内容
+
+            if (slideName == null || slideName.length == 0) {
+                layer.msg('广告名称不能为空', {time: 2000, icon: 2});
+                return;
+            }
+
+            if (productIcon == null || productIcon.length == 0) {
+                layer.msg('广告图不能为空', {time: 2000, icon: 2});
+                return;
+            }
+
+            if (describe == null || describe.length == 0) {
+                layer.msg('广告描述不能为空', {time: 2000, icon: 2});
+                return;
+            }
+
+            $.post('slideShow/save', {
+                slideName: slideName,
+                describe: describe,
+                image: productIcon
+            }, function (res) {
+                if (res.code == 0) {
+                    layer.msg(res.msg, {time: 2000, icon: 1});
+                    var int = self.setInterval(function () {
+                        parent.layer.close(index);
+                        parent.location.reload();
+                    }, 2000)
+                } else {
+                    layer.msg('添加失败', {time: 2000, icon: 2});
+                }
+            });
+
+
+        })
 
     });
 </script>

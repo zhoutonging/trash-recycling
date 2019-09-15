@@ -38,7 +38,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         //计算总金额
         int totalMoney = product.getProductPrice() * ProductCount;
 
-        //TODO
+        //TODO 计算总金额
     }
 
     @Override

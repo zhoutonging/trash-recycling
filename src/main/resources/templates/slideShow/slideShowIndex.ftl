@@ -72,7 +72,7 @@
             cols: [[
                 {type: 'numbers', title: '序号', align: 'center'},
                 {field: 'slideName', title: '广告名称', align: 'center'},
-                {field: 'image', title: '广告图', align: 'center'},
+                {field: 'image', title: '广告图', align: 'center',templet:'<div><img src="{{d.image}}"></div>'},
                 {field: 'createTime', title: '创建时间', align: 'center'},
                 {filed: 'status', title: '状态', templet: '#statusTemp', align: 'center'},
                 {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo'}
