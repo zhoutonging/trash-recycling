@@ -17,7 +17,7 @@ public class AddressUtil {
     }
 
     /**
-     * 基于googleMap中的算法得到两经纬度之间的距离,计算精度与谷歌地图的距离精度差不多，相差范围在0.2米以下
+     * 基于googleMap中的算法得到两经纬度之间的距离
      *
      * @param lon1 第一点的精度
      * @param lat1 第一点的纬度

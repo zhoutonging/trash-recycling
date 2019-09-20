@@ -36,6 +36,16 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
     }
 
     @Override
+    public void removeById(Integer id) {
+        slideShowMapper.deleteById(id);
+    }
+
+    @Override
+    public void modifyById(SlideShow slideShow) {
+        slideShowMapper.updateById(slideShow);
+    }
+
+    @Override
     public void modifyByStatus(Integer id, Integer status) {
         try {
             SlideShow slideShow = this.findById(id);

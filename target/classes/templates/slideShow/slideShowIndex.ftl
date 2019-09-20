@@ -72,7 +72,7 @@
             cols: [[
                 {type: 'numbers', title: '序号', align: 'center'},
                 {field: 'slideName', title: '广告名称', align: 'center'},
-                {field: 'image', title: '广告图', align: 'center',templet:'<div><img src="{{d.image}}"></div>'},
+                {field: 'image', title: '广告图', align: 'center', templet: '<div><img src="{{d.image}}"></div>'},
                 {field: 'createTime', title: '创建时间', align: 'center'},
                 {filed: 'status', title: '状态', templet: '#statusTemp', align: 'center'},
                 {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo'}
@@ -93,7 +93,7 @@
                 });
             } else if (obj.event === 'del') {
                 layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
-                    $.get('/product/deleteById', {id: data.id}, function (res) {
+                    $.get('/slideShow/deleteById', {id: data.id}, function (res) {
                         if (res.code == 0) {
                             obj.del();
                             layer.msg(res.msg, {time: 2000, icon: 1});
@@ -105,21 +105,19 @@
             } else if (obj.event === 'edit') {
                 var index = layer.open({
                     type: 2,
-                    title: '编辑用户',
-                    content: "productUpdate?id=" + data.id,
+                    title: '编辑广告',
+                    content: "slideShowUpdate?id=" + data.id,
                     area: ['100%', '100%'],
                     success: function (layero, index) {
                         var iframe = window['layui-layer-iframe' + index];
-                        //调用子页面的全局函数
-                        // iframe.child(data)
                     }
                 });
             }
         });
 
-        //商品添加
+        //广告添加
         var $ = layui.$, active = {
-            //添加角色
+            //添加广告
             getCheckData: function () {
                 //弹出即全屏
                 var index = layer.open({

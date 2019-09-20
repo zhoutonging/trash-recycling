@@ -130,7 +130,7 @@
             } else if (obj.event === 'edit') {
                 var index = layer.open({
                     type: 2,
-                    title: '编辑用户',
+                    title: '编辑商品',
                     content: "productUpdate?id=" + data.id,
                     area: ['100%', '100%'],
                     success: function (layero, index) {

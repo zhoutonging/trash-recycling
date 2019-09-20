@@ -21,6 +21,20 @@ public interface SlideShowService extends IService<SlideShow> {
     void save(SlideShow slideShow);
 
     /**
+     * 删除广告
+     *
+     * @param id
+     */
+    void removeById(Integer id);
+
+    /**
+     * 根据Id修改广告
+     *
+     * @param slideShow
+     */
+    void modifyById(SlideShow slideShow);
+
+    /**
      * 设置广告状态
      *
      * @param id

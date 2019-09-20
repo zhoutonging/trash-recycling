@@ -110,7 +110,7 @@
                     <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="商品管理" lay-direction="2">
                             <i class="layui-icon layui-icon-cart-simple"></i>
-                            <cite>商品管理</cite>
+                            <cite>商城管理</cite>
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="">
@@ -123,6 +123,33 @@
 
                             <dd data-name="console">
                                 <a lay-href="permissionManage">积分配置</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-util"></i>
+                            <cite>柜机设置</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="productIndex">签到积分</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-template-1"></i>
+                            <cite>小程序设置</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="productIndex">签到积分</a>
+                            </dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="productIndex">收货地址</a>
                             </dd>
                         </dl>
                     </li>

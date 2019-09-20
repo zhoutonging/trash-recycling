@@ -44,7 +44,7 @@ public class MyBatisPlusGenerator {
         stConfig.setCapitalMode(true) // 全局大写命名
                 .setDbColumnUnderline(true) // 指定表名 字段名是否使用下划线
                 .setNaming(NamingStrategy.underline_to_camel) // 数据库表映射到实体的命名策略
-                .setInclude("user"); // 生成的表.为空的话默认生成所有
+                .setInclude("address"); // 生成的表.为空的话默认生成所有
 
         // 4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();

@@ -123,5 +123,15 @@ public class AdminController {
         return "slideShow/slideShowFind";
     }
 
+    /**
+     * 广告修改
+     *
+     * @return
+     */
+    @GetMapping("slideShowUpdate")
+    public String slideShowUpdate() {
+        return "slideShow/slideShowUpdate";
+    }
+
 
 }

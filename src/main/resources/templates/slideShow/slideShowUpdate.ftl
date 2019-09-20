@@ -40,7 +40,7 @@
                             <div class="layui-form-item">
                                 <label class="layui-form-label">广告图:</label>
                                 <div class="layui-upload">
-                                    <div class="layui-upload-drag" id="test1">
+                                    <div class="layui-upload-drag" id="test1" style="display: none;">
                                         <i class="layui-icon"></i>
                                         <p>点击上传，或将文件拖拽到此处</p>
                                     </div>
@@ -57,9 +57,7 @@
                             <div class="layui-form-item">
                                 <div class="layui-input-block" id="buttons">
                                     <button type="button" class="layui-btn layui-btn-primary pre">上一步</button>
-                                    <button type="button" class="layui-btn layui-btn-primary anew"
-                                            style="display: none;">重新上传
-                                    </button>
+                                    <button type="button" class="layui-btn layui-btn-primary anew">重新上传</button>
                                     <button class="layui-btn" lay-submit lay-filter="formStep2">
                                         &emsp;下一步&emsp;
                                     </button>
@@ -102,6 +100,17 @@
             , form = layui.form
             , step = layui.step
             , upload = layui.upload;
+
+        var id = location.search.substr(location.search.lastIndexOf("=") + 1);
+        $.get('slideShow/findById', {
+            id: id
+        }, function (res) {
+            var data = res.data;
+            $('#slideName').val(data.slideName);
+            $("#imgSrc").attr("src", data.image);
+
+            editor.txt.html(data.describe);
+        });
 
         step.render({
             elem: '#stepForm',
@@ -153,7 +162,8 @@
             var slideName = $('#slideName').val();
             var describe = editor.txt.html(); //获取富文本内容
 
-            $.post('slideShow/save', {
+            $.post('slideShow/modifyById', {
+                id: id,
                 slideName: slideName,
                 describe: describe,
                 image: productIcon
@@ -176,11 +186,6 @@
         });
 
         form.on('submit(formStep2)', function (data) {
-
-            if (productIcon == null || productIcon == undefined) {
-                layer.msg('展示图不能为空喔', {time: 2000, icon: 2});
-                return;
-            }
 
             step.next('#stepForm');
             return false;
