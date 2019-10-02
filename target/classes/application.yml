@@ -34,3 +34,6 @@ file:
 mybatis-plus:
   mapperLocations: classpath:mapper/*.xml
   type-aliases-package: com.mengzhou.trashrecycling.model
+wx:
+  appId: wx63744ac5a9771c65
+  secret: 46afb5b4eb348c79058767a0d8a874e7

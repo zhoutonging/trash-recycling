@@ -15,7 +15,7 @@ import java.util.Map;
  * @date 2019年09月09日 16:20
  */
 @RestController
-@RequestMapping("/wx/product")
+@RequestMapping("/api/product")
 public class WXProductController {
 
     @Autowired

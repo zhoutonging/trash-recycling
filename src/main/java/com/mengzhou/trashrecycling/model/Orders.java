@@ -24,7 +24,7 @@ public class Orders extends Model<Orders> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableField("id")
     private String id;
 
     @TableField("openId")
@@ -43,24 +43,30 @@ public class Orders extends Model<Orders> {
     private Integer productPrice;
 
     /**
+     * 收货地址id
+     */
+    @TableField("addressId")
+    private Integer addressId;
+
+    /**
      * 数量
      */
     @TableField("productCount")
     private Integer productCount;
 
     /**
-     * 总金额
+     * 兑换商品所需积分
      */
-    @TableField("totalMoney")
-    private Integer totalMoney;
+    @TableField("integral")
+    private Integer integral;
 
     /**
-     * 0.已支付 1.未支付 2.已取消 3.支付已经发货
+     * 0.已支付 1.支付已经发货
      */
     private Integer status;
 
     @TableField("createTime")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     @Override

@@ -113,17 +113,9 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public List<Product> findAllByWechar(String productName) {
 
         if (productName == null) {
-
-            //如果为空查询所有
-            if (redisUtil.exists("productList")) {
-                List<Product> productList = (List<Product>) redisUtil.get("productList");
-                return productList;
-            }
-
-            //如果缓存没有则查询已上架的商品
+            //上架的商品
             List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
                     .eq("status", 0));
-            redisUtil.set("productList", productList);
             return productList;
         }
 

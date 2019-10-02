@@ -133,5 +133,66 @@ public class AdminController {
         return "slideShow/slideShowUpdate";
     }
 
+    /**
+     * 广告修改
+     *
+     * @return
+     */
+    @GetMapping("addressIndex")
+    public String addressIndex() {
+        return "address/addressIndex";
+    }
+
+
+    /**
+     * 招聘首页
+     *
+     * @return
+     */
+    @GetMapping("recruitmentIndex")
+    public String RecruitmentIndex() {
+        return "recruitment/recruitmentIndex";
+    }
+
+    /**
+     * 招聘查看
+     *
+     * @return
+     */
+    @GetMapping("recruitmentFind")
+    public String recruitmentFind() {
+        return "recruitment/recruitmentFind";
+    }
+
+    /**
+     * 招聘修改
+     *
+     * @return
+     */
+    @GetMapping("recruitmentUpdate")
+    public String recruitmentUpdate() {
+        return "recruitment/recruitmentUpdate";
+    }
+
+    /**
+     * 招聘添加
+     *
+     * @return
+     */
+    @GetMapping("recruitmentSave")
+    public String recruitmentSave() {
+        return "recruitment/recruitmentSave";
+    }
+
+    /**
+     * 签到积分设置首页
+     *
+     * @return
+     */
+    @GetMapping("signinIndex")
+    public String signinIndex() {
+        return "signin/signinIndex";
+    }
+
 
 }

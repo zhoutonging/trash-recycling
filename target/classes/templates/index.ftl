@@ -121,8 +121,19 @@
                                 <a lay-href="orderIndex">兑换订单</a>
                             </dd>
 
-                            <dd data-name="console">
-                                <a lay-href="permissionManage">积分配置</a>
+                            <dd data-name="console" class="">
+                                <a lay-href="addressIndex">收货地址</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-user"></i>
+                            <cite>公益伙伴</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="recruitmentIndex">招聘信息</a>
                             </dd>
                         </dl>
                     </li>
@@ -144,12 +155,11 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="">
-                                <a lay-href="productIndex">签到积分</a>
+                                <a lay-href="signinIndex">签到积分</a>
                             </dd>
-                        </dl>
-                        <dl class="layui-nav-child">
-                            <dd data-name="console" class="">
-                                <a lay-href="productIndex">收货地址</a>
+
+                            <dd data-name="console">
+                                <a lay-href="permissionManage">积分配置</a>
                             </dd>
                         </dl>
                     </li>
