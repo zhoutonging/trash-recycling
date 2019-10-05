@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -31,15 +33,23 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
     private AddressMapper addressMapper;
 
     @Override
-    public LayuiResult save(Address address) {
+    public Map<String, Object> save(Address address) {
+        Map<String, Object> modelMap = new HashMap<>(16);
         if (address.getAddress() == null || address.getMobile() == null
                 || address.getUserName() == null || address.getOpenId() == null) {
-            return LayuiResult.fail("必填项不能为空");
+            modelMap.put("success", false);
+            modelMap.put("msg", "必填项不能为空");
+
+            return modelMap;
         }
         address.setCreateTime(new Date());
         address.setDefaultAddress(AddressEnum.NO.getCode());
         addressMapper.insert(address);
-        return LayuiResult.success("添加成功");
+
+        modelMap.put("success", true);
+        modelMap.put("msg", "添加成功");
+
+        return modelMap;
     }
 
 

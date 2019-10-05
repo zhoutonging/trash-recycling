@@ -1,9 +1,7 @@
 package com.mengzhou.trashrecycling.controller.wechar;
 
 
-import com.mengzhou.trashrecycling.model.Signin;
 import com.mengzhou.trashrecycling.service.SigninService;
-import com.mengzhou.trashrecycling.utils.LayuiResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户地址业务逻辑层
@@ -19,7 +20,7 @@ public interface AddressService extends IService<Address> {
      *
      * @param address
      */
-    LayuiResult save(Address address);
+    Map<String,Object> save(Address address);
 
     /**
      * 根据Id删除信息

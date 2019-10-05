@@ -138,6 +138,17 @@
                         </dl>
                     </li>
                     <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="垃圾回收" lay-direction="2">
+                            <i class="layui-icon layui-icon-delete"></i>
+                            <cite>垃圾回收</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="">垃圾类别</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
                             <i class="layui-icon layui-icon-util"></i>
                             <cite>柜机设置</cite>

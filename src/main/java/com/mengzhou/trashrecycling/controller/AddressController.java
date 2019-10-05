@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 收货地址控制器
@@ -30,17 +31,6 @@ public class AddressController {
 
     @Autowired
     private AddressService addressService;
-
-    /**
-     * 添加收货地址
-     *
-     * @param address
-     * @return
-     */
-    @PostMapping("save")
-    public LayuiResult save(Address address) {
-        return addressService.save(address);
-    }
 
     /**
      * 根据Id删除收货地址
