@@ -194,5 +194,15 @@ public class AdminController {
         return "signin/signinIndex";
     }
 
+    /**
+     * 签到积分设置首页
+     *
+     * @return
+     */
+    @GetMapping("recyclecategoryIndex")
+    public String recyclecategoryIndex() {
+        return "recyclecategory/recyclecategoryIndex";
+    }
+
 
 }

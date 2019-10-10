@@ -144,7 +144,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="">
-                                <a lay-href="">垃圾类别</a>
+                                <a lay-href="recyclecategoryIndex">垃圾类别</a>
                             </dd>
                         </dl>
                     </li>

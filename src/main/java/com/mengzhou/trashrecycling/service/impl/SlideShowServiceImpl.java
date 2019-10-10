@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -78,6 +80,31 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
     }
 
     @Override
+    public Map<String, Object> findByIdWechar(Integer id) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+        try {
+            if (id == null) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "查询广告列表时出现异常");
+                log.error("(微信)根据id查询广告列表时出现错误.id为空");
+                return modelMap;
+            }
+
+            SlideShow slideShow = slideShowMapper.selectById(id);
+            modelMap.put("success", true);
+            modelMap.put("data", slideShow);
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询广告列表时出现异常");
+            log.error("(微信)根据id查询广告时出现异常" + e.getMessage());
+            return modelMap;
+        }
+
+        return modelMap;
+    }
+
+    @Override
     public List<SlideShow> findAll() {
         try {
             List<SlideShow> slideShowList = slideShowMapper.selectList(new EntityWrapper<SlideShow>()
@@ -88,5 +115,26 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
             log.error("查询广告列表时出错" + e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public Map<String, Object> findAllWechar() {
+        Map<String, Object> modelMap = new HashMap<>(16);
+        try {
+            List<SlideShow> slideShowList = slideShowMapper.selectList(new EntityWrapper<SlideShow>()
+                    .orderBy("createTime", false));
+
+            modelMap.put("success", true);
+            modelMap.put("data", slideShowList);
+            return modelMap;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询广告列表时出现异常");
+            log.error("(微信)查询广告列表时出现异常" + e.getMessage());
+            return modelMap;
+        }
+
     }
 }

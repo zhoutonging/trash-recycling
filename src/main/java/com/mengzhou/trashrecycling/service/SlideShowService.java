@@ -4,6 +4,7 @@ import com.mengzhou.trashrecycling.model.SlideShow;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 首页广告业务逻辑层
@@ -43,7 +44,7 @@ public interface SlideShowService extends IService<SlideShow> {
     void modifyByStatus(Integer id, Integer status);
 
     /**
-     * 根据ID查询广告信息
+     * 根据id查询广告信息
      *
      * @param id
      * @return
@@ -51,9 +52,24 @@ public interface SlideShowService extends IService<SlideShow> {
     SlideShow findById(Integer id);
 
     /**
+     * 根据id查询广告信息(微信)
+     *
+     * @param id
+     * @return
+     */
+    Map<String,Object> findByIdWechar(Integer id);
+
+    /**
      * 查询所有广告
      *
      * @return
      */
     List<SlideShow> findAll();
+
+    /**
+     * 查询所有广告(微信)
+     *
+     * @return
+     */
+    Map<String, Object> findAllWechar();
 }

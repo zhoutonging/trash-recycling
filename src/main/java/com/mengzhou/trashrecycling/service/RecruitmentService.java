@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 招聘业务逻辑层
@@ -47,9 +48,24 @@ public interface RecruitmentService extends IService<Recruitment> {
     Recruitment findById(Integer Id);
 
     /**
+     * 根据Id查询招聘(微信)
+     *
+     * @param id
+     * @return
+     */
+    Map<String, Object> findByIdWechar(Integer id);
+
+    /**
      * 查询招聘列表
      *
      * @return
      */
     List<Recruitment> findAll(String recruitmentName);
+
+    /**
+     * 查询招聘列表(微信)
+     *
+     * @return
+     */
+    Map<String, Object> findAllWechar();
 }

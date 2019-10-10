@@ -59,7 +59,6 @@
         </div>
     </div>
 </div>
-</div>
 
 
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
