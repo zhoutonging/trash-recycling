@@ -45,6 +45,14 @@ public interface AddressService extends IService<Address> {
     List<Address> findByOpenId(String openId);
 
     /**
+     * 根据用户openId查询用户下的地址列表(微信)
+     *
+     * @param openId
+     * @return
+     */
+    Map<String,Object> findByOpenIdWechar(String openId);
+
+    /**
      * 查询所有用户的收货地址
      *
      * @return

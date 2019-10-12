@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.controller.wechar;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mengzhou.trashrecycling.common.Dto.WecharDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
 import com.mengzhou.trashrecycling.common.wechar.WeChatUtil;
 import org.slf4j.Logger;
@@ -46,9 +47,7 @@ public class WecharController implements Serializable {
      * @param
      */
     @GetMapping(value = "/login")
-    public Map<String, Object> login(String code) {
-        Map<String, Object> modelMap = new HashMap<>(16);
-
+    public void login(String code) {
         // 根据小程序传过来的code发送url请求
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code + "&grant_type=authorization_code";
         // 发送请求，返回Json字符串
@@ -59,15 +58,29 @@ public class WecharController implements Serializable {
         // openId
         String openId = jsonObject.get("openid").toString();
         String sessionKey = jsonObject.get("session_key").toString();
+        //放入缓存
+        redisUtil.set(sessionKey, openId);
 
+    }
+
+    /**
+     * 查询sessionKey是否失效
+     *
+     * @param sessionKey
+     * @return
+     */
+    @GetMapping("findBySessionKey")
+    public Map<String, Object> findBySessionKey(String sessionKey) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+        //判断redis的key是否失效
         if (!redisUtil.exists(sessionKey)) {
-            redisUtil.set(sessionKey, openId, 20L);
+            modelMap.put("success", false);
+            modelMap.put("msg", "redis的Key已经失效");
+            return modelMap;
         }
 
-        modelMap.put("sessionKey", sessionKey);
         modelMap.put("success", true);
-
-        // TODO 微信登录后续操作
+        modelMap.put("msg", "查询成功");
 
         return modelMap;
     }

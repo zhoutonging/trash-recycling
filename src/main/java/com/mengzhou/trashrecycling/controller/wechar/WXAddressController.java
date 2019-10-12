@@ -27,4 +27,15 @@ public class WXAddressController {
     public Map<String, Object> save(Address address) {
         return addressService.save(address);
     }
+
+    /**
+     * 查询用户所有的收货地址
+     *
+     * @param openId
+     * @return
+     */
+    @GetMapping("findByOpenIdWechar")
+    public Map<String, Object> findByOpenIdWechar(String openId) {
+        return addressService.findByOpenIdWechar(openId);
+    }
 }

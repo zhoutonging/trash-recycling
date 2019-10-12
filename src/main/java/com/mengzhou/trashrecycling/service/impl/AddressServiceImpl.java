@@ -76,10 +76,28 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
     public List<Address> findByOpenId(String openId) {
         if (openId == null) {
             log.error("查询用户收货地址时出现错误,openId为空");
+            return null;
         }
 
         List<Address> addressList = addressMapper.selectList(new EntityWrapper<Address>().eq("openId", openId));
         return addressList;
+    }
+
+    @Override
+    public Map<String, Object> findByOpenIdWechar(String openId) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+        if (openId == null) {
+            modelMap.put("success", false);
+            modelMap.put("msg", "openId为空");
+            log.error("(微信)查询用户收货地址时出现错误,openId为空");
+            return modelMap;
+        }
+
+        List<Address> addressList = addressMapper.selectList(new EntityWrapper<Address>().eq("openId", openId));
+        modelMap.put("success", true);
+        modelMap.put("data", addressList);
+        return modelMap;
+
     }
 
     @Override

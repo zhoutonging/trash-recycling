@@ -87,7 +87,7 @@
                 {field: 'productName', title: '商品名称', align: 'center'},
                 {field: 'productPrice', title: '绿色值', align: 'center'},
                 {field: 'productCount', title: '数量', align: 'center'},
-                {field: 'totalMoney', title: '总计', align: 'center'},
+                {field: 'productPrice', title: '总计', align: 'center'},
                 {
                     field: 'status', title: '状态', align: 'center', templet: function (d) {
                         if (d.status == 0) {
