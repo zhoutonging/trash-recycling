@@ -5,22 +5,29 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
- * <p>
- * 
- * </p>
+ * 上门回收垃圾模型
  *
  * @author CC
  * @since 2019-10-12
  */
+@Data
 public class Recycle extends Model<Recycle> {
 
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+    /**
+     * 用户openId
+     */
+    @TableField("openId")
+    private String openId;
     /**
      * 收货地址Id
      */
@@ -54,89 +61,12 @@ public class Recycle extends Model<Recycle> {
      * 创建时间
      */
     @TableField("createTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Integer addressId) {
-        this.addressId = addressId;
-    }
-
-    public Integer getRecycleCategoryId() {
-        return recycleCategoryId;
-    }
-
-    public void setRecycleCategoryId(Integer recycleCategoryId) {
-        this.recycleCategoryId = recycleCategoryId;
-    }
-
-    public String getRecycleName() {
-        return recycleName;
-    }
-
-    public void setRecycleName(String recycleName) {
-        this.recycleName = recycleName;
-    }
-
-    public String getAppointmentTime() {
-        return appointmentTime;
-    }
-
-    public void setAppointmentTime(String appointmentTime) {
-        this.appointmentTime = appointmentTime;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getRecycleImg() {
-        return recycleImg;
-    }
-
-    public void setRecycleImg(String recycleImg) {
-        this.recycleImg = recycleImg;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
 
-    @Override
-    public String toString() {
-        return "Recycle{" +
-        ", id=" + id +
-        ", addressId=" + addressId +
-        ", recycleCategoryId=" + recycleCategoryId +
-        ", recycleName=" + recycleName +
-        ", appointmentTime=" + appointmentTime +
-        ", message=" + message +
-        ", recycleImg=" + recycleImg +
-        ", createTime=" + createTime +
-        "}";
-    }
 }

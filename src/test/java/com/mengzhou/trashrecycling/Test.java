@@ -39,6 +39,8 @@ public class Test {
     public static void main(String[] args) {
         double lon1 = 117.185306;
         double lat1 = 34.199154;
+
+
         double lon2 = 119.015377;
         double lat2 = 33.583017;
         double dist;

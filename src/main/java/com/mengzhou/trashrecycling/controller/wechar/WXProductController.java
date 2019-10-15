@@ -3,6 +3,7 @@ package com.mengzhou.trashrecycling.controller.wechar;
 import com.mengzhou.trashrecycling.model.Product;
 import com.mengzhou.trashrecycling.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ import java.util.Map;
  * @date 2019年09月09日 16:20
  */
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/product/")
 public class WXProductController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class WXProductController {
      * @param productName
      * @return
      */
-    @RequestMapping("findAll")
+    @GetMapping("findAll")
     public Map<String, Object> findAll(String productName) {
 
         Map<String, Object> modelMap = new HashMap<>(16);
@@ -46,7 +47,7 @@ public class WXProductController {
      * @param id
      * @return
      */
-    @RequestMapping("findById")
+    @GetMapping("findById")
     public Map<String, Object> findById(Integer id) {
         Map<String, Object> modelMap = new HashMap<>(16);
 

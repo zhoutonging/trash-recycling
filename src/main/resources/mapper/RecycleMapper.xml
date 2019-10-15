@@ -2,24 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mengzhou.trashrecycling.mapper.RecycleMapper">
 
-    <!-- 开启二级缓存 -->
-    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
-
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.Recycle">
-        <id column="id" property="id" />
-        <result column="addressId" property="addressId" />
-        <result column="recycleCategoryId" property="recycleCategoryId" />
-        <result column="recycleName" property="recycleName" />
-        <result column="appointmentTime" property="appointmentTime" />
-        <result column="message" property="message" />
-        <result column="recycleImg" property="recycleImg" />
-        <result column="createTime" property="createTime" />
+        <id column="id" property="id"/>
+        <result column="addressId" property="addressId"/>
+        <result column="recycleCategoryId" property="recycleCategoryId"/>
+        <result column="recycleName" property="recycleName"/>
+        <result column="appointmentTime" property="appointmentTime"/>
+        <result column="message" property="message"/>
+        <result column="recycleImg" property="recycleImg"/>
+        <result column="createTime" property="createTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, addressId AS addressId, recycleCategoryId AS recycleCategoryId, recycleName AS recycleName, appointmentTime AS appointmentTime, message, recycleImg AS recycleImg, createTime AS createTime
     </sql>
+
+    <select id="findAll" resultType="com.mengzhou.trashrecycling.common.Dto.RecycleDto"
+            parameterType="java.lang.Integer">
+        SELECT
+        a.id id,
+        a.recycleName recycleName,
+        a.appointmentTime appointmentTime,
+        a.message message,
+        a.recycleImg recycleImg,
+        a.createTime createTime,
+        b.userName `name`,
+        b.address addressName,
+        b.mobile mobile,
+        c.recycleCategoryName categoryName
+        FROM
+        `recycle` a
+        LEFT JOIN address b ON a.addressId = b.id
+        LEFT JOIN recyclecategory c ON a.recycleCategoryId = c.id
+        WHERE 1=1
+        <if test="id!=null">
+           AND a.id=#{id}
+        </if>
+
+    </select>
 
 </mapper>

@@ -147,6 +147,11 @@
                                 <a lay-href="recyclecategoryIndex">垃圾类别</a>
                             </dd>
                         </dl>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="recycleIndex">上门回收</a>
+                            </dd>
+                        </dl>
                     </li>
                     <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">

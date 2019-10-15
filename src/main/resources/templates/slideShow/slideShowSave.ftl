@@ -48,7 +48,7 @@
                                          style="margin-top: 10px;text-align: center;display: none;margin-left: 2em;">
                                         <span style="color: red">重新上传如果不选择默认上次上传的图片</span>
                                     </div>
-                                    <div id="uploadImg">
+                                    <div id="uploadImg" style="display: none">
                                         <img id="imgSrc" style="width: 350px;height: 200px">
                                     </div>
                                 </div>

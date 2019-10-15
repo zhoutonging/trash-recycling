@@ -1,5 +1,8 @@
 package com.mengzhou.trashrecycling;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -9,14 +12,19 @@ import java.util.List;
  * @date 2019年09月15日 10:32
  */
 public class Test1 {
+    @Value("${file.basePhysicPath}")
+    static String staticAccessPath;
 
     public static void main(String[] args) {
-        List list = Arrays.asList("141", 212, 3432, 4, 5, 6, 7);
-
-        list.forEach(v -> {
-            if (v.equals("141")) {
-                System.out.println(v);
-            }
-        });
+       String path =  "D:/file/";
+        File file = new File(path);
+        if (!file.exists()) {
+            file.mkdirs();
+            System.err.println("不存在,以创建");
+        } else {
+            System.err.println("存在");
+        }
     }
+
+
 }

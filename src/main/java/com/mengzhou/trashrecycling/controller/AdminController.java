@@ -204,5 +204,25 @@ public class AdminController {
         return "recyclecategory/recyclecategoryIndex";
     }
 
+    /**
+     * 上门垃圾回收首页
+     *
+     * @return
+     */
+    @GetMapping("recycleIndex")
+    public String recycleIndex() {
+        return "recycle/recycleIndex";
+    }
+
+    /**
+     * 上门垃圾回收查看
+     *
+     * @return
+     */
+    @GetMapping("recycleFind")
+    public String recycleFind() {
+        return "recycle/recycleFind";
+    }
+
 
 }
