@@ -30,15 +30,7 @@ public class WXProductController {
      */
     @GetMapping("findAll")
     public Map<String, Object> findAll(String productName) {
-
-        Map<String, Object> modelMap = new HashMap<>(16);
-
-        List<Product> productList = productService.findAllByWechar(productName);
-
-        modelMap.put("success", true);
-        modelMap.put("data", productList);
-
-        return modelMap;
+        return productService.findAllByWechar(productName);
     }
 
     /**
@@ -49,12 +41,6 @@ public class WXProductController {
      */
     @GetMapping("findById")
     public Map<String, Object> findById(Integer id) {
-        Map<String, Object> modelMap = new HashMap<>(16);
-
-        Product product = productService.findById(id);
-        modelMap.put("success", true);
-        modelMap.put("data", product);
-
-        return modelMap;
+        return productService.findByIdWechar(id);
     }
 }

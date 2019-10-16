@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 手环语音服务
@@ -30,6 +31,11 @@ public class Audio extends Model<Audio> {
      * 语音数据，语音为amr格式，采用base64 编码的字节信息
      */
     private String audio;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
     @Override
     protected Serializable pkVal() {

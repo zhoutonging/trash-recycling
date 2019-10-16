@@ -7,11 +7,14 @@ import com.mengzhou.trashrecycling.model.Product;
 import com.mengzhou.trashrecycling.mapper.ProductMapper;
 import com.mengzhou.trashrecycling.service.ProductService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,6 +25,7 @@ import java.util.List;
  * @since 2019-08-06
  */
 @Service
+@Slf4j
 public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements ProductService {
 
     @Autowired
@@ -79,6 +83,32 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
+    public Map<String, Object> findByIdWechar(Integer id) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        try {
+            if (id == null) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "查询错误id为空");
+                log.error("(微信)根据id查询商品时出现错误,id为空");
+                return modelMap;
+            }
+            Product product = productMapper.selectById(id);
+            modelMap.put("success", true);
+            modelMap.put("msg", product);
+            return modelMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "根据id查询商品时出现异常");
+            log.error("(微信)根据id查询商品时出现异常:" + e.getMessage());
+
+            return modelMap;
+        }
+
+    }
+
+    @Override
     public List<Product> findAll(Product product) {
 
 
@@ -110,19 +140,36 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
 
     @Override
-    public List<Product> findAllByWechar(String productName) {
+    public Map<String, Object> findAllByWechar(String productName) {
+        Map<String, Object> modelMap = new HashMap<>(16);
 
-        if (productName == null) {
-            //上架的商品
+        try {
+            if (productName == null) {
+                //上架的商品
+                List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
+                        .eq("status", 0));
+
+                modelMap.put("success", true);
+                modelMap.put("data", productList);
+
+                return modelMap;
+            }
+
+            //根据商品名查询
             List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
-                    .eq("status", 0));
-            return productList;
+                    .eq("status", 0).like("productName", productName));
+
+            modelMap.put("success", true);
+            modelMap.put("data", productList);
+            return modelMap;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询所有商品或模糊查询的时候出现异常");
+            log.error("(微信)查询所有商品或模糊查询的时候出现异常:" + e.getMessage());
+            return modelMap;
         }
 
-        //根据商品名查询
-        List<Product> productList = productMapper.selectList(new EntityWrapper<Product>()
-                .eq("status", 0).like("productName", productName));
-
-        return productList;
     }
 }

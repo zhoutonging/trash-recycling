@@ -14,7 +14,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 手环模型
+ * 手环定位模型
  *
  * @author CC
  * @since 2019-10-15

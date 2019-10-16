@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 手环电量/计步数据
@@ -34,6 +35,11 @@ public class Beatheart extends Model<Beatheart> {
      * 计步数据
      */
     private Integer pedometer;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 
     @Override
     protected Serializable pkVal() {

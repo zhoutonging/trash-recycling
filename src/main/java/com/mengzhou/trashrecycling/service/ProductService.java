@@ -4,6 +4,7 @@ import com.mengzhou.trashrecycling.model.Product;
 import com.baomidou.mybatisplus.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 商品信息业务逻辑层
@@ -50,6 +51,14 @@ public interface ProductService extends IService<Product> {
     Product findById(Integer id);
 
     /**
+     * 根据Id查询商品信息(微信)
+     *
+     * @param id
+     * @return
+     */
+    Map<String, Object> findByIdWechar(Integer id);
+
+    /**
      * 查询商品信息
      *
      * @return
@@ -61,5 +70,5 @@ public interface ProductService extends IService<Product> {
      *
      * @return
      */
-    List<Product> findAllByWechar(String productName);
+    Map<String, Object>  findAllByWechar(String productName);
 }
