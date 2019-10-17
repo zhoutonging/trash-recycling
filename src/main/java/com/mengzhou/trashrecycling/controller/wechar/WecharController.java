@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.mengzhou.trashrecycling.common.Dto.WecharDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
 import com.mengzhou.trashrecycling.common.wechar.WeChatUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/")
+@Slf4j
 public class WecharController implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,24 +44,39 @@ public class WecharController implements Serializable {
     String secret;
 
     /**
-     * 登录
+     * 微信登录（获取sessionKey和openId）
      *
      * @param
      */
     @GetMapping(value = "/login")
-    public void login(String code) {
-        // 根据小程序传过来的code发送url请求
-        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code + "&grant_type=authorization_code";
-        // 发送请求，返回Json字符串
-        String str = WeChatUtil.httpRequest(url, "GET", null);
-        // 转成Json对象 获取openid
-        JSONObject jsonObject = JSONObject.parseObject(str);
+    public Map<String, Object> login(String code) {
+        Map<String, Object> modelMap = new HashMap<>(16);
 
-        // openId
-        String openId = jsonObject.get("openid").toString();
-        String sessionKey = jsonObject.get("session_key").toString();
-        //放入缓存
-        redisUtil.set(sessionKey, openId);
+        try {
+            // 根据小程序传过来的code发送url请求
+            String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + appid + "&secret=" + secret + "&js_code=" + code + "&grant_type=authorization_code";
+            // 发送请求，返回Json字符串
+            String str = WeChatUtil.httpRequest(url, "GET", null);
+            // 转成Json对象 获取openid
+            JSONObject jsonObject = JSONObject.parseObject(str);
+
+            // openId
+            String openId = jsonObject.get("openid").toString();
+            String sessionKey = jsonObject.get("session_key").toString();
+            //放入缓存
+            redisUtil.set(sessionKey, openId, 172800L);
+
+            modelMap.put("success", true);
+            modelMap.put("sessionKey", sessionKey);
+            return modelMap;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("data", "获取sessionKey时出现异常");
+            log.error("(微信登录)获取sessionKey和openId时出现异常:" + e.getMessage());
+            return modelMap;
+        }
 
     }
 
@@ -82,6 +99,19 @@ public class WecharController implements Serializable {
         modelMap.put("success", true);
         modelMap.put("msg", "查询成功");
 
+        return modelMap;
+    }
+
+    @GetMapping("findTest")
+    public Map<String, Object> findTest(String sessionKey) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+        if (redisUtil.exists(sessionKey)) {
+            String serrsion = redisUtil.get(sessionKey).toString();
+
+            modelMap.put("success", false);
+            modelMap.put("data", serrsion);
+            return modelMap;
+        }
         return modelMap;
     }
 }

@@ -38,3 +38,7 @@ mybatis-plus:
 wx:
   appId: wx63744ac5a9771c65
   secret: 46afb5b4eb348c79058767a0d8a874e7
+#操作手环验证信息
+wristband:
+  cpid: 665
+  key: 88d62ecd7842a240f1149e828773d67f
