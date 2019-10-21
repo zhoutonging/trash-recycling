@@ -167,9 +167,13 @@
                     <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
                             <i class="layui-icon layui-icon-template-1"></i>
-                            <cite>小程序设置</cite>
+                            <cite>小程序管理</cite>
                         </a>
                         <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="userIndex">用户管理</a>
+                            </dd>
+
                             <dd data-name="console" class="">
                                 <a lay-href="signinIndex">签到积分</a>
                             </dd>

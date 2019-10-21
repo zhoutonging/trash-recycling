@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author CC
@@ -13,4 +13,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface UserMapper extends BaseMapper<User> {
 
+    /**
+     * 查询用户是否存在
+     * @param openId
+     * @return
+     */
+    User findByOpenId(String openId);
 }

@@ -126,18 +126,18 @@
 
                     var recycleCategoryName = $('#editCategoryName').val();
 
-                    // $.get('signin/modifyById', {
-                    //     id: data.id,
-                    //     signinCount: signinCount
-                    // }, function (res) {
-                    //     if (res.code == 0) {
-                    //         layer.closeAll();
-                    //         layer.msg(res.msg, {time: 2000, icon: 1});
-                    //         table.reload('idTest');
-                    //     } else {
-                    //         layer.msg(res.msg, {time: 2000, icon: 2});
-                    //     }
-                    // });
+                    $.get('recyclecategory/modifyById', {
+                        id: data.id,
+                        recycleCategoryName: recycleCategoryName
+                    }, function (res) {
+                        if (res.code == 0) {
+                            layer.closeAll();
+                            layer.msg(res.msg, {time: 2000, icon: 1});
+                            table.reload('idTest');
+                        } else {
+                            layer.msg(res.msg, {time: 2000, icon: 2});
+                        }
+                    });
                 });
             } else if (obj.event === 'del') {
                 layer.confirm('真的删除数据吗?这将无法恢复', function (index) {

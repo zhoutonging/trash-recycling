@@ -4,15 +4,19 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.SlideShow">
-        <id column="id" property="id" />
-        <result column="image" property="image" />
-        <result column="status" property="status" />
-        <result column="caeateTime" property="caeateTime" />
+        <id column="id" property="id"/>
+        <result column="image" property="image"/>
+        <result column="status" property="status"/>
+        <result column="createTime" property="createTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, image, status, caeateTime AS caeateTime
     </sql>
+
+    <select id="findAll" resultType="com.mengzhou.trashrecycling.common.Dto.SlideShowDto">
+        SELECT id,image FROM slide_show
+    </select>
 
 </mapper>

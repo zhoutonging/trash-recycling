@@ -4,18 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.User">
-        <id column="id" property="id" />
-        <result column="nickName" property="nickName" />
-        <result column="avatarUrl" property="avatarUrl" />
-        <result column="gender" property="gender" />
-        <result column="openId" property="openId" />
-        <result column="integral" property="integral" />
-        <result column="createTime" property="createTime" />
+        <id column="id" property="id"/>
+        <result column="nickName" property="nickName"/>
+        <result column="avatarUrl" property="avatarUrl"/>
+        <result column="gender" property="gender"/>
+        <result column="openId" property="openId"/>
+        <result column="integral" property="integral"/>
+        <result column="createTime" property="createTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, nickName AS nickName, avatarUrl AS avatarUrl, gender, openId AS openId, integral, createTime AS createTime
     </sql>
+
+    <select id="findByOpenId" parameterType="java.lang.String" resultType="com.mengzhou.trashrecycling.model.User">
+        SELECT nickName,avatarUrl
+        FROM `USER`
+        WHERE openId=#{openId}
+    </select>
 
 </mapper>

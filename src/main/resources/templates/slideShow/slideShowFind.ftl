@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>表单组合</title>
+    <title>广告管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
@@ -34,7 +34,7 @@
                     <div class="layui-form-item">
                         <div class="layui-upload">
                             <label class="layui-form-label">广告图片:</label>
-                            <div class="layui-upload-list" >
+                            <div class="layui-upload-list">
                                 <img class="layui-upload-img" id="demo1" style="width: 400px;height: 250px">
                                 <p id="demoText"></p>
                             </div>

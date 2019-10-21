@@ -224,5 +224,15 @@ public class AdminController {
         return "recycle/recycleFind";
     }
 
+    /**
+     * 用户管理首页
+     *
+     * @return
+     */
+    @GetMapping("userIndex")
+    public String userIndex() {
+        return "user/userIndex";
+    }
+
 
 }

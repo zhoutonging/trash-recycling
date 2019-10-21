@@ -2,6 +2,7 @@ package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
+import com.mengzhou.trashrecycling.common.redis.RedisUtil;
 import com.mengzhou.trashrecycling.model.Recycle;
 import com.mengzhou.trashrecycling.mapper.RecycleMapper;
 import com.mengzhou.trashrecycling.service.RecycleService;
@@ -10,6 +11,7 @@ import com.mengzhou.trashrecycling.utils.LayuiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -31,8 +33,11 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     @Autowired
     private RecycleMapper recycleMapper;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     @Override
-    public Map<String, Object> save(Recycle recycle) {
+    public Map<String, Object> save(Recycle recycle, String sessionKey) {
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
@@ -42,7 +47,18 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
                 log.error("(微信)添加垃圾回收信息时出错:收货地址或垃圾类别为空");
                 return modelMap;
             }
+
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "(微信)添加垃圾回收信息时出现错误,sessionKey已过期");
+                log.error("(微信)添加垃圾回收信息时出现错误,sessionKey已过期");
+                return modelMap;
+            }
+
+            String openId = redisUtil.get(sessionKey).toString();
+
             recycle.setCreateTime(new Date());
+            recycle.setOpenId(openId);
             recycleMapper.insert(recycle);
 
             modelMap.put("success", true);
@@ -111,16 +127,25 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     }
 
     @Override
-    public Map<String, Object> findByOpenId(String openId) {
+    public Map<String, Object> findByOpenId(String sessionKey) {
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
-            if (openId == null) {
+            if (sessionKey == null) {
                 modelMap.put("success", false);
-                modelMap.put("msg", "(微信)根据openId查询垃圾回收信息时出现错误,openId为空");
-                log.error("(微信)根据openId查询垃圾回收信息时出现错误,openId为空");
+                modelMap.put("msg", "(微信)根据openId查询垃圾回收信息时出现错误,sessionKey为空");
+                log.error("(微信)根据openId查询垃圾回收信息时出现错误,sessionKey为空");
                 return modelMap;
             }
+
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "(微信)根据openId查询垃圾回收信息时出现错误,sessionKey已过期");
+                log.error("(微信)根据openId查询垃圾回收信息时出现错误,sessionKey已过期");
+                return modelMap;
+            }
+
+            String openId = redisUtil.get(sessionKey).toString();
 
             List<Recycle> recycleList = recycleMapper.selectList(new EntityWrapper<Recycle>()
                     .eq("openId", openId));

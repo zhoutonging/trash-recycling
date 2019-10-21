@@ -30,6 +30,13 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
 
+    /**
+     * 查询所有订单
+     *
+     * @param page
+     * @param limit
+     * @return
+     */
     @GetMapping("findAll")
     public LayuiResult findAll(Integer page, Integer limit) {
 

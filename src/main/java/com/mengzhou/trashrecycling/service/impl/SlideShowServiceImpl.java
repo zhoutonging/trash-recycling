@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.mengzhou.trashrecycling.common.Dto.SlideShowDto;
 import com.mengzhou.trashrecycling.common.enums.SlideShowEnum;
 import com.mengzhou.trashrecycling.model.SlideShow;
 import com.mengzhou.trashrecycling.mapper.SlideShowMapper;
@@ -121,8 +122,7 @@ public class SlideShowServiceImpl extends ServiceImpl<SlideShowMapper, SlideShow
     public Map<String, Object> findAllWechar() {
         Map<String, Object> modelMap = new HashMap<>(16);
         try {
-            List<SlideShow> slideShowList = slideShowMapper.selectList(new EntityWrapper<SlideShow>()
-                    .orderBy("createTime", false));
+            List<SlideShowDto> slideShowList = slideShowMapper.findAll();
 
             modelMap.put("success", true);
             modelMap.put("data", slideShowList);

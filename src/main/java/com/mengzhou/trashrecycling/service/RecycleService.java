@@ -4,6 +4,7 @@ import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
 import com.mengzhou.trashrecycling.model.Recycle;
 import com.baomidou.mybatisplus.service.IService;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ public interface RecycleService extends IService<Recycle> {
      * @param recycle
      * @return
      */
-    Map<String, Object> save(Recycle recycle);
+    Map<String, Object> save(Recycle recycle,String sessionKey);
 
     /**
      * 根据id删除信息
@@ -51,10 +52,10 @@ public interface RecycleService extends IService<Recycle> {
     /**
      * 查询某个用户下的上门回收信息
      *
-     * @param openId
+     * @param sessionKey
      * @return
      */
-    Map<String, Object> findByOpenId(String openId);
+    Map<String, Object> findByOpenId(String sessionKey);
 
     /**
      * 查询所有上门回收信息

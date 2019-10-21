@@ -16,11 +16,11 @@ import java.util.Map;
 public interface AddressService extends IService<Address> {
 
     /**
-     * 添加收货地址
+     * 添加收货地址(微信)
      *
      * @param address
      */
-    Map<String,Object> save(Address address);
+    Map<String, Object> save(Address address, String sessionKey);
 
     /**
      * 根据Id删除信息
@@ -28,6 +28,21 @@ public interface AddressService extends IService<Address> {
      * @param id
      */
     LayuiResult removeById(Integer id);
+
+    /**
+     * 根据Id删除信息(微信)
+     *
+     * @param id
+     */
+    Map<String, Object> removeByIdWechar(Integer id);
+
+    /**
+     * 根据id修改收货地址
+     *
+     * @param address
+     * @return
+     */
+    Map<String, Object> modifyById(Address address);
 
     /**
      * 根据Id查询收货地址
@@ -45,12 +60,12 @@ public interface AddressService extends IService<Address> {
     List<Address> findByOpenId(String openId);
 
     /**
-     * 根据用户openId查询用户下的地址列表(微信)
+     * 根据用户openId查询用户的地址(微信)
      *
-     * @param openId
+     * @param sessionKey
      * @return
      */
-    Map<String,Object> findByOpenIdWechar(String openId);
+    Map<String, Object> findByOpenIdWechar(String sessionKey);
 
     /**
      * 查询所有用户的收货地址

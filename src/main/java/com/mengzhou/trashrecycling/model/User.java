@@ -7,16 +7,18 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
- * <p>
- * 
- * </p>
+ * 微信用户模型
  *
  * @author CC
  * @since 2019-10-17
  */
+@Data
 public class User extends Model<User> {
 
     private static final long serialVersionUID = 1L;
@@ -50,80 +52,11 @@ public class User extends Model<User> {
      * 注册日期
      */
     @TableField("createTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public Integer getGender() {
-        return gender;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
-
-    public String getOpenId() {
-        return openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public Integer getIntegral() {
-        return integral;
-    }
-
-    public void setIntegral(Integer integral) {
-        this.integral = integral;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     @Override
     protected Serializable pkVal() {
         return this.id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-        ", id=" + id +
-        ", nickName=" + nickName +
-        ", avatarUrl=" + avatarUrl +
-        ", gender=" + gender +
-        ", openId=" + openId +
-        ", integral=" + integral +
-        ", createTime=" + createTime +
-        "}";
     }
 }

@@ -38,10 +38,6 @@
 <div class="layui-fluid">
     <div class="layui-card  ">
         <div class="layui-card-body" style="padding: 15px;">
-            <#--<div class="layui-form " action="" lay-filter="component-form-group">-->
-            <#--    <blockquote class="layui-elem-quote layui-text" style="font-weight: bold;">垃圾回收基本信息-->
-            <#--    </blockquote>-->
-            <#--</div>-->
             <div>
                 <div class="layui-form-item">
                     <label style="color: #0C0C0C">垃圾类别:</label>
@@ -86,7 +82,7 @@
                 <div class="layui-form-item layui-form-text">
                     <label style="color: #0C0C0C" class="w3">垃圾图:</label>
                     <div class="layui-upload">
-                        <img id="productIcon" style="width: 200px;height: 200px;"/>
+                        <img id="recycleImg" style="width: 200px;height: 200px;"/>
                     </div>
                 </div>
 
@@ -109,7 +105,6 @@
     }, function (res) {
         if (res.code == 0) {
             var data = res.data[0];
-            console.log(data)
 
             $('#categoryName').text(data.categoryName);
             $('#recycleName').text(data.recycleName);
@@ -119,6 +114,7 @@
             $('#name').text(data.name);
             $('#appointmentTime').text(data.appointmentTime);
             $('#message').text(data.message);
+            $("#recycleImg").attr("src", data.recycleImg);
 
         } else {
             layer.msg('查询失败', {time: 2000, icon: 2});

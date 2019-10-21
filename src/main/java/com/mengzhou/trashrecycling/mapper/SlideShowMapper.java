@@ -1,7 +1,10 @@
 package com.mengzhou.trashrecycling.mapper;
 
-import com.mengzhou.trashrecycling.model.SlideShow;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.mengzhou.trashrecycling.common.Dto.SlideShowDto;
+import com.mengzhou.trashrecycling.model.SlideShow;
+
+import java.util.List;
 
 /**
  * 首页轮播数据访问层
@@ -11,4 +14,5 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface SlideShowMapper extends BaseMapper<SlideShow> {
 
+    List<SlideShowDto> findAll();
 }
