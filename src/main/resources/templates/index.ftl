@@ -160,7 +160,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="">
-                                <a lay-href="productIndex">签到积分</a>
+                                <a lay-href="cabinetlocationIndex">柜机位置</a>
                             </dd>
                         </dl>
                     </li>

@@ -234,5 +234,45 @@ public class AdminController {
         return "user/userIndex";
     }
 
+    /**
+     * 柜机管理首页
+     *
+     * @return
+     */
+    @GetMapping("cabinetlocationIndex")
+    public String cabinetlocationIndex() {
+        return "cabinetlocation/cabinetlocationIndex";
+    }
+
+    /**
+     * 柜机管理添加
+     *
+     * @return
+     */
+    @GetMapping("cabinetlocationSave")
+    public String cabinetlocationSave() {
+        return "cabinetlocation/cabinetlocationSave";
+    }
+
+    /**
+     * 柜机管理查看
+     *
+     * @return
+     */
+    @GetMapping("cabinetlocationFind")
+    public String cabinetlocationFind() {
+        return "cabinetlocation/cabinetlocationFind";
+    }
+
+    /**
+     * 柜机管理编辑
+     *
+     * @return
+     */
+    @GetMapping("cabinetlocationUpdate")
+    public String cabinetlocationUpdate() {
+        return "cabinetlocation/cabinetlocationUpdate";
+    }
+
 
 }

@@ -31,7 +31,6 @@
 
                     <script type="text/html" id="test-table-operate-barDemo">
                         <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看详情</a>
-                        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
                         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
                     </script>
                 </div>
@@ -47,7 +46,7 @@
     }).extend({
         index: 'lib/index'
     }).use(['index', 'table'], function () {
-        var admin = layui.admin, table = layui.table, form = layui.form;
+        var admin = layui.admin, table = layui.table, form = layui.form, $ = layui.jquery;
 
         table.render({
             elem: '#test-table-page',
@@ -78,7 +77,7 @@
                 });
             } else if (obj.event === 'del') {
                 layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
-                    $.get('/recycle/deleteById', {id: data.id}, function (res) {
+                    $.get('recycle/deleteById', {id: data.id}, function (res) {
                         if (res.code == 0) {
                             obj.del();
                             layer.msg(res.msg, {time: 2000, icon: 1});
@@ -86,16 +85,6 @@
                             layer.msg(res.msg, {time: 2000, icon: 2});
                         }
                     })
-                });
-            } else if (obj.event === 'edit') {
-                var index = layer.open({
-                    type: 2,
-                    title: '编辑垃圾回收',
-                    content: "slideShowUpdate?id=" + data.id,
-                    area: ['100%', '100%'],
-                    success: function (layero, index) {
-                        var iframe = window['layui-layer-iframe' + index];
-                    }
                 });
             }
         });

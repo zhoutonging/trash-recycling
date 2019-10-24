@@ -4,6 +4,7 @@ package com.mengzhou.trashrecycling.controller;
 import com.mengzhou.trashrecycling.model.*;
 import com.mengzhou.trashrecycling.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -93,7 +94,6 @@ public class WristbandController {
     public Map<String, Object> audioSave(@RequestBody Audio audio) {
         return audioService.save(audio);
     }
-
 
 }
 
