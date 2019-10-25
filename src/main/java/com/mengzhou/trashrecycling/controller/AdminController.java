@@ -274,5 +274,15 @@ public class AdminController {
         return "cabinetlocation/cabinetlocationUpdate";
     }
 
+    /**
+     * 柜机管理首页(视图模式)
+     *
+     * @return
+     */
+    @GetMapping("markerView")
+    public String markerView() {
+        return "cabinetlocation/markerView";
+    }
+
 
 }

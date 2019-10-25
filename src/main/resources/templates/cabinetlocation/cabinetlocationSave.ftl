@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>添加柜机位置</title>
-    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
-    <script type="text/javascript"
-            src="https://webapi.amap.com/maps?v=1.4.15&key=4b3b80e840bdf1624e7498dd0db6736f&plugin=AMap.Autocomplete,AMap.PlaceSearch">
-    </script>
-    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <link rel="stylesheet" href="/static/common/gaode/main1119.css"/>
 
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/static/common/gaode/maps.js"></script>
+
+    <script src="/static/common/jquery/jquery.js"></script>
     <link rel="stylesheet" href="/static/common/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/common/layuiadmin/style/admin.css" media="all">
 </head>

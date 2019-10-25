@@ -45,6 +45,7 @@
 
                     <div class="layui-btn-group test-table-operate-btn" style="margin-bottom: 10px;">
                         <button class="layui-btn" data-type="getCheckData">添加柜机信息</button>
+                        <button class="layui-btn" data-type="getCheckData1">视图模式</button>
                     </div>
 
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
@@ -130,8 +131,18 @@
                     content: '/cabinetlocationSave',
                     area: ['100%', '100%']
                 });
+            },
+            getCheckData1: function () {
+                //弹出即全屏
+                var index = layer.open({
+                    type: 2,
+                    title: '柜机视图    ',
+                    content: '/markerView.ftl',
+                    area: ['100%', '100%']
+                });
             }
         };
+
 
         $('.test-table-operate-btn .layui-btn').on('click', function () {
             var type = $(this).data('type');

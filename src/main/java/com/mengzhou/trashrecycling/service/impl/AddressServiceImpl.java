@@ -42,13 +42,14 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
 
         try {
             if (address.getAddress() == null || address.getMobile() == null
-                    || address.getUserName() == null || sessionKey == null) {
+                    || address.getUserName() == null || address.getArea() == null || sessionKey == null) {
                 modelMap.put("success", false);
                 modelMap.put("msg", "必填项不能为空");
                 log.error("(微信)添加收货地址出现错误,必填项不能为空~");
 
                 return modelMap;
             }
+
 
             if (!redisUtil.exists(sessionKey)) {
                 modelMap.put("success", false);
@@ -60,9 +61,17 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
 
             String openId = redisUtil.get(sessionKey).toString();
 
+            //判断是否是默认地址,如果是默认地址更改其他地址为非默认
+            if (address.getDefaultAddress() == 0) {
+                List<Address> addressList = this.findByOpenId(openId);
+                for (Address address1 : addressList) {
+                    address1.setDefaultAddress(AddressEnum.NO.getCode());
+                    addressMapper.updateById(address1);
+                }
+            }
+
             address.setOpenId(openId);
             address.setCreateTime(new Date());
-            address.setDefaultAddress(AddressEnum.NO.getCode());
             addressMapper.insert(address);
 
             modelMap.put("success", true);
@@ -128,6 +137,16 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
                 modelMap.put("msg", "(微信)根据Id修改收货地址信息出现错误,id为空");
                 log.error("(微信)根据Id修改收货地址信息出现错误,id为空");
                 return modelMap;
+            }
+
+            //判断是否是默认地址,如果是默认地址更改其他地址为非默认
+            if (address.getDefaultAddress() == 0) {
+                Address addr = this.findById(address.getId());
+                List<Address> addressList = this.findByOpenId(addr.getOpenId());
+                for (Address address1 : addressList) {
+                    address1.setDefaultAddress(AddressEnum.NO.getCode());
+                    addressMapper.updateById(address1);
+                }
             }
 
             addressMapper.updateById(address);

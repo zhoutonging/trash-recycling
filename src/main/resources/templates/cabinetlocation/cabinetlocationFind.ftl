@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>查看柜机位置</title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <script src="/static/common/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="/static/common/gaode/demo-center.css"/>
+
     <style>
         html, body, #container {
             height: 100%;
@@ -21,8 +22,8 @@
 </head>
 <body>
 <div id="container"></div>
-<script type="text/javascript"
-        src="https://webapi.amap.com/maps?v=1.4.15&key=4b3b80e840bdf1624e7498dd0db6736f"></script>
+<script src="/static/common/gaode/maps.js"></script>
+
 <script type="text/javascript">
     var str1 ;
     var str2 ;

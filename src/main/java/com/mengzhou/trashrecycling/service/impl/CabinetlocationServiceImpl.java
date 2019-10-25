@@ -1,17 +1,21 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.mengzhou.trashrecycling.common.Dto.CabinetlocationDto;
 import com.mengzhou.trashrecycling.model.Cabinetlocation;
 import com.mengzhou.trashrecycling.mapper.CabinetlocationMapper;
 import com.mengzhou.trashrecycling.service.CabinetlocationService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.mengzhou.trashrecycling.utils.AddressUtil;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.crypto.hash.Hash;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * <p>
@@ -117,5 +121,43 @@ public class CabinetlocationServiceImpl extends ServiceImpl<CabinetlocationMappe
         List<Cabinetlocation> cabinetlocationList = cabinetlocationMapper.selectList(new EntityWrapper<Cabinetlocation>()
                 .orderBy("createTime", false).like("cabinetName", cabinetName));
         return cabinetlocationList;
+    }
+
+    @Override
+    public Map<String, Object> findNearby(Double lon, Double lag) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        try {
+            List<Cabinetlocation> cabinetlocationList = cabinetlocationMapper.selectList(new EntityWrapper<Cabinetlocation>());
+
+            List<CabinetlocationDto> cabinetlocationDtoList = new ArrayList();
+
+            //把实体距离和信息放入DTO对象中
+            for (Cabinetlocation cabinetlocation : cabinetlocationList) {
+                CabinetlocationDto cabinetlocationDto = new CabinetlocationDto();
+                BeanUtils.copyProperties(cabinetlocation, cabinetlocationDto);
+                double dist = AddressUtil.GetDistance(lon, lag, Double.valueOf(cabinetlocation.getLon())
+                        , Double.valueOf(cabinetlocation.getLat()));
+
+                cabinetlocationDto.setDist(dist);
+                cabinetlocationDtoList.add(cabinetlocationDto);
+            }
+
+            // 获取距离最近的数据
+            Optional<CabinetlocationDto> cabinetlocationDtoOptional = cabinetlocationDtoList.stream()
+                    .min(Comparator.comparingDouble(CabinetlocationDto::getDist));
+            CabinetlocationDto cabinetlocationDto = cabinetlocationDtoOptional.get();
+
+
+            modelMap.put("data", cabinetlocationDto);
+            modelMap.put("success", true);
+            return modelMap;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("msg", "查询柜子距离时出现异常:" + e.getMessage());
+            modelMap.put("success", true);
+            return modelMap;
+        }
     }
 }

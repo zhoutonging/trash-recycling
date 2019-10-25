@@ -40,6 +40,12 @@ public class Address extends Model<Address> {
      * 手机号
      */
     private String mobile;
+
+    /**
+     * 收货地址的省市区
+     */
+    private String area;
+
     /**
      * 收货地址
      */

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 柜机前端控制器
@@ -62,7 +64,7 @@ public class CabinetlocationController {
 
 
     /**
-     * 查询所有柜机位置
+     * 查询所有柜机位置(分页)
      *
      * @param page
      * @param limit
@@ -77,6 +79,30 @@ public class CabinetlocationController {
         PageInfo pageInfo = new PageInfo(cabinetlocationList);
 
         return LayuiResult.success(pageInfo.getTotal(), cabinetlocationList);
+    }
+
+    /**
+     * 查询柜机位置(不分页查询,高德地图使用)
+     *
+     * @return
+     */
+    @GetMapping("findAllView")
+    public Map<String, Object> findAllView() {
+        Map<String, Object> modelMap = null;
+        try {
+            modelMap = new HashMap<>(16);
+
+            List<Cabinetlocation> cabinetlocationList = cabinetlocationService.findAll(null);
+            modelMap.put("success", true);
+            modelMap.put("data", cabinetlocationList);
+            return modelMap;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询失败");
+            return modelMap;
+        }
     }
 
     /**

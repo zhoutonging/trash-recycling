@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 柜机位置业务逻辑层
@@ -52,4 +53,13 @@ public interface CabinetlocationService extends IService<Cabinetlocation> {
      * @return
      */
     List<Cabinetlocation> findAll(String cabinetName);
+
+    /**
+     * 查询距离最近的柜机信息(微信)
+     *
+     * @param lon 经度
+     * @param lag 纬度
+     * @return
+     */
+    Map<String, Object> findNearby(Double lon, Double lag);
 }
