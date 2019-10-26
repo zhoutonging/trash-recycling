@@ -23,13 +23,13 @@ public class WXSigninController {
     private SigninService signinService;
 
     /**
-     * 查询签到积分
+     * 用户签到
      *
      * @return
      */
-    @GetMapping("findById")
-    public Map<String, Object> findByIdWechat() {
-        return signinService.findByIdWechat(1);
+    @GetMapping("userSignin")
+    public Map<String, Object> findByIdWechat(String sessionKey) {
+        return signinService.findByIdWechat(sessionKey);
     }
 
 }

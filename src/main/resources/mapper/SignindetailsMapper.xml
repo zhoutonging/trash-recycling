@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengzhou.trashrecycling.mapper.SignindetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.Signindetails">
+        <id column="id" property="id"/>
+        <result column="openId" property="openId"/>
+        <result column="createTime" property="createTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, openId AS openId, createTime AS createTime
+    </sql>
+
+    <!--查询用户当天是否已经签到-->
+    <select id="findByOpenId" resultType="com.mengzhou.trashrecycling.model.Signindetails"
+            parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM `signindetails` WHERE TO_DAYS(createTime) = TO_DAYS(NOW())
+        AND openId=#{openId}
+    </select>
+
+</mapper>

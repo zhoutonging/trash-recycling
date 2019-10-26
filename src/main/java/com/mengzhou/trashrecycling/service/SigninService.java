@@ -24,12 +24,12 @@ public interface SigninService extends IService<Signin> {
     LayuiResult modifyById(Signin signin);
 
     /**
-     * 查询签到信息(微信)
+     * 用户签到(微信)
      *
-     * @param id
+     * @param sessionKey
      * @return
      */
-    Map<String, Object> findByIdWechat(Integer id);
+    Map<String, Object> findByIdWechat(String sessionKey);
 
     /**
      * 查询签到信息

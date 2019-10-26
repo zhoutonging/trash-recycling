@@ -19,7 +19,8 @@
     </sql>
 
     <select id="findByOpenId" parameterType="java.lang.String" resultType="com.mengzhou.trashrecycling.model.User">
-        SELECT nickName,avatarUrl
+        SELECT
+        <include refid="Base_Column_List"></include>
         FROM `USER`
         WHERE openId=#{openId}
     </select>
