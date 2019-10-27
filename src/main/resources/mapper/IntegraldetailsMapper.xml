@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengzhou.trashrecycling.mapper.IntegraldetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.Integraldetails">
+        <id column="id" property="id" />
+        <result column="integralName" property="integralName" />
+        <result column="integral" property="integral" />
+        <result column="openId" property="openId" />
+        <result column="createTime" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, integralName AS integralName, integral, openId AS openId, createTime AS createTime
+    </sql>
+
+</mapper>

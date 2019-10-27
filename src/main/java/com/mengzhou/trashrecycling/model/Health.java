@@ -34,7 +34,7 @@ public class Health extends Model<Health> {
     @TableField("heartRate")
     private Integer heartRate;
     /**
-     * 低压 
+     * 低压
      */
     private Integer dbp;
     /**
@@ -42,7 +42,7 @@ public class Health extends Model<Health> {
      */
     private Integer sdp;
     /**
-     * 血氧 
+     * 血氧
      */
     private Integer oxygen;
     /**

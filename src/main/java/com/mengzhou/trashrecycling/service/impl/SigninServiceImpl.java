@@ -2,7 +2,9 @@ package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
+import com.mengzhou.trashrecycling.mapper.IntegraldetailsMapper;
 import com.mengzhou.trashrecycling.mapper.UserMapper;
+import com.mengzhou.trashrecycling.model.Integraldetails;
 import com.mengzhou.trashrecycling.model.Signin;
 import com.mengzhou.trashrecycling.mapper.SigninMapper;
 import com.mengzhou.trashrecycling.model.Signindetails;
@@ -44,6 +46,9 @@ public class SigninServiceImpl extends ServiceImpl<SigninMapper, Signin> impleme
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private IntegraldetailsMapper integraldetailsMapper;
 
     @Override
     public LayuiResult modifyById(Signin signin) {
@@ -121,8 +126,18 @@ public class SigninServiceImpl extends ServiceImpl<SigninMapper, Signin> impleme
             signindetails1.setCreateTime(new Date());
             signindetailsService.insert(signindetails1);
 
+            //记录到积分明细表中
+            Integraldetails integraldetails = new Integraldetails();
+            integraldetails.setCreateTime(new Date());
+            integraldetails.setIntegral("+" + signin.getSigninCount().toString());
+            integraldetails.setOpenId(openId);
+            integraldetails.setIntegralName("签到");
+            integraldetailsMapper.insert(integraldetails);
+
             modelMap.put("success", true);
             modelMap.put("msg", "签到成功");
+            return modelMap;
+
         } catch (Exception e) {
             e.printStackTrace();
             modelMap.put("success", false);
@@ -130,7 +145,6 @@ public class SigninServiceImpl extends ServiceImpl<SigninMapper, Signin> impleme
             log.error("(微信)用户签到时出现异常" + e.getMessage());
             return modelMap;
         }
-        return modelMap;
     }
 
     @Override

@@ -36,8 +36,8 @@ public class WXCabinetlocationController {
      * @return
      */
     @GetMapping("findNearby")
-    public Map<String, Object> findNearby(Double lon, Double lag) {
-        return cabinetlocationService.findNearby(lon, lag);
+    public Map<String, Object> findNearby(Double lon, Double lat) {
+        return cabinetlocationService.findNearby(lon, lat);
     }
 
     /**

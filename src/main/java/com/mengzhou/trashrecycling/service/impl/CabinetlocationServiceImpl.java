@@ -124,7 +124,7 @@ public class CabinetlocationServiceImpl extends ServiceImpl<CabinetlocationMappe
     }
 
     @Override
-    public Map<String, Object> findNearby(Double lon, Double lag) {
+    public Map<String, Object> findNearby(Double lon, Double lat) {
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
@@ -136,7 +136,7 @@ public class CabinetlocationServiceImpl extends ServiceImpl<CabinetlocationMappe
             for (Cabinetlocation cabinetlocation : cabinetlocationList) {
                 CabinetlocationDto cabinetlocationDto = new CabinetlocationDto();
                 BeanUtils.copyProperties(cabinetlocation, cabinetlocationDto);
-                double dist = AddressUtil.GetDistance(lon, lag, Double.valueOf(cabinetlocation.getLon())
+                double dist = AddressUtil.GetDistance(lon, lat, Double.valueOf(cabinetlocation.getLon())
                         , Double.valueOf(cabinetlocation.getLat()));
 
                 cabinetlocationDto.setDist(dist);
@@ -148,15 +148,25 @@ public class CabinetlocationServiceImpl extends ServiceImpl<CabinetlocationMappe
                     .min(Comparator.comparingDouble(CabinetlocationDto::getDist));
             CabinetlocationDto cabinetlocationDto = cabinetlocationDtoOptional.get();
 
+            //放入新list去重
+            List<CabinetlocationDto> cabinetlocationDtos = new ArrayList<CabinetlocationDto>();
+            cabinetlocationDtos.add(cabinetlocationDto);
 
-            modelMap.put("data", cabinetlocationDto);
+            for (CabinetlocationDto cabinetlocationDto1 : cabinetlocationDtoList) {
+                cabinetlocationDtos.add(cabinetlocationDto1);
+            }
+            //set集合保存的是引用不同地址的对象
+            Set<CabinetlocationDto> cabinetlocationDtoSet = new HashSet<CabinetlocationDto>();
+            cabinetlocationDtoSet.addAll(cabinetlocationDtos);
+
+            modelMap.put("data", cabinetlocationDtoSet);
             modelMap.put("success", true);
             return modelMap;
 
         } catch (Exception e) {
             e.printStackTrace();
             modelMap.put("msg", "查询柜子距离时出现异常:" + e.getMessage());
-            modelMap.put("success", true);
+            modelMap.put("success", false);
             return modelMap;
         }
     }

@@ -1,29 +1,23 @@
 package com.mengzhou.trashrecycling.model;
 
 import com.baomidou.mybatisplus.enums.IdType;
-
 import java.util.Date;
-
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 /**
- * 用户积分签到记录表
+ * 签到记录表
  *
  * @author CC
  * @since 2019-10-26
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Signindetails extends Model<Signindetails> {
 
     private static final long serialVersionUID = 1L;

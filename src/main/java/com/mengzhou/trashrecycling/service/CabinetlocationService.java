@@ -58,8 +58,8 @@ public interface CabinetlocationService extends IService<Cabinetlocation> {
      * 查询距离最近的柜机信息(微信)
      *
      * @param lon 经度
-     * @param lag 纬度
+     * @param lat 纬度
      * @return
      */
-    Map<String, Object> findNearby(Double lon, Double lag);
+    Map<String, Object> findNearby(Double lon, Double lat);
 }

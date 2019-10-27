@@ -28,7 +28,7 @@ public class Beatheart extends Model<Beatheart> {
      */
     private String imei;
     /**
-     * 电量 
+     * 电量
      */
     private Integer battery;
     /**
