@@ -20,7 +20,7 @@
     </sql>
 
     <select id="findAll" resultType="com.mengzhou.trashrecycling.common.Dto.RecycleDto"
-            parameterType="java.lang.Integer">
+            parameterType="java.lang.String">
         SELECT
         a.id id,
         a.recycleName recycleName,
@@ -37,8 +37,8 @@
         LEFT JOIN address b ON a.addressId = b.id
         LEFT JOIN recyclecategory c ON a.recycleCategoryId = c.id
         WHERE 1=1
-        <if test="id!=null">
-           AND a.id=#{id}
+        <if test="id!=null and id!=''">
+            AND a.id=#{id}
         </if>
 
     </select>

@@ -34,7 +34,7 @@ public class RecycleController {
      * @return
      */
     @GetMapping("deleteById")
-    public LayuiResult deleteById(Integer id) {
+    public LayuiResult deleteById(String id) {
         return recycleService.deleteById(id);
     }
 
@@ -45,12 +45,12 @@ public class RecycleController {
      * @return
      */
     @GetMapping("findById")
-    public LayuiResult findById(Integer id) {
+    public LayuiResult findById(String id) {
         return recycleService.findById(id);
     }
 
     /**
-     * 查询垃圾回收信息学
+     * 查询垃圾回收信息
      *
      * @param page
      * @param limit
@@ -58,7 +58,7 @@ public class RecycleController {
      */
     @GetMapping("findAll")
     public LayuiResult findAll(@RequestParam(value = "page", defaultValue = "1")Integer page,
-                               @RequestParam(value = "limit", defaultValue = "10")Integer limit, Integer id) {
+                               @RequestParam(value = "limit", defaultValue = "10")Integer limit, String id) {
         PageHelper.startPage(page, limit);
         List<RecycleDto> recycleList = recycleService.findAllJOIN(id);
 

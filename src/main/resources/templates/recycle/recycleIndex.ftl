@@ -26,7 +26,20 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body">
-
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <input class="layui-input" type="text" name="recruitmentName" id="recruitmentName"
+                                       placeholder="请输入回收编号" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline">
+                                <button type="button" title="点击搜索" id="shuxinBtn" class="layui-btn" lay-submit=""
+                                        lay-filter="seek"><i class="layui-icon">&#xe615;</i>
+                            </div>
+                        </div>
+                    </div>
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
                     <script type="text/html" id="test-table-operate-barDemo">
@@ -52,11 +65,11 @@
             elem: '#test-table-page',
             url: '/recycle/findAll',
             page: true,
-            height: 'full-60',
+            height: 'full-110',
             cellMinWidth: 10,
             id: 'idTest',
             cols: [[
-                {type: 'numbers', title: '序号',width:'', align: 'center'},
+                {field: 'id', title: '回收编号', align: 'center'},
                 {field: 'categoryName', title: '垃圾类别', align: 'center'},
                 {field: 'recycleName', title: '垃圾名称', align: 'center'},
                 {field: 'appointmentTime', title: '预约时间', align: 'center'},
@@ -89,6 +102,19 @@
             }
         });
 
+        //条件查询
+        form.on('submit(seek)', function () {
+            var id = $('#recruitmentName').val();
+
+            table.reload('idTest', {
+                url: 'recycle/findAll',
+                //让重载后的页码从1开始
+                page: {curr: 1},
+                where: {
+                    id: id
+                }
+            });
+        });
     });
 </script>
 </body>

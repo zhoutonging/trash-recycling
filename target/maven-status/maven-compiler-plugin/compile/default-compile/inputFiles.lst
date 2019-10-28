@@ -6,10 +6,13 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\w
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\CabinetlocationMapper.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\RecycleServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\WarningMapper.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Signindetails.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Warning.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\wechar\WXIntegraldetailsController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\enums\SlideShowEnum.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Product.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\OrdersServiceImpl.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\SignindetailsServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\utils\GenerateNum.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\UploadFileDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\SlideShowController.java
@@ -38,6 +41,9 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\RecruitmentController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\SlideShowDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\WecharDto.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\SignindetailsMapper.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Integraldetails.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\CabinetlocationDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\WarningService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\RecycleMapper.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\wechar\WXCabinetlocationController.java
@@ -46,6 +52,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\W
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Orders.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\User.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\UserService.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\IntegraldetailsMapper.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\RecycleController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\HealthService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\BeatheartService.java
@@ -80,6 +87,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\enums
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Health.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\WristbandServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\OrdersService.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\SignindetailsService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\AddressController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\CategoryMapper.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\SlideShowServiceImpl.java
@@ -89,6 +97,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Recycl
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\upload\UploadController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\ProductController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Signin.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\IntegraldetailsService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\CabinetlocationController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\AudioServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\WristbandController.java
@@ -103,5 +112,6 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\Addr
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\SlideShowService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\ProductService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\RecruitmentServiceImpl.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\IntegraldetailsServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\RecycleDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Beatheart.java

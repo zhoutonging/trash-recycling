@@ -31,7 +31,7 @@ public interface RecycleService extends IService<Recycle> {
      * @param id
      * @return
      */
-    LayuiResult deleteById(Integer id);
+    LayuiResult deleteById(String id);
 
     /**
      * 修改上门回收信息
@@ -47,7 +47,7 @@ public interface RecycleService extends IService<Recycle> {
      * @param id
      * @return
      */
-    LayuiResult findById(Integer id);
+    LayuiResult findById(String id);
 
     /**
      * 查询某个用户下的上门回收信息
@@ -69,5 +69,5 @@ public interface RecycleService extends IService<Recycle> {
      *
      * @return
      */
-    List<RecycleDto> findAllJOIN(Integer id);
+    List<RecycleDto> findAllJOIN(String id);
 }

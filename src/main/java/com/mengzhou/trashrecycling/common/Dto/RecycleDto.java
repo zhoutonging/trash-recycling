@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 public class RecycleDto {
 
-    private Integer id;
+    private String id;
 
     private String appointmentTime;//预约时间
 

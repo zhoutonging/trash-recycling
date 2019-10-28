@@ -24,5 +24,5 @@ public interface RecycleMapper extends BaseMapper<Recycle> {
      * @param id
      * @return
      */
-    List<RecycleDto> findAll(@Param("id") Integer id);
+    List<RecycleDto> findAll(@Param("id") String id);
 }

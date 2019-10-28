@@ -7,9 +7,12 @@ import com.mengzhou.trashrecycling.model.Recycle;
 import com.mengzhou.trashrecycling.mapper.RecycleMapper;
 import com.mengzhou.trashrecycling.service.RecycleService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.mengzhou.trashrecycling.utils.GenerateNum;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
+import com.sun.deploy.util.GeneralUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -57,6 +60,8 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
 
             String openId = redisUtil.get(sessionKey).toString();
 
+            //生成上门回收订单
+            recycle.setId(GenerateNum.getInstance().GenerateOrder());
             recycle.setCreateTime(new Date());
             recycle.setOpenId(openId);
             recycleMapper.insert(recycle);
@@ -76,7 +81,7 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     }
 
     @Override
-    public LayuiResult deleteById(Integer id) {
+    public LayuiResult deleteById(String id) {
         if (id == null) {
             return LayuiResult.fail("id为空");
         }
@@ -111,7 +116,7 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     }
 
     @Override
-    public LayuiResult findById(Integer id) {
+    public LayuiResult findById(String id) {
         try {
             if (id == null) {
                 return LayuiResult.fail("id为空");
@@ -171,7 +176,7 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     }
 
     @Override
-    public List<RecycleDto> findAllJOIN(Integer id) {
+    public List<RecycleDto> findAllJOIN(String id) {
         return recycleMapper.findAll(id);
     }
 }

@@ -70,7 +70,7 @@ public class WXRecycleController {
      * @return
      */
     @GetMapping("findById")
-    public Map<String, Object> findById(Integer id) {
+    public Map<String, Object> findById(String id) {
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
