@@ -31,6 +31,17 @@ public class OrdersController {
     private OrdersService ordersService;
 
     /**
+     * 删除订单信息
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("deleteById")
+    public LayuiResult deleteById(String id) {
+        return ordersService.deleteById(id);
+    }
+
+    /**
      * 查询所有订单
      *
      * @param page

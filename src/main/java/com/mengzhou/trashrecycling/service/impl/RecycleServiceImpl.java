@@ -1,20 +1,17 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
-import com.mengzhou.trashrecycling.model.Recycle;
 import com.mengzhou.trashrecycling.mapper.RecycleMapper;
+import com.mengzhou.trashrecycling.model.Recycle;
 import com.mengzhou.trashrecycling.service.RecycleService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.mengzhou.trashrecycling.utils.GenerateNum;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
-import com.sun.deploy.util.GeneralUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.OrderUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -62,6 +59,7 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
 
             //生成上门回收订单
             recycle.setId(GenerateNum.getInstance().GenerateOrder());
+            recycle.setStatus(0); //设置状态为未处理
             recycle.setCreateTime(new Date());
             recycle.setOpenId(openId);
             recycleMapper.insert(recycle);
@@ -179,4 +177,20 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     public List<RecycleDto> findAllJOIN(String id) {
         return recycleMapper.findAll(id);
     }
+
+    @Override
+    public LayuiResult modifyByStatus(Recycle recycle) {
+        try {
+            if (recycle.getId() == null) {
+                return LayuiResult.fail("id为空");
+            }
+            recycleMapper.updateById(recycle);
+            return LayuiResult.success("更改状态成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return LayuiResult.fail("更改状态失败");
+        }
+    }
+
+    //TODO 为上门回收成功的用户添加积分
 }

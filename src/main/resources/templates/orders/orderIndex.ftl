@@ -37,9 +37,9 @@
                             <div class="layui-inline">
                                 <div class="layui-input-inline">
                                     <select name="city" lay-verify="" id="productStatus">
-                                        <option value="">请选择商品状态</option>
-                                        <option value="0">上架商品</option>
-                                        <option value="1">下架商品</option>
+                                        <option value="">请选择订单状态</option>
+                                        <option value="0">已支付</option>
+                                        <option value="1">已发货</option>
                                     </select>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
     }).extend({
         index: 'lib/index'
     }).use(['index', 'table'], function () {
-        var admin = layui.admin, table = layui.table, form = layui.form;
+        var admin = layui.admin, table = layui.table, $ = layui.jquery, form = layui.form;
 
         table.render({
             elem: '#test-table-page',
@@ -83,20 +83,16 @@
             id: 'idTest',
             cols: [[
                 {type: 'numbers', title: '序号', align: 'center'},
-                {field: 'openId', title: '订单号', align: 'center'},
+                {field: 'id', title: '订单号', align: 'center'},
                 {field: 'productName', title: '商品名称', align: 'center'},
-                {field: 'productPrice', title: '绿色值', align: 'center'},
+                {field: 'productPrice', title: '积分', align: 'center'},
                 {field: 'productCount', title: '数量', align: 'center'},
-                {field: 'productPrice', title: '总计', align: 'center'},
+                {field: 'integral', title: '总计', align: 'center'},
                 {
                     field: 'status', title: '状态', align: 'center', templet: function (d) {
                         if (d.status == 0) {
                             return '已支付';
-                        } else if (d.status == 1) {
-                            return '未支付';
-                        } else if (d.status == 1) {
-                            return '支付未发货';
-                        } else {
+                        }  else {
                             return '已发货';
                         }
                     }
@@ -119,16 +115,16 @@
                     area: ['100%', '100%']
                 });
             } else if (obj.event === 'del') {
-                // layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
-                //     $.get('/product/deleteById', {id: data.id}, function (res) {
-                //         if (res.code == 0) {
-                //             obj.del();
-                //             layer.msg(res.msg, {time: 2000, icon: 1});
-                //         } else {
-                //             layer.msg(res.msg, {time: 2000, icon: 2});
-                //         }
-                //     })
-                // });
+                layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
+                    $.get('orders/deleteById', {id: data.id}, function (res) {
+                        if (res.code == 0) {
+                            obj.del();
+                            layer.msg(res.msg, {time: 2000, icon: 1});
+                        } else {
+                            layer.msg(res.msg, {time: 2000, icon: 2});
+                        }
+                    })
+                });
             } else if (obj.event === 'edit') {
                 // var index = layer.open({
                 //     type: 2,

@@ -100,7 +100,7 @@
                 {field: 'productPrice', title: '绿色值', align: 'center'},
                 {field: 'createTime', title: '创建时间', align: 'center'},
                 {filed: 'status', title: '状态', templet: '#statusTemp', align: 'center'},
-                {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo'}
+                {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo', templet: '#statusTemp'}
             ]]
         });
 

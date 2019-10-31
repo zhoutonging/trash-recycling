@@ -103,4 +103,47 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<User> findAll() {
         return userMapper.selectList(new EntityWrapper<>());
     }
+
+    @Override
+    public User findByOpenId(String openId) {
+        if (openId == null) {
+            return null;
+        }
+
+        return userMapper.findByOpenId(openId);
+    }
+
+    @Override
+    public Map<String, Object> findByIntegral(String sessionKey) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        try {
+            if (sessionKey == null) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "查询积分失败");
+                log.error("(微信)查询用户积分失败,sessionKey为空");
+                return modelMap;
+            }
+
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "查询积分失败");
+                log.error("(微信)查询用户积分失败,sessionKey已过期");
+                return modelMap;
+            }
+
+            String openId = redisUtil.get(sessionKey).toString();
+            User user = userMapper.findByIntegral(openId);
+
+            modelMap.put("success", true);
+            modelMap.put("data", user.getIntegral());
+            return modelMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询积分异常");
+            log.error("(微信)查询用户积分出现异常:" + e.getMessage());
+            return modelMap;
+        }
+    }
 }

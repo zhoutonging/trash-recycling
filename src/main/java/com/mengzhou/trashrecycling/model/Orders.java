@@ -1,16 +1,13 @@
 package com.mengzhou.trashrecycling.model;
 
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 订单模型
@@ -47,6 +44,12 @@ public class Orders extends Model<Orders> {
      */
     @TableField("addressId")
     private Integer addressId;
+
+    /**
+     * 商品图
+     */
+    @TableField("productIcon")
+    private String productIcon;
 
     /**
      * 数量

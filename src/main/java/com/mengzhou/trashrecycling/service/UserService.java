@@ -21,7 +21,7 @@ public interface UserService extends IService<User> {
      * @param user
      * @return
      */
-    Map<String, Object> saveWechar(User user, String session);
+    Map<String, Object> saveWechar(User user, String sessionKey);
 
     /**
      * 删除用户
@@ -37,4 +37,20 @@ public interface UserService extends IService<User> {
      * @return
      */
     List<User> findAll();
+
+    /**
+     * 根据用户ID查询用户信息
+     *
+     * @param openId
+     * @return
+     */
+    User findByOpenId(String openId);
+
+    /**
+     * 查询用户积分
+     *
+     * @param sessionKey
+     * @return
+     */
+    Map<String, Object> findByIntegral(String sessionKey);
 }

@@ -25,4 +25,10 @@
         WHERE openId=#{openId}
     </select>
 
+    <select id="findByIntegral" parameterType="java.lang.String" resultType="com.mengzhou.trashrecycling.model.User">
+        SELECT integral
+        FROM `USER`
+        WHERE openId=#{openId}
+    </select>
+
 </mapper>

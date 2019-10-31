@@ -1,22 +1,27 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.mengzhou.trashrecycling.common.enums.OrderStatusEnum;
-import com.mengzhou.trashrecycling.model.Orders;
-import com.mengzhou.trashrecycling.mapper.OrdersMapper;
-import com.mengzhou.trashrecycling.model.Product;
-import com.mengzhou.trashrecycling.service.OrdersService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.mengzhou.trashrecycling.common.Dto.OrdersDto;
+import com.mengzhou.trashrecycling.common.enums.OrderStatusEnum;
+import com.mengzhou.trashrecycling.common.redis.RedisUtil;
+import com.mengzhou.trashrecycling.mapper.OrdersMapper;
+import com.mengzhou.trashrecycling.model.Integraldetails;
+import com.mengzhou.trashrecycling.model.Orders;
+import com.mengzhou.trashrecycling.model.Product;
+import com.mengzhou.trashrecycling.model.User;
+import com.mengzhou.trashrecycling.service.IntegraldetailsService;
+import com.mengzhou.trashrecycling.service.OrdersService;
 import com.mengzhou.trashrecycling.service.ProductService;
+import com.mengzhou.trashrecycling.service.UserService;
 import com.mengzhou.trashrecycling.utils.GenerateNum;
+import com.mengzhou.trashrecycling.utils.LayuiResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -33,12 +38,20 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     @Autowired
     private OrdersMapper ordersMapper;
 
-
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private IntegraldetailsService integraldetailsService;
+
     @Override
-    public Map<String, Object> save(Integer productId, Orders orders) {
+    public Map<String, Object> save(Integer productId, Orders orders, String sessionKey) {
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
@@ -59,28 +72,129 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
                 return modelMap;
             }
 
+            //判断sessionKey是否过期
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("msg", "sessionKey已过期");
+                modelMap.put("success", false);
+                log.error("添加订单时出现错误:sessionKey已过期");
+                return modelMap;
+            }
+
+            //拿到缓存中的openId
+            String openId = redisUtil.get(sessionKey).toString();
+
+            User user = userService.findByOpenId(openId);
+            if (user == null) {
+                modelMap.put("msg", "用户不存在");
+                modelMap.put("success", false);
+                log.error("添加订单时出现错误:用户不存在");
+                return modelMap;
+            }
+
             //计算总金额
             int totalMoney = product.getProductPrice() * orders.getProductCount();
-            //TODO 判断用户是否有足够的积分
 
+            //判断用户是否有足够的积分
+            if (totalMoney > user.getIntegral()) {
+                modelMap.put("msg", "没有足够的积分哦~");
+                modelMap.put("success", true);
+                log.error("添加订单时出现错误:用户没有足够的积分");
+                return modelMap;
+            }
+
+            //更新用户积分
+            user.setIntegral(user.getIntegral() - totalMoney);
+            userService.updateById(user);
+
+            //添加订单
             orders.setId(GenerateNum.getInstance().GenerateOrder());
+            orders.setProductIcon(product.getProductIcon());
             orders.setCreateTime(new Date());
             orders.setProductName(product.getProductName());
             orders.setProductPrice(product.getProductPrice());
             orders.setIntegral(totalMoney);
             orders.setStatus(OrderStatusEnum.SUCCESS.getCode());
+            orders.setOpenId(openId);
 
-            //TODO 获取微信用户sessionKey查询用户收货地址
             ordersMapper.insert(orders);
-            modelMap.put("msg", "新增订单成功");
+
+            //积分详情
+            Integraldetails integraldetails = new Integraldetails();
+            integraldetails.setIntegralName("购买商品");
+            integraldetails.setCreateTime(new Date());
+            integraldetails.setOpenId(openId);
+            integraldetails.setIntegral("-" + totalMoney);
+            integraldetailsService.insert(integraldetails);
+
+            modelMap.put("msg", "购买成功");
             modelMap.put("success", true);
             return modelMap;
 
         } catch (Exception e) {
             e.printStackTrace();
-            modelMap.put("msg", "新增订单时失败");
+            modelMap.put("msg", "新增订单时出现异常");
             modelMap.put("success", false);
-            log.error("新增订单时失败");
+            log.error("(微信)新增订单时出现异常" + e.getMessage());
+            return modelMap;
+        }
+
+    }
+
+    @Override
+    public LayuiResult deleteById(String id) {
+        try {
+            if (id == null) {
+                return LayuiResult.fail("id为空");
+            }
+            ordersMapper.deleteById(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return LayuiResult.fail("删除失败");
+
+        }
+
+        return LayuiResult.success("删除成功");
+    }
+
+    @Override
+    public Map<String, Object> findByOpenId(String sessionKey) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        try {
+            if (sessionKey == null) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "sessionKey为空");
+                log.error("(微信)根据openId查询订单出现错误:sessionKey为空");
+                return modelMap;
+            }
+
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "sessionKey已过期");
+                log.error("(微信)根据openId查询订单出现错误:sessionKey已过期");
+                return modelMap;
+            }
+
+            String openId = redisUtil.get(sessionKey).toString();
+
+            List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
+                    .eq("openId", openId).orderBy("createTime", false));
+
+            List<OrdersDto> ordersDtoList = new ArrayList<>();
+            for (Orders orders : ordersList) {
+                OrdersDto ordersDto = new OrdersDto();
+                BeanUtils.copyProperties(orders, ordersDto);
+                ordersDtoList.add(ordersDto);
+            }
+
+            modelMap.put("success", false);
+            modelMap.put("data", ordersDtoList);
+            return modelMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询出现异常");
+            log.error("(微信)根据openId查询订单出现异常:" + e.getMessage());
             return modelMap;
         }
 

@@ -2,6 +2,7 @@ package com.mengzhou.trashrecycling.service;
 
 import com.mengzhou.trashrecycling.model.Orders;
 import com.baomidou.mybatisplus.service.IService;
+import com.mengzhou.trashrecycling.utils.LayuiResult;
 
 import java.util.List;
 import java.util.Map;
@@ -17,9 +18,25 @@ public interface OrdersService extends IService<Orders> {
     /**
      * 添加订单
      *
-     * @param productId    商品ID
+     * @param productId 商品ID
      */
-    Map<String,Object> save(Integer productId,Orders orders);
+    Map<String, Object> save(Integer productId, Orders orders, String sessionKey);
+
+    /**
+     * 根据Id删除订单
+     *
+     * @param id
+     * @return
+     */
+    LayuiResult deleteById(String id);
+
+    /**
+     * 根据openId查询订单
+     *
+     * @param sessionKey
+     * @return
+     */
+    Map<String, Object> findByOpenId(String sessionKey);
 
     /**
      * 查询所有订单

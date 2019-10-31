@@ -23,7 +23,7 @@ public interface RecycleService extends IService<Recycle> {
      * @param recycle
      * @return
      */
-    Map<String, Object> save(Recycle recycle,String sessionKey);
+    Map<String, Object> save(Recycle recycle, String sessionKey);
 
     /**
      * 根据id删除信息
@@ -70,4 +70,13 @@ public interface RecycleService extends IService<Recycle> {
      * @return
      */
     List<RecycleDto> findAllJOIN(String id);
+
+    /**
+     * 设置上门回收状态
+     *
+     * @param recycle
+     * @return
+     */
+    LayuiResult modifyByStatus(Recycle recycle);
+
 }

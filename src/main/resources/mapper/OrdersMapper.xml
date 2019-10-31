@@ -4,7 +4,8 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, openId AS openId, productName AS productName, productPrice AS productPrice, productCount AS productCount, totalMoney AS totalMoney, status, createTime AS createTime
+        id, openId AS openId, productName AS productName, productPrice AS productPrice, productCount AS productCount, integral AS integral, status, createTime AS createTime
     </sql>
+
 
 </mapper>

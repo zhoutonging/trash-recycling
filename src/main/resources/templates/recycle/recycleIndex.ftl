@@ -43,7 +43,9 @@
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
                     <script type="text/html" id="test-table-operate-barDemo">
-                        <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看详情</a>
+                        <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
+                        <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="detail">积分</a>
+                        <a class="layui-btn layui-btn-xs layui-bg-green" lay-event="update">状态</a>
                         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
                     </script>
                 </div>
@@ -52,6 +54,43 @@
     </div>
 </div>
 
+<div class="layui-fluid" id="editStatus" style="display: none;">
+    <div>
+        <div class="layui-form">
+            <div class="layui-form-item" style="text-align: center">
+                <div class="layui-inline">
+                    <label class="layui-form-label">回收状态</label>
+                    <div class="layui-input-inline">
+                        <select name="modules" lay-verify="required" lay-search="" id="modules">
+                            <option value="">直接选择或搜索选择</option>
+                            <option value="1">正在处理</option>
+                            <option value="2">已完成</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div style="margin-left: 10em;margin-top: 5em;">
+                    <button class="layui-btn" lay-submit lay-filter="submitStatus" id="submitStatus">提交</button>
+                    <button class="layui-btn" id="closeSignin">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="statusTemp">
+    {{#  if(d.status==0||d.status==1){ }}
+    <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="integal">积分</a>
+    <a class="layui-btn layui-btn-xs layui-bg-green" lay-event="update">状态</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="integal">积分</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray  layui-btn-disabled">状态</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } }}
+</script>
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
 <script>
     layui.config({
@@ -73,8 +112,19 @@
                 {field: 'categoryName', title: '垃圾类别', align: 'center'},
                 {field: 'recycleName', title: '垃圾名称', align: 'center'},
                 {field: 'appointmentTime', title: '预约时间', align: 'center'},
-                {field: 'createTime', title: '创建时间', align: 'center'},
-                {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo'}
+                {
+                    field: 'status', title: '回收状态', align: 'center', templet: function (d) {
+                        if (d.status == 0) {
+                            return '等待处理';
+                        } else if (d.status == 1) {
+                            return '正在处理';
+                        } else {
+                            return '已完成';
+                        }
+                    }
+
+                },
+                {align: 'center', title: '操作', fixed: 'right', toolbar: '#statusTemp'}
             ]]
         });
 
@@ -88,6 +138,33 @@
                     content: "recycleFind?id=" + data.id,
                     area: ['100%', '100%']
                 });
+            } else if (obj.event === 'update') {
+
+                layer.open({
+                    title: "修改垃圾回收状态",
+                    type: 1,
+                    content: $("#editStatus"),
+                    area: ['450px', '250px']
+                });
+
+                //监听提交
+                form.on('submit(submitStatus)', function () {
+                    var status = $("#modules option:selected").val();
+
+                    $.post('recycle/modifyByStatus', {
+                        status: status,
+                        id: data.id
+                    }, function (res) {
+                        if (res.code == 0) {
+                            layer.closeAll();
+                            layer.msg(res.msg, {time: 2000, icon: 1});
+                            table.reload('idTest');
+                        } else {
+                            layer.msg(res.msg, {time: 2000, icon: 2});
+                        }
+                    })
+
+                });
             } else if (obj.event === 'del') {
                 layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
                     $.get('recycle/deleteById', {id: data.id}, function (res) {
@@ -99,8 +176,16 @@
                         }
                     })
                 });
+            } else if (obj.event === 'integal') {
+                if (data.status == 1||data.status == 0) {
+                    layer.msg("回收状态必须是已完成状态");
+                    return;
+                }
+                layer.msg("添加积分操作");
+
             }
         });
+
 
         //条件查询
         form.on('submit(seek)', function () {

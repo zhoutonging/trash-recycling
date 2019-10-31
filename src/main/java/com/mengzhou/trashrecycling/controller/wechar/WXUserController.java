@@ -3,6 +3,7 @@ package com.mengzhou.trashrecycling.controller.wechar;
 import com.mengzhou.trashrecycling.model.User;
 import com.mengzhou.trashrecycling.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +35,17 @@ public class WXUserController {
     @PostMapping("save")
     public Map<String, Object> save(User user, String sessionKey) {
         return userService.saveWechar(user, sessionKey);
+    }
+
+    /**
+     * 查询用户积分
+     *
+     * @param sessionKey
+     * @return
+     */
+    @GetMapping("findByIntegral")
+    public Map<String, Object> findByIntegral(String sessionKey) {
+        return userService.findByIntegral(sessionKey);
     }
 }
 

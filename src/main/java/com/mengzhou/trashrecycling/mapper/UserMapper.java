@@ -15,8 +15,17 @@ public interface UserMapper extends BaseMapper<User> {
 
     /**
      * 查询用户是否存在
+     *
      * @param openId
      * @return
      */
     User findByOpenId(String openId);
+
+    /**
+     * 查询用户积分
+     *
+     * @param openId
+     * @return
+     */
+    User findByIntegral(String openId);
 }

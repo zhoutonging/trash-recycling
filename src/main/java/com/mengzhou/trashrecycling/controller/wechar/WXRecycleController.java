@@ -1,16 +1,15 @@
 package com.mengzhou.trashrecycling.controller.wechar;
 
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
 import com.mengzhou.trashrecycling.model.Recycle;
 import com.mengzhou.trashrecycling.service.RecycleService;
-import com.mengzhou.trashrecycling.utils.LayuiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -94,7 +93,6 @@ public class WXRecycleController {
             return modelMap;
         }
     }
-
 
 }
 

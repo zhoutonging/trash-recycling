@@ -30,7 +30,18 @@ public class WXOrdersController {
      * @return
      */
     @GetMapping("save")
-    public Map<String, Object> save(Integer productId, Orders orders) {
-        return ordersService.save(productId, orders);
+    public Map<String, Object> save(Integer productId, Orders orders, String sessionKey) {
+        return ordersService.save(productId, orders, sessionKey);
+    }
+
+    /**
+     * 查询用户兑换的商品列表
+     *
+     * @param sessionKey
+     * @return
+     */
+    @GetMapping("findByOpenId")
+    public Map<String, Object> findByOpenId(String sessionKey) {
+        return ordersService.findByOpenId(sessionKey);
     }
 }

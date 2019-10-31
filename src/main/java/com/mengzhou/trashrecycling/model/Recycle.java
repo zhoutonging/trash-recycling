@@ -33,6 +33,13 @@ public class Recycle extends Model<Recycle> {
     @TableField("addressId")
     private Integer addressId;
     /**
+     * 0:未处理 1:已处理 2:已完成
+     */
+    @TableField("status")
+    private Integer status;
+
+
+    /**
      * 垃圾类别
      */
     @TableField("recycleCategoryId")
