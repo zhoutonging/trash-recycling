@@ -79,8 +79,9 @@ public class WXRecycleController {
                 modelMap.put("success", false);
                 return modelMap;
             }
-
-            List<RecycleDto> recycleDtoList = recycleService.findAllJOIN(id);
+            RecycleDto recycleDto = new RecycleDto();
+            recycleDto.setId(id);
+            List<RecycleDto> recycleDtoList = recycleService.findAllJOIN(recycleDto);
 
             modelMap.put("success", true);
             modelMap.put("data", recycleDtoList);

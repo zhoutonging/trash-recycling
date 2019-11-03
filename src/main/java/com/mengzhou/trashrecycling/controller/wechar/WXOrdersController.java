@@ -44,4 +44,15 @@ public class WXOrdersController {
     public Map<String, Object> findByOpenId(String sessionKey) {
         return ordersService.findByOpenId(sessionKey);
     }
+
+    /**
+     * 查询用户兑换的商品次数
+     *
+     * @param sessionKey
+     * @return
+     */
+    @GetMapping("findCountByOpenId")
+    public Map<String, Object> findCountByOpenId(String sessionKey) {
+        return ordersService.findCountByOpenId(sessionKey);
+    }
 }

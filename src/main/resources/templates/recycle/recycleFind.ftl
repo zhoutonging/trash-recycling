@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <label style="color: #0C0C0C">收货地址:</label>
+                    <label style="color: #0C0C0C">取件地址:</label>
                     <label><span id="addressName"></span></label>
                 </div>
 

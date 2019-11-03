@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -21,8 +20,8 @@ public interface RecycleMapper extends BaseMapper<Recycle> {
     /**
      * 连表查询上门垃圾回收信息
      *
-     * @param id
+     * @param recycleDto
      * @return
      */
-    List<RecycleDto> findAll(@Param("id") String id);
+    List<RecycleDto> findAll(RecycleDto recycleDto);
 }

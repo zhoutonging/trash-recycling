@@ -94,8 +94,10 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                 return modelMap;
             }
             Product product = productMapper.selectById(id);
+
+
             modelMap.put("success", true);
-            modelMap.put("msg", product);
+            modelMap.put("data", product);
             return modelMap;
         } catch (Exception e) {
             e.printStackTrace();

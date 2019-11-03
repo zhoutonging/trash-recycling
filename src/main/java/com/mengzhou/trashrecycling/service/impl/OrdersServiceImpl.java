@@ -187,7 +187,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
                 ordersDtoList.add(ordersDto);
             }
 
-            modelMap.put("success", false);
+            modelMap.put("success", true);
             modelMap.put("data", ordersDtoList);
             return modelMap;
         } catch (Exception e) {
@@ -198,6 +198,43 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             return modelMap;
         }
 
+    }
+
+    @Override
+    public Map<String, Object> findCountByOpenId(String sessionKey) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        try {
+            if (sessionKey == null) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "sessionKey为空");
+                log.error("(微信)根据openId查询兑换订单次数出现错误:sessionKey为空");
+                return modelMap;
+            }
+
+            if (!redisUtil.exists(sessionKey)) {
+                modelMap.put("success", false);
+                modelMap.put("msg", "sessionKey已过期");
+                log.error("(微信)根据openId查询兑换订单次数出现错误:sessionKey已过期");
+                return modelMap;
+            }
+
+            String openId = redisUtil.get(sessionKey).toString();
+
+            List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
+                    .eq("openId", openId));
+
+
+            modelMap.put("success", true);
+            modelMap.put("data", ordersList.size());
+            return modelMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("msg", "查询出现异常");
+            log.error("(微信)根据openId查询兑换订单次数出现异常:" + e.getMessage());
+            return modelMap;
+        }
     }
 
     @Override

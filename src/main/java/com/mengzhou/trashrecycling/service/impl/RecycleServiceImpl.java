@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
 import com.mengzhou.trashrecycling.mapper.RecycleMapper;
+import com.mengzhou.trashrecycling.model.Integraldetails;
 import com.mengzhou.trashrecycling.model.Recycle;
+import com.mengzhou.trashrecycling.model.User;
+import com.mengzhou.trashrecycling.service.IntegraldetailsService;
 import com.mengzhou.trashrecycling.service.RecycleService;
 import com.mengzhou.trashrecycling.utils.GenerateNum;
 import com.mengzhou.trashrecycling.utils.LayuiResult;
@@ -35,6 +38,12 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
 
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private IntegraldetailsService integraldetailsService;
+
+    @Autowired
+    private UserServiceImpl userService;
 
     @Override
     public Map<String, Object> save(Recycle recycle, String sessionKey) {
@@ -174,8 +183,8 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     }
 
     @Override
-    public List<RecycleDto> findAllJOIN(String id) {
-        return recycleMapper.findAll(id);
+    public List<RecycleDto> findAllJOIN(RecycleDto recycleDto) {
+        return recycleMapper.findAll(recycleDto);
     }
 
     @Override
@@ -192,5 +201,32 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
         }
     }
 
-    //TODO 为上门回收成功的用户添加积分
+    @Override
+    public LayuiResult modifyByIntegral(Recycle recycle) {
+        try {
+            if (recycle.getId() == null) {
+                return LayuiResult.fail("id为空");
+            }
+
+            //获取用户openId
+            Recycle recycle1 = recycleMapper.selectById(recycle.getId());
+            Integraldetails integraldetails = new Integraldetails();
+            integraldetails.setIntegralName("上门回收");
+            integraldetails.setIntegral("+" + recycle.getIntegral());
+            integraldetails.setOpenId(recycle1.getOpenId());
+            integraldetails.setCreateTime(new Date());
+
+            //添加用户积分
+            User user = userService.findByOpenId(recycle1.getOpenId());
+            user.setIntegral(user.getIntegral() + recycle.getIntegral());
+            userService.updateById(user);
+
+            integraldetailsService.insert(integraldetails);
+            recycleMapper.updateById(recycle);
+            return LayuiResult.success("添加回收积分成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return LayuiResult.fail("添加回收积分失败");
+        }
+    }
 }

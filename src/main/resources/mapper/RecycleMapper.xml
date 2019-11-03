@@ -20,10 +20,11 @@
     </sql>
 
     <select id="findAll" resultType="com.mengzhou.trashrecycling.common.Dto.RecycleDto"
-            parameterType="java.lang.String">
+            parameterType="com.mengzhou.trashrecycling.common.Dto.RecycleDto">
         SELECT
         a.id id,
         a.recycleName recycleName,
+        a.integral integral,
         a.appointmentTime appointmentTime,
         a.message message,
         a.status status,
@@ -41,6 +42,10 @@
         <if test="id!=null and id!=''">
             AND a.id=#{id}
         </if>
+        <if test="status!=null">
+            AND a.status=#{status}
+        </if>
+         ORDER BY a.createTime DESC
 
     </select>
 

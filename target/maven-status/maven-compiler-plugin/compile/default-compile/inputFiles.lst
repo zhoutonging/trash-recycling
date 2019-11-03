@@ -19,6 +19,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\S
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\CabinetlocationService.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Recycle.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\wechar\WXRecyclecategoryController.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\OrdersDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\wechar\WXAddressController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\SigninMapper.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\SigninController.java

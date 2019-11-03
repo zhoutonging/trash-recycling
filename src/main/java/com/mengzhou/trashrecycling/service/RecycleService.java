@@ -69,7 +69,7 @@ public interface RecycleService extends IService<Recycle> {
      *
      * @return
      */
-    List<RecycleDto> findAllJOIN(String id);
+    List<RecycleDto> findAllJOIN(RecycleDto recycleDto);
 
     /**
      * 设置上门回收状态
@@ -79,4 +79,11 @@ public interface RecycleService extends IService<Recycle> {
      */
     LayuiResult modifyByStatus(Recycle recycle);
 
+    /**
+     * 添加回收积分
+     *
+     * @param recycle
+     * @return
+     */
+    LayuiResult modifyByIntegral(Recycle recycle);
 }

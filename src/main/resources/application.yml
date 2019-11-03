@@ -30,7 +30,7 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 file:
-  basePhysicPath: D:/file/
+  basePhysicPath: C:/file/
   baseLogicPath: /file/**
 mybatis-plus:
   mapperLocations: classpath:mapper/*.xml
@@ -42,3 +42,6 @@ wx:
 wristband:
   cpid: 665
   key: 88d62ecd7842a240f1149e828773d67f
+#域名:用于小程序解析富文本图片链接
+web:
+  domainName: http://mengzhou.nat300.top/

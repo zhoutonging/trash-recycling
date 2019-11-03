@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.model;
 
 import java.util.Date;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -32,37 +33,48 @@ public class Recycle extends Model<Recycle> {
      */
     @TableField("addressId")
     private Integer addressId;
+
+    /**
+     * 垃圾回收积分
+     */
+    @TableField("integral")
+    private Integer integral;
+
     /**
      * 0:未处理 1:已处理 2:已完成
      */
     @TableField("status")
     private Integer status;
 
-
     /**
      * 垃圾类别
      */
     @TableField("recycleCategoryId")
     private Integer recycleCategoryId;
+
     /**
      * 垃圾名称
      */
     @TableField("recycleName")
     private String recycleName;
+
     /**
      * 预约时间
      */
     @TableField("appointmentTime")
     private String appointmentTime;
+
     /**
      * 备注信息
      */
     private String message;
+
     /**
      * 垃圾图片
      */
     @TableField("recycleImg")
     private String recycleImg;
+
     /**
      * 创建时间
      */

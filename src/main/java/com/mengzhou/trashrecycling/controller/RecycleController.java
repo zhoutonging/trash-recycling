@@ -59,6 +59,17 @@ public class RecycleController {
     }
 
     /**
+     * 垃圾回收成功,添加积分
+     *
+     * @param recycle
+     * @return
+     */
+    @PostMapping("modifyByIntegral")
+    public LayuiResult modifyByIntegral(Recycle recycle) {
+        return recycleService.modifyByIntegral(recycle);
+    }
+
+    /**
      * 查询垃圾回收信息
      *
      * @param page
@@ -67,9 +78,9 @@ public class RecycleController {
      */
     @GetMapping("findAll")
     public LayuiResult findAll(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                               @RequestParam(value = "limit", defaultValue = "10") Integer limit, String id) {
+                               @RequestParam(value = "limit", defaultValue = "10") Integer limit,RecycleDto recycleDto) {
         PageHelper.startPage(page, limit);
-        List<RecycleDto> recycleList = recycleService.findAllJOIN(id);
+        List<RecycleDto> recycleList = recycleService.findAllJOIN(recycleDto);
 
         PageInfo pageInfo = new PageInfo(recycleList);
         return LayuiResult.success(pageInfo.getTotal(), pageInfo.getList());

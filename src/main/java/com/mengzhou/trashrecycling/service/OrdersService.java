@@ -39,6 +39,14 @@ public interface OrdersService extends IService<Orders> {
     Map<String, Object> findByOpenId(String sessionKey);
 
     /**
+     * 根据openId查询兑换订单次数
+     *
+     * @param sessionKey
+     * @return
+     */
+    Map<String, Object> findCountByOpenId(String sessionKey);
+
+    /**
      * 查询所有订单
      *
      * @return

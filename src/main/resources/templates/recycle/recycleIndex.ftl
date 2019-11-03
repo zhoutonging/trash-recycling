@@ -26,20 +26,34 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <div class="layui-input-inline">
-                                <input class="layui-input" type="text" name="recruitmentName" id="recruitmentName"
-                                       placeholder="请输入回收编号" autocomplete="off" class="layui-input">
+
+                    <form class="layui-form">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <div class="layui-input-inline">
+                                    <input class="layui-input" type="text" name="recycleId" id="recycleId"
+                                           placeholder="请输入回收编号" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <div class="layui-input-inline">
+                                    <select name="city" lay-verify="" id="productStatus">
+                                        <option value="">请选择回收状态</option>
+                                        <option value="0">等待处理</option>
+                                        <option value="1">正在处理</option>
+                                        <option value="2">已完成</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <div class="layui-input-inline">
+                                    <button type="button" title="点击搜索" id="shuxinBtn" class="layui-btn" lay-submit=""
+                                            lay-filter="seek"><i class="layui-icon">&#xe615;</i>
+                                </div>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <div class="layui-input-inline">
-                                <button type="button" title="点击搜索" id="shuxinBtn" class="layui-btn" lay-submit=""
-                                        lay-filter="seek"><i class="layui-icon">&#xe615;</i>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
+
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
                     <script type="text/html" id="test-table-operate-barDemo">
@@ -61,7 +75,7 @@
                 <div class="layui-inline">
                     <label class="layui-form-label">回收状态</label>
                     <div class="layui-input-inline">
-                        <select name="modules" lay-verify="required" lay-search="" id="modules">
+                        <select name="modules" lay-verify="required" lay-search="" id="status">
                             <option value="">直接选择或搜索选择</option>
                             <option value="1">正在处理</option>
                             <option value="2">已完成</option>
@@ -78,16 +92,41 @@
         </div>
     </div>
 </div>
+<div class="layui-fluid" id="addIntegral" style="display: none;">
+    <div>
+        <div class="layui-form">
+            <div class="layui-form-item">
+                <label class="layui-form-label">回收积分:</label>
+                <div class="layui-input-block">
+                    <input type="number" id="integral" min="1" placeholder="请填写上门回收所得到的积分"
+                           class="layui-input"
+                           lay-verify="number" required>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="submitIntegral">提交</button>
+                    <button class="layui-btn" id="closeSignin">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/html" id="statusTemp">
     {{#  if(d.status==0||d.status==1){ }}
     <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="integal">积分</a>
     <a class="layui-btn layui-btn-xs layui-bg-green" lay-event="update">状态</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-    {{#  } else { }}
+    {{#  } else if(d.status==2&&d.integral==null){ }}
     <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="integal">积分</a>
-    <a class="layui-btn layui-btn-xs layui-bg-gray  layui-btn-disabled">状态</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray"   layui-btn-disabled">状态</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray" layui-btn-disabled">积分</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray"  layui-btn-disabled">状态</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     {{#  } }}
 </script>
@@ -108,6 +147,7 @@
             cellMinWidth: 10,
             id: 'idTest',
             cols: [[
+                // {type: 'checkbox', fixed: 'left'},
                 {field: 'id', title: '回收编号', align: 'center'},
                 {field: 'categoryName', title: '垃圾类别', align: 'center'},
                 {field: 'recycleName', title: '垃圾名称', align: 'center'},
@@ -177,26 +217,49 @@
                     })
                 });
             } else if (obj.event === 'integal') {
-                if (data.status == 1||data.status == 0) {
+                if (data.status == 1 || data.status == 0) {
                     layer.msg("回收状态必须是已完成状态");
                     return;
                 }
-                layer.msg("添加积分操作");
+                layer.open({
+                    title: "添加回收积分",
+                    type: 1,
+                    content: $("#addIntegral"),
+                    area: ['450px', '180px']
+                });
 
+                form.on('submit(submitIntegral)', function () {
+                    var integral = $('#integral').val();
+
+                    $.post('recycle/modifyByIntegral', {
+                        id: data.id,
+                        integral: integral
+                    }, function (res) {
+                        if (res.code == 0) {
+                            layer.closeAll();
+                            layer.msg(res.msg, {time: 2000, icon: 1});
+                            table.reload('idTest');
+                        } else {
+                            layer.msg(res.msg, {time: 2000, icon: 2});
+                        }
+                    });
+                });
             }
         });
 
 
         //条件查询
         form.on('submit(seek)', function () {
-            var id = $('#recruitmentName').val();
+            var id = $('#recycleId').val();
+            var status =$('#productStatus option:selected') .val();
 
             table.reload('idTest', {
                 url: 'recycle/findAll',
                 //让重载后的页码从1开始
                 page: {curr: 1},
                 where: {
-                    id: id
+                    id: id,
+                    status:status
                 }
             });
         });
