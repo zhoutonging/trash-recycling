@@ -64,13 +64,13 @@
                 </li>
                 <li class="layui-nav-item" lay-unselect>
                     <a href="javascript:;">
-                        <cite>CC</cite>
+                        <cite>${userName}</cite>
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a lay-href="set/user/info.html">基本资料</a></dd>
                         <dd><a lay-href="set/user/password.html">修改密码</a></dd>
                         <hr>
-                        <dd style="text-align: center;"><a href="logout">退出</a></dd>
+                        <dd style="text-align: center;"><a href="/logout">退出</a></dd>
                     </dl>
                 </li>
 
@@ -154,6 +154,17 @@
                         </dl>
                     </li>
                     <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="垃圾回收" lay-direction="2">
+                            <i class="layui-icon layui-icon-chart-screen"></i>
+                            <cite>环保百科</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="cyclopediaIndex">环保百科</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
                             <i class="layui-icon layui-icon-util"></i>
                             <cite>柜机设置</cite>
@@ -180,6 +191,17 @@
 
                             <dd data-name="console">
                                 <a lay-href="permissionManage">积分配置</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
+                            <i class="layui-icon layui-icon-set-sm"></i>
+                            <cite>系统设置</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="userIndex">系统用户</a>
                             </dd>
                         </dl>
                     </li>

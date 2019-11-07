@@ -38,7 +38,7 @@ public class UploadController {
      * @param file
      * @return
      */
-    @PostMapping("/upload")
+    @PostMapping("/api/upload")
     public Map<String, Object> upload(MultipartFile[] file) {
         Map<String, Object> modelMap = new HashMap<>();
 

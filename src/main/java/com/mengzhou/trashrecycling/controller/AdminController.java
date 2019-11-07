@@ -12,6 +12,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AdminController {
 
+    @GetMapping("/test123")
+    public String test() {
+        return "adminuser/text";
+    }
+
+    /**
+     * 登陆页
+     *
+     * @return
+     */
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     /**
      * 首页
      *
@@ -282,6 +297,46 @@ public class AdminController {
     @GetMapping("markerView")
     public String markerView() {
         return "cabinetlocation/markerView";
+    }
+
+    /**
+     * 环保百科管理首页
+     *
+     * @return
+     */
+    @GetMapping("cyclopediaIndex")
+    public String cyclopediaIndex() {
+        return "cyclopedia/cyclopediaIndex";
+    }
+
+    /**
+     * 环保百科管理添加
+     *
+     * @return
+     */
+    @GetMapping("cyclopediaSave")
+    public String cyclopediaSave() {
+        return "cyclopedia/cyclopediaSave";
+    }
+
+    /**
+     * 环保百科管理修改
+     *
+     * @return
+     */
+    @GetMapping("cyclopediaUpdate")
+    public String cyclopediaUpdate() {
+        return "cyclopedia/cyclopediaUpdate";
+    }
+
+    /**
+     * 系统用户首页
+     *
+     * @return
+     */
+    @GetMapping("adminUserIndex")
+    public String adminUserIndex() {
+        return "adminuser/adminUserIndex";
     }
 
 

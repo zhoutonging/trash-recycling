@@ -6,23 +6,90 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0c60f24-699e-4dde-9428-8a81ac48dada" name="Default Changelist" comment="日志的添加及异常处理">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/SlideShowEnum.java" afterDir="false" />
+    <list default="true" id="d0c60f24-699e-4dde-9428-8a81ac48dada" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/ShiroConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/UserRealm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXCyclopediaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/mapper/AdminUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Adminuser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/AdminuserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/AdminuserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdminUserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/css/util.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/animated.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/css/material-design-iconic-font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/css/material-design-iconic-font.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/fonts/Material-Design-Iconic-Font.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/fonts/Material-Design-Iconic-Font.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/fonts/Material-Design-Iconic-Font.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/fonts/Material-Design-Iconic-Font.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/fonts/iconic/fonts/Material-Design-Iconic-Font.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/images/bg-01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/vendor/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/common/login/vendor/jquery/jquery-3.2.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaIndex.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaSave.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaUpdate.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/SlideShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/SlideShowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/SlideShowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/SlideShowService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product/productFind.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/product/productFind.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowFind.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowFind.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowIndex.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowIndex.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CyclopediaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CyclopediaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Cyclopedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Cyclopedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CyclopediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CyclopediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CyclopediaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CyclopediaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CyclopediaMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CyclopediaMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/address/addressIndex.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/address/addressIndex.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/common/upload/UploadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/common/upload/UploadController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/controller/SlideShowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/controller/SlideShowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/service/SlideShowService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/service/SlideShowService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/product/productFind.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/product/productFind.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/slideShow/slideShowIndex.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/slideShow/slideShowIndex.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.mengzhou.trashrecycling.TrashRecyclingApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.mengzhou.trashrecycling.TrashRecyclingApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.mengzhou.trashrecycling.TrashRecyclingApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.mengzhou.trashrecycling.TrashRecyclingApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mengzhou/trashrecycling/MyBatisPlusGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mengzhou/trashrecycling/MyBatisPlusGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/trash-recycling-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/trash-recycling-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/trash-recycling-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/trash-recycling-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <list id="bc977d75-850f-4a20-a226-411c4235407d" name="忽略" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,46 +122,32 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowIndex.ftl">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="49" column="25" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="242">
+              <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+              <folding>
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#359#360#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminuser/text.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            <state relative-caret-position="253">
+              <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/SlideShowController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/address/addressIndex.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/SlideShowService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="453">
+              <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -104,116 +157,121 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Freemarker" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.step-item</find>
-      <find>.step-item-tail</find>
-      <find>hr</find>
-      <find>bor</find>
-      <find>border</find>
-      <find>.step-item-main-title</find>
-      <find>box-shadow</find>
-      <find>.layui-card</find>
-      <find>butt</find>
-      <find>入款信息</find>
-      <find>next</find>
-      <find>card</find>
-      <find>favicon</find>
-      <find>ico</find>
-      <find>favi</find>
-      <find>layuiAdmin</find>
-      <find>.test-table-operate-btn</find>
+      <find>getsystemLanguage</find>
+      <find>editCard</find>
+      <find>reload</find>
+      <find>getCheckData</find>
+      <find>submitAddRecycleCategory</find>
       <find>test-table-operate</find>
-      <find>detail</find>
-      <find>layui.js</find>
-      <find>上传图片</find>
-      <find>上传</find>
-      <find>component-form-demo2</find>
-      <find>component-form-demo1</find>
-      <find>stepForm</find>
-      <find>formStep</find>
-      <find>anew</find>
-      <find>20px</find>
-      <find>googleMap</find>
-      <find>com</find>
+      <find>editCategoryName</find>
+      <find>idTest</find>
+      <find>总计</find>
+      <find>redis</find>
+      <find>柜机</find>
+      <find>cabinetName</find>
+      <find>index</find>
+      <find>form.r</find>
+      <find>table.r</find>
+      <find>GenerateNum</find>
+      <find>editStatus</find>
+      <find>110px</find>
+      <find>submitStatus</find>
+      <find>form.re</find>
+      <find>statusTemp</find>
+      <find>findByOpenId</find>
+      <find>editSignin</find>
+      <find>options</find>
+      <find>productStatus</find>
+      <find>form</find>
+      <find>productDescription</find>
+      <find>/images/bg-01</find>
+      <find>bg-01</find>
+      <find>CC</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/home.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/recruitment/recruitmentUpdate.ftl" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/orders/orderIndex.ftl" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/redis/RedisConfig.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/product/productSave.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/product/productIndex.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/redis/RedisUtil.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/ProductServiceImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/json/menu1.js" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/cabinetlocation/cabinetlocationSave.ftl" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/home.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/templates/recycle/recycleIndex.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/ProductServiceImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/product/productUpdate.ftl" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowSave.ftl" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productAdd1.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/redis/RedisConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/ProductStatusEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productFind.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/common/step-lay/step.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/TrashRecyclingApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/common/step-lay/step.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productSave.ftl" />
-        <option value="$PROJECT_DIR$/HELP.md" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadFilePathConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/OrdersMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/utils/GenerateNum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/OrdersController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Orders.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CategoryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/orders/orderIndex.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/OrderStatusEnum.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXOrdersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/IntegraldetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/OrdersService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/SlideShow.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowSave.ftl.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productIndex.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/layui/lay/modules/layim.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productUpdate.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowSave.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXOrdersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/OrdersServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Geohash.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Test1.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/utils/AddressUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/recycle/recycleFind.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Recycle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/Dto/RecycleDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/mapper/RecycleMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/RecycleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/RecycleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/RecycleController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXRecycleController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productIndex.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/recycle/recycleIndex.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/RecycleMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/CyclopediaMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CyclopediaService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CabinetlocationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CabinetlocationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Cyclopedia.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/address/addressIndex.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CyclopediaController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaSave.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CyclopediaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaIndex.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaUpdate.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXCyclopediaController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/logback.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/websocket/WebSocketServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/websocket/MyThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/AdminuserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Adminuser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/mapper/AdminUserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/AdminUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/UserRealm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/ShiroConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/AdminuserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/AdminuserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/adminuser/text.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/product/productFind.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowFind.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/SlideShowService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/SlideShowEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/SlideShowController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowIndex.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/adminuser/text.ftl" />
       </list>
     </option>
   </component>
@@ -270,7 +328,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,15 +335,107 @@
               <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
               <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mengzhou" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mengzhou" type="462c0819:PsiDirectoryNode" />
+              <item name="trashrecycling" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="layuiadmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trash-recycling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trash-recycling" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="layuiadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="exts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="LombokPluginEnabledInProject" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -294,7 +443,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/common/layuiadmin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -307,24 +456,26 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Proect\trash-recycling\src\main\resources\templates\slideShow" />
-      <recent name="D:\Proect\trash-recycling\src\main\resources\templates\orders" />
-      <recent name="D:\Proect\trash-recycling\src\main\resources" />
-      <recent name="D:\Proect\trash-recycling\src\main\resources\static\common" />
-      <recent name="D:\Proect\trash-recycling\src\main\resources\templates\product" />
+      <recent name="D:\Proect\trash-recycling\src\main\resources\static\common\layuiadmin" />
+      <recent name="D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\shiro" />
+      <recent name="D:\Proect\trash-recycling\src\main\resources\templates" />
+      <recent name="D:\Proect\trash-recycling\src\main\resources\static\common\login" />
+      <recent name="D:\Proect\trash-recycling\src\main\resources\templates\cyclopedia" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.mengzhou.trashrecycling.controller.wechar" />
       <recent name="com.mengzhou.trashrecycling.utils" />
       <recent name="com.mengzhou.trashrecycling.common.upload" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proect\trash-recycling\src\main\resources\static\common\layuiadmin\exts" />
+      <recent name="D:\Proect\trash-recycling\src\main\resources\mapper" />
       <recent name="D:\Proect\trash-recycling\src\main\resources\static" />
       <recent name="D:\Proect\trash-recycling\src\main\resources" />
-      <recent name="D:\Proect\trash-recycling\src\main\resources\mapper" />
       <recent name="D:\Proect\trash-recycling\src\main\resources\static\common\step-lay" />
     </key>
   </component>
@@ -340,7 +491,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.TrashRecyclingApplication">
+    <configuration name="HttpClientHelper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mengzhou.trashrecycling.HttpClientHelper" />
+      <module name="trash-recycling" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mengzhou.trashrecycling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyBatisPlusGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mengzhou.trashrecycling.MyBatisPlusGenerator" />
+      <module name="trash-recycling" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mengzhou.trashrecycling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TrashRecyclingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="trash-recycling" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.mengzhou.trashrecycling.TrashRecyclingApplication" />
@@ -348,6 +525,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MyBatisPlusGenerator" />
+        <item itemvalue="Application.HttpClientHelper" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -409,7 +592,160 @@
       <workItem from="1568496977138" duration="1601000" />
       <workItem from="1568502894662" duration="8397000" />
       <workItem from="1568524516771" duration="12140000" />
-      <workItem from="1568543332862" duration="250000" />
+      <workItem from="1568543332862" duration="7711000" />
+      <workItem from="1568589544788" duration="6461000" />
+      <workItem from="1568597276423" duration="1045000" />
+      <workItem from="1568610672084" duration="2768000" />
+      <workItem from="1568629928213" duration="1803000" />
+      <workItem from="1568671168670" duration="593000" />
+      <workItem from="1568675551586" duration="9129000" />
+      <workItem from="1568697524663" duration="2807000" />
+      <workItem from="1568713745575" duration="2598000" />
+      <workItem from="1568793410550" duration="1120000" />
+      <workItem from="1568795763742" duration="482000" />
+      <workItem from="1568849161328" duration="907000" />
+      <workItem from="1568878748666" duration="1651000" />
+      <workItem from="1568886337382" duration="6590000" />
+      <workItem from="1568927754068" duration="1753000" />
+      <workItem from="1568944088187" duration="2161000" />
+      <workItem from="1568977118902" duration="1950000" />
+      <workItem from="1568980264041" duration="4515000" />
+      <workItem from="1569023602548" duration="2802000" />
+      <workItem from="1569050129440" duration="3286000" />
+      <workItem from="1569111148526" duration="3926000" />
+      <workItem from="1569137679475" duration="5075000" />
+      <workItem from="1569150397289" duration="2748000" />
+      <workItem from="1569187841328" duration="595000" />
+      <workItem from="1569194470988" duration="9807000" />
+      <workItem from="1569235869041" duration="3832000" />
+      <workItem from="1569280651608" duration="5704000" />
+      <workItem from="1569305114858" duration="5979000" />
+      <workItem from="1569319342573" duration="3494000" />
+      <workItem from="1569367025201" duration="1343000" />
+      <workItem from="1569377513818" duration="2243000" />
+      <workItem from="1569381805662" duration="538000" />
+      <workItem from="1569382518220" duration="72000" />
+      <workItem from="1569388442020" duration="6018000" />
+      <workItem from="1569412179691" duration="2000000" />
+      <workItem from="1569446150104" duration="1816000" />
+      <workItem from="1569476274045" duration="4022000" />
+      <workItem from="1569566128275" duration="5533000" />
+      <workItem from="1569626365178" duration="6229000" />
+      <workItem from="1569655402114" duration="6003000" />
+      <workItem from="1569738569173" duration="2582000" />
+      <workItem from="1569799671430" duration="6501000" />
+      <workItem from="1570004118108" duration="2354000" />
+      <workItem from="1570096827547" duration="596000" />
+      <workItem from="1570136897724" duration="1809000" />
+      <workItem from="1570145316827" duration="763000" />
+      <workItem from="1570231893711" duration="5483000" />
+      <workItem from="1570271076810" duration="8102000" />
+      <workItem from="1570310046496" duration="1793000" />
+      <workItem from="1570320637142" duration="5193000" />
+      <workItem from="1570328778557" duration="1211000" />
+      <workItem from="1570346813101" duration="1577000" />
+      <workItem from="1570484284459" duration="1408000" />
+      <workItem from="1570491325995" duration="10360000" />
+      <workItem from="1570529652544" duration="3770000" />
+      <workItem from="1570539640578" duration="1362000" />
+      <workItem from="1570588575902" duration="604000" />
+      <workItem from="1570602581382" duration="1201000" />
+      <workItem from="1570617618295" duration="2957000" />
+      <workItem from="1570701940941" duration="6545000" />
+      <workItem from="1570758559464" duration="3854000" />
+      <workItem from="1570770894469" duration="2775000" />
+      <workItem from="1570792915421" duration="1342000" />
+      <workItem from="1570837498852" duration="4477000" />
+      <workItem from="1570858041922" duration="5207000" />
+      <workItem from="1570865523158" duration="8204000" />
+      <workItem from="1570926593963" duration="3353000" />
+      <workItem from="1570961538452" duration="2835000" />
+      <workItem from="1570964441341" duration="3708000" />
+      <workItem from="1571008900897" duration="10212000" />
+      <workItem from="1571033531802" duration="1061000" />
+      <workItem from="1571037536229" duration="3176000" />
+      <workItem from="1571045428430" duration="6023000" />
+      <workItem from="1571058172502" duration="2482000" />
+      <workItem from="1571087762226" duration="1132000" />
+      <workItem from="1571096202024" duration="1715000" />
+      <workItem from="1571120338361" duration="6545000" />
+      <workItem from="1571131327664" duration="8051000" />
+      <workItem from="1571174649415" duration="4066000" />
+      <workItem from="1571190389166" duration="3331000" />
+      <workItem from="1571199097797" duration="7258000" />
+      <workItem from="1571220702469" duration="2143000" />
+      <workItem from="1571228611437" duration="590000" />
+      <workItem from="1571262526822" duration="1585000" />
+      <workItem from="1571270433190" duration="3744000" />
+      <workItem from="1571302794591" duration="9476000" />
+      <workItem from="1571362817751" duration="45000" />
+      <workItem from="1571362910891" duration="4898000" />
+      <workItem from="1571370130687" duration="1671000" />
+      <workItem from="1571379727531" duration="3572000" />
+      <workItem from="1571397457802" duration="4909000" />
+      <workItem from="1571433040796" duration="2778000" />
+      <workItem from="1571441601428" duration="6375000" />
+      <workItem from="1571463251859" duration="10699000" />
+      <workItem from="1571482794009" duration="1906000" />
+      <workItem from="1571528258868" duration="1397000" />
+      <workItem from="1571615916425" duration="4762000" />
+      <workItem from="1571638850495" duration="4845000" />
+      <workItem from="1571692561310" duration="3553000" />
+      <workItem from="1571700208181" duration="4014000" />
+      <workItem from="1571704872176" duration="96000" />
+      <workItem from="1571705123926" duration="2886000" />
+      <workItem from="1571728364411" duration="2778000" />
+      <workItem from="1571748997978" duration="6180000" />
+      <workItem from="1571795413430" duration="3305000" />
+      <workItem from="1571817590522" duration="4112000" />
+      <workItem from="1571834823403" duration="2706000" />
+      <workItem from="1571871872524" duration="74000" />
+      <workItem from="1571878582008" duration="6507000" />
+      <workItem from="1571885873202" duration="300000" />
+      <workItem from="1571896934922" duration="925000" />
+      <workItem from="1571897917440" duration="2071000" />
+      <workItem from="1571900688908" duration="4682000" />
+      <workItem from="1571915600967" duration="5005000" />
+      <workItem from="1571976375212" duration="8096000" />
+      <workItem from="1572003318505" duration="5443000" />
+      <workItem from="1572011716560" duration="815000" />
+      <workItem from="1572038245520" duration="4500000" />
+      <workItem from="1572044620545" duration="11170000" />
+      <workItem from="1572072572689" duration="7214000" />
+      <workItem from="1572132332426" duration="3136000" />
+      <workItem from="1572142862072" duration="581000" />
+      <workItem from="1572175022168" duration="2372000" />
+      <workItem from="1572218497907" duration="17012000" />
+      <workItem from="1572297738678" duration="1237000" />
+      <workItem from="1572305503083" duration="8305000" />
+      <workItem from="1572390809264" duration="7814000" />
+      <workItem from="1572425569282" duration="494000" />
+      <workItem from="1572426954515" duration="1613000" />
+      <workItem from="1572428628877" duration="253000" />
+      <workItem from="1572428926122" duration="200000" />
+      <workItem from="1572438373865" duration="1182000" />
+      <workItem from="1572441330533" duration="595000" />
+      <workItem from="1572470598479" duration="856000" />
+      <workItem from="1572476823090" duration="8121000" />
+      <workItem from="1572498719087" duration="7677000" />
+      <workItem from="1572520873260" duration="3557000" />
+      <workItem from="1572561989845" duration="298000" />
+      <workItem from="1572563420568" duration="7501000" />
+      <workItem from="1572607428607" duration="1724000" />
+      <workItem from="1572650081638" duration="7182000" />
+      <workItem from="1572682934242" duration="1803000" />
+      <workItem from="1572693257363" duration="4769000" />
+      <workItem from="1572736247290" duration="6232000" />
+      <workItem from="1572748961294" duration="1278000" />
+      <workItem from="1572824290602" duration="7389000" />
+      <workItem from="1572868916084" duration="1399000" />
+      <workItem from="1572908821671" duration="2824000" />
+      <workItem from="1572912614890" duration="4468000" />
+      <workItem from="1572938208304" duration="6637000" />
+      <workItem from="1572953662551" duration="2149000" />
+      <workItem from="1572958509944" duration="923000" />
+      <workItem from="1572995453305" duration="1675000" />
+      <workItem from="1572997192336" duration="517000" />
     </task>
     <task id="LOCAL-00001" summary="记录开发过程">
       <created>1567818755513</created>
@@ -460,11 +796,151 @@
       <option name="project" value="LOCAL" />
       <updated>1568529396075</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="广告逻辑层修改">
+      <created>1568550617283</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568550617283</updated>
+    </task>
+    <task id="LOCAL-00009" summary="收货地址管理">
+      <created>1568980431283</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1568980431283</updated>
+    </task>
+    <task id="LOCAL-00010" summary="订单小程序逻辑">
+      <created>1570004623796</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1570004623797</updated>
+    </task>
+    <task id="LOCAL-00011" summary="订单小程序逻辑">
+      <created>1570004650813</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1570004650813</updated>
+    </task>
+    <task id="LOCAL-00012" summary="垃圾类别添加">
+      <created>1570273031187</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1570273031187</updated>
+    </task>
+    <task id="LOCAL-00013" summary="垃圾类别添加">
+      <created>1570273070661</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1570273070661</updated>
+    </task>
+    <task id="LOCAL-00014" summary="垃圾类别添加">
+      <created>1570702054880</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1570702054880</updated>
+    </task>
+    <task id="LOCAL-00015" summary="垃圾管理">
+      <created>1570843244550</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1570843244550</updated>
+    </task>
+    <task id="LOCAL-00016" summary="手环相关服务">
+      <created>1571146940155</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1571146940156</updated>
+    </task>
+    <task id="LOCAL-00017" summary="手环相关服务">
+      <created>1571149100982</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1571149100982</updated>
+    </task>
+    <task id="LOCAL-00018" summary="解决微信查询商品出现的错误">
+      <created>1571192548108</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1571192548108</updated>
+    </task>
+    <task id="LOCAL-00019" summary="添加用户模型">
+      <created>1571308385182</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1571308385182</updated>
+    </task>
+    <task id="LOCAL-00020" summary="WECHAR接口修改">
+      <created>1571647478586</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1571647478587</updated>
+    </task>
+    <task id="LOCAL-00021" summary="柜机位置整合">
+      <created>1571884194035</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1571884194035</updated>
+    </task>
+    <task id="LOCAL-00022" summary="开放柜机位置相应api">
+      <created>1572043351367</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1572043351368</updated>
+    </task>
+    <task id="LOCAL-00023" summary="用户签到">
+      <created>1572055616386</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1572055616386</updated>
+    </task>
+    <task id="LOCAL-00024" summary="更新了附近柜机查询所有信息">
+      <created>1572176329726</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1572176329726</updated>
+    </task>
+    <task id="LOCAL-00025" summary="订单id由Integer更改为String">
+      <created>1572230661021</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572230661022</updated>
+    </task>
+    <task id="LOCAL-00026" summary="订单功能优化">
+      <created>1572521131035</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1572521131035</updated>
+    </task>
+    <task id="LOCAL-00027" summary="环保百科积分功能开发AND上门回收积分完善">
+      <created>1572739918579</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1572739918580</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337109000" />
+    <option name="totallyTimeSpent" value="908546000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -479,8 +955,44 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787837" visible="true" weight="0.25201073" />
-      <window_info id="Structure" order="1" sideWeight="0.5021216" side_tool="true" weight="0.27479893" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49716714" visible="true" weight="0.27412868" />
+      <window_info id="Structure" order="1" sideWeight="0.5028329" side_tool="true" weight="0.26541555" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.48016998" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.5339943" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32719547" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.5120226" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.48441926" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.3297587" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Mybatis datasource" order="6" side_tool="true" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49716714" visible="true" weight="0.2647453" />
+      <window_info id="Structure" order="1" sideWeight="0.5028329" side_tool="true" weight="0.26541555" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -490,10 +1002,10 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.51133144" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.51133144" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.5963173" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32719547" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
@@ -513,7 +1025,7 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -524,394 +1036,359 @@
     <MESSAGE value="小程序广告后台开发" />
     <MESSAGE value="离我最近的柜机距离计算" />
     <MESSAGE value="日志的添加及异常处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="日志的添加及异常处理" />
+    <MESSAGE value="广告逻辑层修改" />
+    <MESSAGE value="收货地址管理" />
+    <MESSAGE value="订单小程序逻辑" />
+    <MESSAGE value="垃圾类别添加" />
+    <MESSAGE value="垃圾管理" />
+    <MESSAGE value="手环相关服务" />
+    <MESSAGE value="解决微信查询商品出现的错误" />
+    <MESSAGE value="添加用户模型" />
+    <MESSAGE value="WECHAR接口修改" />
+    <MESSAGE value="柜机位置整合" />
+    <MESSAGE value="开放柜机位置相应api" />
+    <MESSAGE value="用户签到" />
+    <MESSAGE value="更新了附近柜机查询所有信息" />
+    <MESSAGE value="修改订单ID是自增的问题" />
+    <MESSAGE value="订单id由Integer更改为String" />
+    <MESSAGE value="订单功能优化" />
+    <MESSAGE value="环保百科积分功能开发AND上门回收积分完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="环保百科积分功能开发AND上门回收积分完善" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadFilePathConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CabinetlocationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+        <state relative-caret-position="375">
+          <caret line="35" column="59" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CabinetlocationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CabinetlocationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="73" column="4" selection-start-line="73" selection-start-column="4" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/OrdersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2147">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/RecruitmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1347">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/RecyclecategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-797">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/RecycleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="80" column="96" selection-start-line="79" selection-start-column="31" selection-end-line="80" selection-end-column="96" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/OrdersMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="176" selection-start-line="6" selection-start-column="176" selection-end-line="6" selection-end-column="176" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/utils/GenerateNum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1311#1312#0" expanded="true" />
+            <element signature="e#1487#1488#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Orders.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state relative-caret-position="1600">
+          <caret line="71" selection-start-line="71" selection-end-line="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HELP.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CategoryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Health.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="275">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/redis/RedisUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Cyclopedia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaSave.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="180" column="53" lean-forward="true" selection-end-line="219" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaIndex.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2800">
+          <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/recruitment/recruitmentUpdate.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/cyclopedia/cyclopediaUpdate.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1403">
+          <caret line="200" column="35" lean-forward="true" selection-start-line="200" selection-start-column="35" selection-end-line="200" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/CyclopediaController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="70" column="45" lean-forward="true" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1784#1785#0" expanded="true" />
-          </folding>
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="20" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/OrdersController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/CyclopediaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="302">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/CC/Maven/maven_jar/org/springframework/spring-core/5.1.8.RELEASE/spring-core-5.1.8.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/CyclopediaServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="-75">
+          <caret line="116" column="31" selection-start-line="116" selection-start-column="31" selection-end-line="116" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/CC/Maven/maven_jar/com/baomidou/mybatis-plus-support/2.2.0/mybatis-plus-support-2.2.0-sources.jar!/com/baomidou/mybatisplus/mapper/EntityWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/websocket/WebSocketServlet.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/websocket/MyThread.java" />
+    <entry file="file://D:/CC/Maven/maven_jar/org/springframework/boot/spring-boot-dependencies/2.1.6.RELEASE/spring-boot-dependencies-2.1.6.RELEASE.pom">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+          <caret line="535" column="6" selection-start-line="535" selection-start-column="6" selection-end-line="535" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/CC/Maven/maven_jar/com/baomidou/mybatis-plus-support/2.2.0/mybatis-plus-support-2.2.0-sources.jar!/com/baomidou/mybatisplus/mapper/Wrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/upload/UploadController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3375">
-          <caret line="300" column="22" selection-start-line="300" selection-start-column="22" selection-end-line="300" selection-end-column="22" />
-          <folding>
-            <element signature="e#7642#7643#0" expanded="true" />
-            <element signature="e#7689#7690#0" expanded="true" />
-            <element signature="e#19975#19976#0" expanded="true" />
-            <element signature="e#20027#20028#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/orders/orderIndex.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2275">
-          <caret line="91" column="17" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="53" column="66" lean-forward="true" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/OrderStatusEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXOrdersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/OrdersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="88" column="43" lean-forward="true" selection-start-line="88" selection-start-column="43" selection-end-line="88" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product/productIndex.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/json/menu1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="167" column="16" lean-forward="true" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/layui/lay/modules/layim.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="7241" lean-forward="true" selection-start-line="1" selection-start-column="7241" selection-end-line="1" selection-end-column="7241" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product/productUpdate.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="156" column="65" lean-forward="true" selection-start-line="156" selection-start-column="11" selection-end-line="156" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product/productSave.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="165" column="41" lean-forward="true" selection-start-line="165" selection-start-column="41" selection-end-line="165" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/OrdersServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowSave.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2750">
-          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Geohash.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="44" column="23" lean-forward="true" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-          <folding>
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/utils/JsonData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/utils/AddressUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="44" column="22" lean-forward="true" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/Test1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-275">
+          <caret line="45" column="43" lean-forward="true" selection-start-line="45" selection-start-column="43" selection-end-line="45" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="102" column="21" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+        <state relative-caret-position="303">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/login/css/main.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mengzhou/trashrecycling/MyBatisPlusGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="118" column="14" lean-forward="true" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+        <state relative-caret-position="150">
+          <caret line="46" column="57" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/Adminuser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/AdminuserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1927#1928#0" expanded="true" />
-            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product/productFind.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/AdminuserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="113" selection-start-line="113" selection-end-line="114" />
+        <state relative-caret-position="325">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowFind.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AdminUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="80" column="38" lean-forward="true" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+        <state relative-caret-position="500">
+          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/model/SlideShow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/ProductStatusEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/mapper/AdminUserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="20" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/enums/SlideShowEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/signin/signinIndex.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        <state relative-caret-position="453">
+          <caret line="125" column="9" lean-forward="true" selection-start-line="63" selection-end-line="125" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/ProductServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/ShiroConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="64" selection-start-line="64" selection-end-line="65" />
-          <folding>
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-247">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="76" column="42" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2650">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        <state relative-caret-position="225">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalina.base_IS_UNDEFINED/logs/webapps/info.log">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WecharController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXAddressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXCabinetlocationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/style/admin.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalina.base_IS_UNDEFINED/logs/webapps/debug.log">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/common/shiro/UserRealm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11526" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/catalina.base_IS_UNDEFINED/logs/webapps/erorr.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="104" selection-start-line="1" selection-start-column="95" selection-end-line="1" selection-end-column="104" />
+        <state relative-caret-position="1075">
+          <caret line="49" column="103" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="103" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/slideShow/slideShowIndex.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXCyclopediaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="49" column="25" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="25" />
+        <state relative-caret-position="192">
+          <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/SlideShowController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminuser/text.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="328">
+          <caret line="221" column="66" selection-start-line="221" selection-start-column="66" selection-end-line="221" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/SlideShowService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/exts/excel.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="627">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/service/impl/SlideShowServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/wechar/WXProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        <state relative-caret-position="225">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mengzhou/trashrecycling/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="6" lean-forward="true" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state relative-caret-position="242">
+          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding>
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/common/layuiadmin/exts/excel.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/address/addressIndex.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminuser/text.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,30 +27,36 @@ public class Cyclopedia extends Model<Cyclopedia> {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
     /**
      * 环保百科名称
      */
     @TableField("cyclopediaName")
     private String cyclopediaName;
+
     /**
      * 展示图
      */
     @TableField("cyclopediaIcon")
     private String cyclopediaIcon;
+
     /**
      * 描述
      */
     @TableField("cyclopediaDesc")
     private String cyclopediaDesc;
+
     /**
      * 环保百科内容
      */
     @TableField("cyclopediaContent")
     private String cyclopediaContent;
+
     /**
      * 创建时间
      */
     @TableField("createTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     @Override

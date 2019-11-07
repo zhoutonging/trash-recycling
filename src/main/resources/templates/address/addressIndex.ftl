@@ -76,7 +76,6 @@
                 {field: 'mobile', title: '手机号', align: 'center'},
                 {field: 'area', title: '所属区域', align: 'center'},
                 {field: 'address', title: '详细地址', align: 'center'},
-                {field: 'openId', title: '创建人标识', align: 'center'},
                 {field: 'createTime', title: '创建时间', align: 'center'},
                 {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo'}
             ]]
