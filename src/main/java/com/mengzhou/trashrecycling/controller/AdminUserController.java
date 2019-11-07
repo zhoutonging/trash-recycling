@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.controller;
 
 
+import com.mengzhou.trashrecycling.common.websocket.WebSocketServlet;
 import com.mengzhou.trashrecycling.model.Adminuser;
 import com.mengzhou.trashrecycling.service.AdminuserService;
 import com.mengzhou.trashrecycling.service.UserService;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 系统用户前端控制器
+ * 用户登录前端控制器
  *
  * @author CC
  * @since 2019-11-05
@@ -34,6 +35,10 @@ public class AdminUserController {
 
     @Autowired
     private AdminuserService adminuserService;
+
+    @Autowired
+    WebSocketServlet wbs;
+
 
     /**
      * 用户登录
@@ -126,6 +131,8 @@ public class AdminUserController {
 
             modelMap.put("success", true);
             modelMap.put("msg", "注册成功");
+            wbs.onMessage(2);
+
             return modelMap;
 
         } catch (Exception e) {

@@ -54,6 +54,7 @@
 
                     <div class="layui-btn-group test-table-operate-btn" style="margin-bottom: 10px;">
                         <button class="layui-btn" data-type="getCheckData">添加商品</button>
+                        <button class="layui-btn" data-type="getCheckData1">导出Excel</button>
                     </div>
 
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
@@ -70,6 +71,9 @@
 </div>
 
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
+<script src="/static/common/jquery/jquery.js"></script>
+<script src="/static/common/layuiadmin/exts/excel.js"></script>
+
 <script type="text/html" id="statusTemp">
     {{#  if(d.status==1){ }}
     <input type="checkbox" name="status" lay-skin="switch" lay-text="上架商品|下架商品" value="{{d.id}}"
@@ -86,6 +90,7 @@
         index: 'lib/index'
     }).use(['index', 'table'], function () {
         var admin = layui.admin, table = layui.table, form = layui.form;
+        var excel = layui.excel;
 
         table.render({
             elem: '#test-table-page',
@@ -95,12 +100,18 @@
             cellMinWidth: 80,
             id: 'idTest',
             cols: [[
-                {type: 'numbers', title: '序号', align: 'center'},
+                {type: 'checkbox', fixed: 'left'},
                 {field: 'productName', title: '商品名称', align: 'center'},
-                {field: 'productPrice', title: '绿色值', align: 'center'},
+                {field: 'productPrice', title: '积分', align: 'center'},
                 {field: 'createTime', title: '创建时间', align: 'center'},
                 {filed: 'status', title: '状态', templet: '#statusTemp', align: 'center'},
-                {align: 'center', title: '操作', fixed: 'right', toolbar: '#test-table-operate-barDemo', templet: '#statusTemp'}
+                {
+                    align: 'center',
+                    title: '操作',
+                    fixed: 'right',
+                    toolbar: '#test-table-operate-barDemo',
+                    templet: '#statusTemp'
+                }
             ]]
         });
 
@@ -153,8 +164,30 @@
                     content: '/productSave',
                     area: ['100%', '100%']
                 });
+            }, getCheckData1: function () {
+                $.get('/api/product/findAll', function (res) {
+                    var data = res.data;
+
+                    // 1. 数组头部新增表头
+                    res.data.unshift({
+                        productName: '商品名称', productIcon: '商品图路径', productPrice: '商品价格'
+                        , updateTime: '更新时间'
+                    });
+                    // 2. 如果需要调整顺序，请执行梳理函数
+                    var data = excel.filterExportData(res.data, [
+                        'productName',
+                        'productPrice',
+                        'productIcon',
+                        'updateTime',
+                    ]);
+                    // 3. 执行导出函数，系统会弹出弹框
+                    excel.exportExcel({
+                        sheet1: data
+                    }, '商品信息.xlsx', 'xlsx');
+                });
             }
         };
+
         $('.test-table-operate-btn .layui-btn').on('click', function () {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';

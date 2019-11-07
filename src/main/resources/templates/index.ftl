@@ -201,7 +201,7 @@
                         </a>
                         <dl class="layui-nav-child">
                             <dd data-name="console" class="">
-                                <a lay-href="userIndex">系统用户</a>
+                                <a lay-href="adminUserIndex">系统用户</a>
                             </dd>
                         </dl>
                     </li>

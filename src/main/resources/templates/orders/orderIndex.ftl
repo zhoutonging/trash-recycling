@@ -52,6 +52,10 @@
                         </div>
                     </form>
 
+                    <div class="layui-btn-group test-table-operate-btn" style="margin-bottom: 10px;">
+                        <button class="layui-btn" data-type="getCheckData1">导出Excel</button>
+                    </div>
+
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
                     <script type="text/html" id="test-table-operate-barDemo">
@@ -78,7 +82,7 @@
             elem: '#test-table-page',
             url: '/orders/findAll',
             page: true,
-            height: 'full-110',
+            height: 'full-160',
             cellMinWidth: 80,
             id: 'idTest',
             cols: [[

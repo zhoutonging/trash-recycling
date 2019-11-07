@@ -19,4 +19,5 @@ public interface AdminUserMapper extends BaseMapper<Adminuser> {
      * @return
      */
     Adminuser findByUserName(@Param("userName") String userName);
+
 }

@@ -14,7 +14,7 @@ public class AdminController {
 
     @GetMapping("/test123")
     public String test() {
-        return "adminuser/text";
+        return "adminuser/test";
     }
 
     /**

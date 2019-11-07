@@ -12,7 +12,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 import java.io.Serializable;
 
 /**
- * webSocket配置 否则springboot无法加载
+ * webSocket配置 否则springboot无法加载导致连接失败
  *
  * @author xiaoshuaishuai
  * @date 2019-05-21 11:18
