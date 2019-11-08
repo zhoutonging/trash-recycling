@@ -57,7 +57,6 @@ public class AdminuserServiceImpl extends ServiceImpl<AdminUserMapper, Adminuser
             adminuser.setSalt(salt);
             adminuser.setCreateTime(new Date());
             adminUserMapper.insert(adminuser);
-            webSocketServlet.onMessage(1);//TODO 测试webSocket
 
             return LayuiResult.success("添加成功");
 

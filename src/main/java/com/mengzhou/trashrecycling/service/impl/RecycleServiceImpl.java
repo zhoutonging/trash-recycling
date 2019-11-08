@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.mengzhou.trashrecycling.common.Dto.RecycleDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
+import com.mengzhou.trashrecycling.common.websocket.WebSocketServlet;
 import com.mengzhou.trashrecycling.mapper.RecycleMapper;
 import com.mengzhou.trashrecycling.model.Integraldetails;
 import com.mengzhou.trashrecycling.model.Recycle;
@@ -45,6 +46,9 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private WebSocketServlet webSocketServlet;
+
     @Override
     public Map<String, Object> save(Recycle recycle, String sessionKey) {
         Map<String, Object> modelMap = new HashMap<>(16);
@@ -72,6 +76,9 @@ public class RecycleServiceImpl extends ServiceImpl<RecycleMapper, Recycle> impl
             recycle.setCreateTime(new Date());
             recycle.setOpenId(openId);
             recycleMapper.insert(recycle);
+
+            //webSocketServlet.onMessage(0);//提示前端有新的上门回收信息
+            webSocketServlet.sendMessageAll("2");  //通知后台有新订单
 
             modelMap.put("success", true);
             modelMap.put("msg", "添加成功");

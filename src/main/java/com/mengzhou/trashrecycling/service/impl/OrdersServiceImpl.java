@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.mengzhou.trashrecycling.common.Dto.OrdersDto;
 import com.mengzhou.trashrecycling.common.enums.OrderStatusEnum;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
+import com.mengzhou.trashrecycling.common.websocket.WebSocketServlet;
 import com.mengzhou.trashrecycling.mapper.OrdersMapper;
 import com.mengzhou.trashrecycling.model.Integraldetails;
 import com.mengzhou.trashrecycling.model.Orders;
@@ -49,6 +50,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Autowired
     private IntegraldetailsService integraldetailsService;
+
+    @Autowired
+    private WebSocketServlet webSocketServlet;
 
     @Override
     public Map<String, Object> save(Integer productId, Orders orders, String sessionKey) {
@@ -116,6 +120,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             orders.setStatus(OrderStatusEnum.SUCCESS.getCode());
             orders.setOpenId(openId);
 
+            webSocketServlet.sendMessageAll("1");  //通知后台有新订单
             ordersMapper.insert(orders);
 
             //积分详情

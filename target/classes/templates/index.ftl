@@ -234,12 +234,17 @@
             </div>
         </div>
 
+        <#--消息提醒提示音,不支持谷歌浏览器-->
+        <#--<audio src="/file/20191104200849318541.mp3" controls="controls" preload id="music1" hidden>-->
+        <#--</audio>-->
+
         <!-- 桌面 -->
         <div class="layui-body" id="LAY_app_body">
             <div class="layadmin-tabsbody-item layui-show">
                 <iframe src="/home" frameborder="0" class="layadmin-iframe"></iframe>
             </div>
         </div>
+
 
         <!-- 辅助元素，一般用于移动设备下遮罩 -->
         <div class="layadmin-body-shade" layadmin-event="shade"></div>
@@ -261,6 +266,9 @@
     });
 </script>
 <script>
+    // 消息提醒提示音,不支持谷歌浏览器
+    // var audio = document.getElementById('music1');
+    // audio.currentTime = 0;
     /**
      * 整合通知栏信息
      * @type {tabs.notice|{text, id}|*}
@@ -284,7 +292,7 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         //建立连接，这里的/websocket ，是Servlet中注解中的那个值
-        websocket = new WebSocket("ws://localhost:8080/websocket");
+        websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
     } else {
         alert('当前浏览器 Not support websocket');
     }
@@ -298,8 +306,13 @@
     }
     //接收到消息的回调方法
     websocket.onmessage = function (event) {
+        console.log(event.data)
         if (event.data == "1") {
-            notice.warning("又有新用户注册拉");
+            notice.warning("有新的商城订单,请注意查看~");
+            // 消息提醒提示音,不支持谷歌浏览器
+            // audio.play();
+        } else if (event.data == "2") {
+            notice.warning("有新的上门回收订单,请注意查看~");
         }
     }
     //连接关闭的回调方法

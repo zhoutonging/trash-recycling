@@ -49,7 +49,7 @@
                                             </a>
                                         </li>
                                         <li class="layui-col-xs3">
-                                            <a lay-href="component/progress/index.html">
+                                            <a lay-href="/orderIndex">
                                                 <i class="layui-icon layui-icon-find-fill"></i>
                                                 <cite>进度条</cite>
                                             </a>

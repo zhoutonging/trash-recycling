@@ -49,6 +49,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\R
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\SlideShowDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\WecharDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\SignindetailsMapper.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\websocket\WebSocketConfig.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Integraldetails.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\CabinetlocationDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\WarningService.java
@@ -107,6 +108,7 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\mapper\Categ
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\SlideShowServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\redis\RedisUtil.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\wechar\WXRecruitmentController.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\SysUserController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Recyclecategory.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\upload\UploadController.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\controller\ProductController.java
@@ -129,3 +131,4 @@ D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\service\impl\IntegraldetailsServiceImpl.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\Dto\RecycleDto.java
 D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\model\Beatheart.java
+D:\Proect\trash-recycling\src\main\java\com\mengzhou\trashrecycling\common\websocket\WebSocketServlet.java

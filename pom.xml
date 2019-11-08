@@ -21,6 +21,7 @@
         <pagehelper.version>1.2.5</pagehelper.version>
         <springboot-plugin>1.4.2.RELEASE</springboot-plugin>
         <jdbc.version>8.0.15</jdbc.version>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencies>
