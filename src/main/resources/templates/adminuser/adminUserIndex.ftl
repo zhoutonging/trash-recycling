@@ -44,7 +44,7 @@
                     </form>
 
                     <div class="layui-btn-group test-table-operate-btn" style="margin-bottom: 10px;">
-                        <button class="layui-btn" data-type="getCheckData">添加系统用户</button>
+                        <button class="layui-btn" data-type="getCheckData">添加帐号</button>
                     </div>
 
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
@@ -53,6 +53,7 @@
 
                         {{#  if(d.userName=='admin'){ }}
                         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                        <a class="layui-btn layui-btn-danger layui-btn-xs layui-btn-disabled">删除</a>
                         {{#  } else { }}
                         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
                         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
@@ -95,7 +96,7 @@
             var data = obj.data;
             if (obj.event === 'del') {
                 layer.confirm('真的删除数据吗?这将无法恢复', function (index) {
-                    $.get('/product/deleteById', {id: data.id}, function (res) {
+                    $.get('/sysUser/deleteById', {id: data.id}, function (res) {
                         if (res.code == 0) {
                             obj.del();
                             layer.msg(res.msg, {time: 2000, icon: 1});
@@ -107,28 +108,21 @@
             } else if (obj.event === 'edit') {
                 var index = layer.open({
                     type: 2,
-                    title: '编辑商品',
-                    content: "productUpdate?id=" + data.id,
-                    area: ['100%', '100%'],
-                    success: function (layero, index) {
-                        var iframe = window['layui-layer-iframe' + index];
-                        //调用子页面的全局函数
-                        // iframe.child(data)
-                    }
+                    title: '编辑帐号',
+                    content: "adminUserUpdate?id=" + data.id,
+                    area: ['420px', '420px']
                 });
             }
         });
 
-        //商品添加
         var $ = layui.$, active = {
-            //添加角色
             getCheckData: function () {
                 //弹出即全屏
                 var index = layer.open({
                     type: 2,
-                    title: '添加商品',
-                    content: '/productSave',
-                    area: ['100%', '100%']
+                    title: '添加帐号',
+                    content: '/adminUserSave',
+                    area: ['420px', '350px']
                 });
             }
         };

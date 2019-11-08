@@ -339,5 +339,25 @@ public class AdminController {
         return "adminuser/adminUserIndex";
     }
 
+    /**
+     * 系统用户添加
+     *
+     * @return
+     */
+    @GetMapping("adminUserSave")
+    public String adminUserFrom() {
+        return "adminuser/adminUserSave";
+    }
+
+    /**
+     * 系统用户修改
+     *
+     * @return
+     */
+    @GetMapping("adminUserUpdate")
+    public String adminUserUpdate() {
+        return "adminuser/adminUserUpdate";
+    }
+
 
 }

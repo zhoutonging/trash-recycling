@@ -9,6 +9,7 @@
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="/static/common/layuiadmin/layui/css/layui.css" media="all">
     <link rel="stylesheet" href="/static/common/layuiadmin/style/admin.css" media="all">
+    <link rel="stylesheet" href="/static/common/layuiadmin/notice/notice.css" media="all">
 </head>
 
 <body class="layui-layout-body">
@@ -246,12 +247,74 @@
 </div>
 
 <script src="/static/common/layuiadmin/layui/layui.js"></script>
+<script src="/static/common/jquery/jquery.js"></script>
+<script src="/static/common/layuiadmin/notice/notice.js"></script>
 <script>
     layui.config({
-        base: '/static/common/layuiadmin/' //静态资源所在路径
+        base: '/static/common/layuiadmin/'
     }).extend({
-        index: 'lib/index' //主入口模块
-    }).use('index');
+        index: 'lib/index'
+    }).use(['index', 'table'], function () {
+        var admin = layui.admin, table = layui.table, form = layui.form;
+
+
+    });
+</script>
+<script>
+    /**
+     * 整合通知栏信息
+     * @type {tabs.notice|{text, id}|*}
+     */
+    var notice = layui.notice;
+    notice.options = {
+        closeButton: true,//显示关闭按钮
+        debug: false,//启用debug
+        positionClass: "toast-top-right",//弹出的位置,
+        showDuration: "300",//显示的时间
+        hideDuration: "1000",//消失的时间
+        timeOut: "5000",//停留的时间
+        extendedTimeOut: "1000",//控制时间
+        showEasing: "swing",//显示时的动画缓冲方式
+        hideEasing: "linear",//消失时的动画缓冲方式
+        iconClass: 'toast-info', // 自定义图标，有内置，如不需要则传空 支持layui内置图标/自定义iconfont类名
+        onclick: null, // 点击关闭回调
+    };
+
+    var websocket = null;
+    //判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+        //建立连接，这里的/websocket ，是Servlet中注解中的那个值
+        websocket = new WebSocket("ws://localhost:8080/websocket");
+    } else {
+        alert('当前浏览器 Not support websocket');
+    }
+    //连接发生错误的回调方法
+    websocket.onerror = function () {
+        console.log("WebSocket连接发生错误");
+    };
+    //连接成功建立的回调方法
+    websocket.onopen = function () {
+        console.log("WebSocket连接成功");
+    }
+    //接收到消息的回调方法
+    websocket.onmessage = function (event) {
+        if (event.data == "1") {
+            notice.warning("又有新用户注册拉");
+        }
+    }
+    //连接关闭的回调方法
+    websocket.onclose = function () {
+        console.log("WebSocket连接关闭");
+    }
+    //监听窗口关闭事件，当窗口关闭时，主动去关闭WebSocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function () {
+        closeWebSocket();
+    }
+
+    //关闭WebSocket连接
+    function closeWebSocket() {
+        websocket.close();
+    }
 </script>
 </body>
 </html>

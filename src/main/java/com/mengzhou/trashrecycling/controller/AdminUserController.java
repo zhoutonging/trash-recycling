@@ -36,10 +36,6 @@ public class AdminUserController {
     @Autowired
     private AdminuserService adminuserService;
 
-    @Autowired
-    WebSocketServlet wbs;
-
-
     /**
      * 用户登录
      *
@@ -96,51 +92,5 @@ public class AdminUserController {
 
     }
 
-    /**
-     * 用户注册
-     *
-     * @param user
-     * @return
-     */
-    @PostMapping("register")
-    public Map<String, Object> register(Adminuser user, String roles) {
-
-        Map<String, Object> modelMap = new HashMap<>(16);
-
-        try {
-            Adminuser user1 = adminuserService.findByUserName(user.getUserName());
-
-            if (user1 != null) {
-                modelMap.put("success", false);
-                modelMap.put("msg", "用户名已存在");
-                return modelMap;
-            }
-
-            //加密盐值
-            String salt = new SecureRandomNumberGenerator().nextBytes().toString();
-            //运算次数
-            int count = 2;
-            //加密方式
-            String algorithmName = "md5";
-            //最终加密结果
-            String password = new SimpleHash(algorithmName, user.getPassword(), salt, count).toString();
-
-            user.setPassword(password);
-            user.setSalt(salt);
-            adminuserService.save(user);
-
-            modelMap.put("success", true);
-            modelMap.put("msg", "注册成功");
-            wbs.onMessage(2);
-
-            return modelMap;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            modelMap.put("success", false);
-            modelMap.put("msg", "注册失败");
-            return modelMap;
-        }
-    }
 }
 

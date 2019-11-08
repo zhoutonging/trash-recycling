@@ -17,7 +17,15 @@ public interface AdminuserService extends IService<Adminuser> {
      *
      * @param adminuser
      */
-    void save(Adminuser adminuser);
+    LayuiResult save(Adminuser adminuser);
+
+    /**
+     * 删除用户
+     *
+     * @param id
+     * @return
+     */
+    LayuiResult deleteById(Integer id);
 
     /**
      * 根据用户名查询用户
@@ -51,5 +59,5 @@ public interface AdminuserService extends IService<Adminuser> {
      * @param adminuser
      * @return
      */
-    LayuiResult modifyById(Adminuser adminuser);
+    LayuiResult modifyById(Adminuser adminuser,String beforePsd);
 }

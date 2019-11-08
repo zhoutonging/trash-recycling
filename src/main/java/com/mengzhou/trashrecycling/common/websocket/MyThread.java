@@ -24,25 +24,13 @@ public class MyThread implements Runnable {
         stopMe = false;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Runnable#run()
-     */
     public void run() {
-        //sum = adminUserMapper.selectCount(new EntityWrapper<Adminuser>());
         WebSocketServlet wbs = new WebSocketServlet();
-        //while (stopMe) {
-        //new_sum = adminUserMapper.selectCount(new EntityWrapper<Adminuser>());
-        //if (sum != new_sum) {
-        //    System.out.println("change");
-        //    sum = new_sum;
-        wbs.onMessage(sum);
-        //}
-        //try {
-        //    Thread.sleep(1000);
-        //} catch (InterruptedException e) {
-        //    // TODO Auto-generated catch block
-        //    e.printStackTrace();
-        //}
-        //}
+        //TODO 这个是往前端发送消息
+        /**
+         * 使用方法：在使用的地方先注入WebSocketServlet
+         * 然后使用wbs.onMessage(sum);向前端发送状态码
+         */
+        //wbs.onMessage(sum);
     }
 }
