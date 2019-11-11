@@ -166,6 +166,17 @@
                         </dl>
                     </li>
                     <li data-name="component" class="layui-nav-item">
+                        <a href="javascript:;" lay-tips="垃圾回收" lay-direction="2">
+                            <i class="layui-icon layui-icon-find-fill"></i>
+                            <cite>社区动态</cite>
+                        </a>
+                        <dl class="layui-nav-child">
+                            <dd data-name="console" class="">
+                                <a lay-href="communityIndex">社区动态</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
                             <i class="layui-icon layui-icon-util"></i>
                             <cite>柜机设置</cite>
@@ -292,7 +303,8 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         //建立连接，这里的/websocket ，是Servlet中注解中的那个值
-        websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
+        // websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
+        websocket = new WebSocket("ws://localhost:8080/websocket");
     } else {
         alert('当前浏览器 Not support websocket');
     }
@@ -313,6 +325,8 @@
             // audio.play();
         } else if (event.data == "2") {
             notice.warning("有新的上门回收订单,请注意查看~");
+        }else if (event.data == "3") {
+            notice.warning("有新的社区动态发表,请注意审核~");
         }
     }
     //连接关闭的回调方法

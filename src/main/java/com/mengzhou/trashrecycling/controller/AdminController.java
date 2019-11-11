@@ -359,5 +359,15 @@ public class AdminController {
         return "adminuser/adminUserUpdate";
     }
 
+    /**
+     * 社区动态首页
+     *
+     * @return
+     */
+    @GetMapping("communityIndex")
+    public String communityIndex() {
+        return "community/communityIndex";
+    }
+
 
 }
