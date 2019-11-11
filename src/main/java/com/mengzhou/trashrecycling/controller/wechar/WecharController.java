@@ -63,6 +63,12 @@ public class WecharController implements Serializable {
             // openId
             String openId = jsonObject.get("openid").toString();
             String sessionKey = jsonObject.get("session_key").toString();
+
+            //TODO   解析sessionKey中是否有+符号,如果有替换成其他字符,否则后台接收sessionKey会有空格且+号消失
+            if (sessionKey.contains("+")) {
+                sessionKey = sessionKey.replace("+", "=");
+            }
+
             //放入缓存
             redisUtil.set(sessionKey, openId, 172800L);
 
