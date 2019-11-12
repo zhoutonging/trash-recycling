@@ -30,13 +30,13 @@
                         <div class="layui-form-item">
                             <div class="layui-inline">
                                 <div class="layui-input-inline">
-                                    <input class="layui-input" type="text" name="productName" id="productName"
+                                    <input class="layui-input" type="text" name="orderId" id="orderId"
                                            placeholder="请输入订单号" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <div class="layui-input-inline">
-                                    <select name="city" lay-verify="" id="productStatus">
+                                    <select name="city" lay-verify="" id="orderStatus">
                                         <option value="">请选择订单状态</option>
                                         <option value="0">已支付</option>
                                         <option value="1">已发货</option>
@@ -59,7 +59,7 @@
                     <table class="layui-hide" id="test-table-page" lay-filter="test-table-operate"></table>
 
                     <script type="text/html" id="test-table-operate-barDemo">
-                        <#--<a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看详情</a>-->
+                        <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看详情</a>
                         <#--<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>-->
                         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
                     </script>
@@ -96,7 +96,7 @@
                     field: 'status', title: '状态', align: 'center', templet: function (d) {
                         if (d.status == 0) {
                             return '已支付';
-                        }  else {
+                        } else {
                             return '已发货';
                         }
                     }
@@ -129,30 +129,25 @@
                         }
                     })
                 });
-            } else if (obj.event === 'edit') {
-                // var index = layer.open({
-                //     type: 2,
-                //     title: '编辑用户',
-                //     content: "productUpdate?id=" + data.id,
-                //     area: ['100%', '100%'],
-                //     success: function (layero, index) {
-                //         var iframe = window['layui-layer-iframe' + index];
-                //     }
-                // });
             }
         });
 
         //条件查询
         form.on('submit(seek)', function () {
-            var productName = $('#productName').val();
-            var status = $("#productStatus option:selected").val();
+            var id = $('#orderId').val();
+            var status = $("#orderStatus option:selected").val();
+
+
+            if (id.replace(/\s+/g, "").length == 0 ) {
+                id = null;
+            }
 
             table.reload('idTest', {
-                url: 'product/findAll',
+                url: 'orders/findAll',
                 //让重载后的页码从1开始
                 page: {curr: 1},
                 where: {
-                    productName: productName,
+                    id: id,
                     status: status
                 }
             });

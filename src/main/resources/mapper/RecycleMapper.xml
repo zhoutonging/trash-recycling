@@ -40,7 +40,7 @@
         LEFT JOIN recyclecategory c ON a.recycleCategoryId = c.id
         WHERE 1=1
         <if test="id!=null and id!=''">
-            AND a.id=#{id}
+            AND a.id LIKE CONCAT('%',#{id},'%')
         </if>
         <if test="status!=null">
             AND a.status=#{status}

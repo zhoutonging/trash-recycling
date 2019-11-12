@@ -40,6 +40,7 @@ public class ShiroConfig {
         filterMap.put("/login", "anon");
         filterMap.put("/api/**", "anon");
         filterMap.put("/static/**", "anon");
+        filterMap.put("/file/**", "anon");
         filterMap.put("/index", "authc");
 
         //退出登录

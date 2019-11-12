@@ -1,10 +1,10 @@
 package com.mengzhou.trashrecycling.mapper;
 
-import com.mengzhou.trashrecycling.common.Dto.OrdersDto;
-import com.mengzhou.trashrecycling.model.Orders;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.mengzhou.trashrecycling.model.Orders;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 订单数据访问层
@@ -14,4 +14,10 @@ import java.util.List;
  */
 public interface OrdersMapper extends BaseMapper<Orders> {
 
+    /**
+     * 查询七天内每天成交的订单量
+     *
+     * @return
+     */
+    List<Map<String, Object>> find7Count();
 }

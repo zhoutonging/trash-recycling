@@ -554,24 +554,45 @@ layui.define(function (exports) {
             , carousel = layui.carousel
             , echarts = layui.echarts;
 
+        var createTimes = [];
+        var counts = [];
+
+        $.ajax({
+            type: "get",
+            url: "orders/findCount",
+            async: false,//设置同步/异步的参数[true异步  false同步]
+            dataType: "json",
+            success: function (res) {
+                if (res.success == true) {
+                    var data = res.data;
+                    for (var i = 0; i < data.length; i++) {
+                        createTimes.push(data[i].createTime);
+                        counts.push(data[i].count);
+                    }
+                }
+            },
+            error: function (e) {
+                msg = e;
+            }
+        });
+
         //标准柱状图
         var echnormcol = [], normcol = [
             {
                 title: {
-                    text: '某地区蒸发量和降水量',
-                    subtext: '纯属虚构'
+                    text: '近7天订单成交量'
                 },
                 tooltip: {
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['蒸发量', '降水量']
+                    data: ['订单量']
                 },
                 calculable: true,
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+                        data: createTimes
                     }
                 ],
                 yAxis: [
@@ -581,9 +602,9 @@ layui.define(function (exports) {
                 ],
                 series: [
                     {
-                        name: '蒸发量',
+                        name: '订单量',
                         type: 'bar',
-                        data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                        data: counts,
                         markPoint: {
                             data: [
                                 {type: 'max', name: '最大值'},
@@ -592,22 +613,6 @@ layui.define(function (exports) {
                         },
                         markLine: {
                             data: [{type: 'average', name: '平均值'}]
-                        }
-                    },
-                    {
-                        name: '降水量',
-                        type: 'bar',
-                        data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
-                        markPoint: {
-                            data: [
-                                {name: '年最高', value: 182.2, xAxis: 7, yAxis: 183, symbolSize: 18},
-                                {name: '年最低', value: 2.3, xAxis: 11, yAxis: 3}
-                            ]
-                        },
-                        markLine: {
-                            data: [
-                                {type: 'average', name: '平均值'}
-                            ]
                         }
                     }
                 ]

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 订单详情控制器
@@ -49,15 +50,25 @@ public class OrdersController {
      * @return
      */
     @GetMapping("findAll")
-    public LayuiResult findAll(Integer page, Integer limit) {
+    public LayuiResult findAll(Integer page, Integer limit, String id, Integer status) {
 
         //分页
         Page pageObject = PageHelper.startPage(page, limit);
 
-        List<Orders> ordersList = ordersService.findAll();
+        List<Orders> ordersList = ordersService.findAll(id, status);
         PageInfo pageInfo = new PageInfo(ordersList);
 
         return LayuiResult.success(pageInfo.getTotal(), pageInfo.getList());
+    }
+
+    /**
+     * 查询七天内每天成交的订单量
+     *
+     * @return
+     */
+    @GetMapping("findCount")
+    public Map<String, Object> findCount() {
+        return ordersService.find7Count();
     }
 }
 

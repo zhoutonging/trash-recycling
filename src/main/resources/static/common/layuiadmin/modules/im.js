@@ -284,7 +284,7 @@ layui.define(['index', 'layim'], function (exports) {
                 , id: 1234560
                 , username: '李彦宏' //好友昵称，若申请加群，参数为：groupname
                 , avatar: '//tva4.sinaimg.cn/crop.0.0.996.996.180/8b2b4e23jw8f14vkwwrmjj20ro0rpjsq.jpg' //头像
-                , sign: '全球最大的中文搜索引擎'
+                , sign: '全球最大的中文'
             }
             layim.setFriendGroup({
                 type: user.type

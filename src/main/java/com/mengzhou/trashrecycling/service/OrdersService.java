@@ -47,9 +47,16 @@ public interface OrdersService extends IService<Orders> {
     Map<String, Object> findCountByOpenId(String sessionKey);
 
     /**
-     * 查询所有订单
+     * 查询所有订单or条件查询
      *
      * @return
      */
-    List<Orders> findAll();
+    List<Orders> findAll(String id, Integer status);
+
+    /**
+     * 查询七天内每天成交的订单量
+     *
+     * @return
+     */
+    Map<String, Object> find7Count();
 }

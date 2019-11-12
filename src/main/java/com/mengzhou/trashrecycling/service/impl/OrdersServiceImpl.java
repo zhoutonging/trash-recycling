@@ -243,11 +243,47 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     }
 
     @Override
-    public List<Orders> findAll() {
+    public List<Orders> findAll(String id, Integer status) {
 
+        //根据订单号模糊查询
+        if (id != null && !id.equals("")) {
+            List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
+                    .orderBy("createTime", false).like("id", id));
+            return ordersList;
+
+        }
+
+        //根据订单状态查询订单
+        if (status != null && !status.equals("")) {
+            List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
+                    .orderBy("createTime", false).eq("status", status));
+            return ordersList;
+
+        }
+
+        //根据订单id和订单状态查询信息
+        if (id != null && !id.equals("") && status != null) {
+            List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
+                    .orderBy("createTime", false).like("id", id).eq("status", status));
+            return ordersList;
+        }
+
+        //查询订单
         List<Orders> ordersList = ordersMapper.selectList(new EntityWrapper<Orders>()
                 .orderBy("createTime", false));
 
+
         return ordersList;
+    }
+
+    @Override
+    public Map<String, Object> find7Count() {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        List<Map<String, Object>> mapList = ordersMapper.find7Count();
+        modelMap.put("success", true);
+        modelMap.put("data", mapList);
+
+        return modelMap;
     }
 }

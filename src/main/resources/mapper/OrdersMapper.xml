@@ -7,5 +7,30 @@
         id, openId AS openId, productName AS productName, productPrice AS productPrice, productCount AS productCount, integral AS integral, status, createTime AS createTime
     </sql>
 
-
+    <!--查询七天内每天成交的订单量-->
+    <select id="find7Count" resultType="java.util.HashMap">
+        SELECT
+            DATE_FORMAT(a.createTime,'%m-%d ') AS createTime,
+            ifnull( b.count, 0 ) AS count
+        FROM
+            (
+            SELECT
+                curdate( ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 1 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 2 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 3 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 4 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 5 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 6 DAY ) AS createTime
+            ) a
+            LEFT JOIN ( SELECT date( createTime ) AS datetime, count( * ) AS count FROM orders GROUP BY date( createTime ) ) b ON a.createTime = b.datetime
+        ORDER BY
+            a.createTime ASC
+    </select>
 </mapper>
