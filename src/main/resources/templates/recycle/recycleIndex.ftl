@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <div class="layui-input-block">
+                <div class="layui-input-block" style="margin-left: 10em;">
                     <button class="layui-btn" lay-submit lay-filter="submitIntegral">提交</button>
                     <button class="layui-btn" id="closeSignin">关闭</button>
                 </div>
@@ -121,12 +121,12 @@
     {{#  } else if(d.status==2&&d.integral==null){ }}
     <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs layui-bg-blue" lay-event="integal">积分</a>
-    <a class="layui-btn layui-btn-xs layui-bg-gray"   layui-btn-disabled">状态</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray" layui-btn-disabled">状态</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     {{#  } else { }}
     <a class="layui-btn layui-btn-xs layui-bg-cyan" lay-event="detail">查看</a>
     <a class="layui-btn layui-btn-xs layui-bg-gray" layui-btn-disabled">积分</a>
-    <a class="layui-btn layui-btn-xs layui-bg-gray"  layui-btn-disabled">状态</a>
+    <a class="layui-btn layui-btn-xs layui-bg-gray" layui-btn-disabled">状态</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
     {{#  } }}
 </script>
@@ -168,7 +168,6 @@
             ]]
         });
 
-        //商品查看OR删除
         table.on('tool(test-table-operate)', function (obj) {
             var data = obj.data;
             if (obj.event === 'detail') {
@@ -189,8 +188,7 @@
 
                 //监听提交
                 form.on('submit(submitStatus)', function () {
-                    var status = $("#modules option:selected").val();
-
+                    var status = $("#status option:selected").val();
                     $.post('recycle/modifyByStatus', {
                         status: status,
                         id: data.id
@@ -251,7 +249,7 @@
         //条件查询
         form.on('submit(seek)', function () {
             var id = $('#recycleId').val();
-            var status =$('#productStatus option:selected') .val();
+            var status = $('#productStatus option:selected').val();
 
             table.reload('idTest', {
                 url: 'recycle/findAll',
@@ -259,7 +257,7 @@
                 page: {curr: 1},
                 where: {
                     id: id,
-                    status:status
+                    status: status
                 }
             });
         });

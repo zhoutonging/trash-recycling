@@ -109,6 +109,16 @@ public class AdminController {
     }
 
     /**
+     * 订单查看
+     *
+     * @return
+     */
+    @GetMapping("orderFind")
+    public String orderFind() {
+        return "orders/orderFind";
+    }
+
+    /**
      * 广告首页
      *
      * @return

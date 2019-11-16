@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="layui-form-item">
-                <div class="layui-input-block">
+                <div class="layui-input-block" style="margin-left: 10em;margin-top: 36px;">
                     <button class="layui-btn" lay-submit lay-filter="submitSignin">提交</button>
                     <button class="layui-btn" id="closeSignin">关闭</button>
                 </div>
@@ -93,7 +93,7 @@
                     title: "编辑签到积分",
                     type: 1,
                     content: $("#editSignin"),
-                    area: ['450px', '180px']
+                    area: ['450px', '200px']
                 });
 
                 $('#signinCount').val(data.signinCount);

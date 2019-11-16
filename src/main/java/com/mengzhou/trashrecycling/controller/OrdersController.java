@@ -70,5 +70,15 @@ public class OrdersController {
     public Map<String, Object> findCount() {
         return ordersService.find7Count();
     }
+
+    /**
+     * 根据id查询订单详情
+     *
+     * @return
+     */
+    @GetMapping("findOrderById")
+    public Map<String, Object> findOrderById(String id) {
+        return ordersService.findOrderById(id);
+    }
 }
 

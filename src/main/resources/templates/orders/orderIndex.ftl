@@ -115,7 +115,7 @@
                 var index = layer.open({
                     type: 2,
                     title: '查看商品',
-                    content: "productFind?id=" + data.id,
+                    content: "orderFind?id=" + data.id,
                     area: ['100%', '100%']
                 });
             } else if (obj.event === 'del') {

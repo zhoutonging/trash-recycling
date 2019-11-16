@@ -208,7 +208,7 @@
                     </li>
                     <li data-name="component" class="layui-nav-item">
                         <a href="javascript:;" lay-tips="小程序设置" lay-direction="2">
-                            <i class="layui-icon layui-icon-set-sm"></i>
+                            <i class="layui-icon layui-icon-set"></i>
                             <cite>系统设置</cite>
                         </a>
                         <dl class="layui-nav-child">
@@ -303,8 +303,8 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         //建立连接，这里的/websocket ，是Servlet中注解中的那个值
-        websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
-        // websocket = new WebSocket("ws://localhost:8080/websocket");
+        // websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
+        websocket = new WebSocket("ws://localhost:8080/websocket");
     } else {
         alert('当前浏览器 Not support websocket');
     }

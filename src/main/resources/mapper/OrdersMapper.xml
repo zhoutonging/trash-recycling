@@ -33,4 +33,24 @@
         ORDER BY
             a.createTime ASC
     </select>
+
+    <!--根据id查询订单详情-->
+    <select id="findOrderById" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT
+        a.id,
+        a.productName AS productName,
+        a.productPrice AS productPrice,
+        a.productCount AS productCount,
+        a.integral AS integral,
+        case a.STATUS when '1' then '已发货' when '0' then '已支付' end 'status',
+        b.userName `userName`,
+        b.mobile mobile,
+        b.address address,
+        DATE_FORMAT(a.createTime,'%Y-%m-%d %H:%i:%S') AS createTime
+        FROM
+        `orders` a
+        LEFT JOIN address b ON a.addressId = b.id
+        WHERE
+        a.id=#{id}
+    </select>
 </mapper>

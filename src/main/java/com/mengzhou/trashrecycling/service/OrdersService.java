@@ -59,4 +59,13 @@ public interface OrdersService extends IService<Orders> {
      * @return
      */
     Map<String, Object> find7Count();
+
+    /**
+     * 根据id查询订单详情
+     *
+     * @param id
+     * @return
+     */
+    Map<String, Object> findOrderById(String id);
+
 }

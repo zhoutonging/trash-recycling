@@ -286,4 +286,21 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
         return modelMap;
     }
+
+    @Override
+    public Map<String, Object> findOrderById(String id) {
+        Map<String, Object> modelMap = new HashMap<>(16);
+
+        if (id == null) {
+            modelMap.put("success", false);
+            modelMap.put("msg", "id为空");
+            return modelMap;
+        }
+
+        List<Map<String, Object>> mapList = ordersMapper.findOrderById(id);
+        modelMap.put("success", true);
+        modelMap.put("data", mapList);
+
+        return modelMap;
+    }
 }
