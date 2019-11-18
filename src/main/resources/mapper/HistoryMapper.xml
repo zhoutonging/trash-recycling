@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mengzhou.trashrecycling.mapper.HistoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mengzhou.trashrecycling.model.History">
+        <id column="id" property="id"/>
+        <result column="openId" property="openId"/>
+        <result column="createTime" property="createTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, openId AS openId, createTime AS createTime
+    </sql>
+
+    <!--查询近七天的访问小程序的用户量-->
+    <select id="find7Count" resultType="java.util.HashMap">
+        SELECT
+            DATE_FORMAT( a.createTime, '%m-%d ' ) AS createTime,
+            ifnull( b.count, 0 ) AS count
+        FROM
+            (
+            SELECT
+                curdate( ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 1 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 2 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 3 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 4 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 5 DAY ) AS createTime UNION ALL
+            SELECT
+                date_sub( curdate( ), INTERVAL 6 DAY ) AS createTime
+            ) a
+            LEFT JOIN ( SELECT date( createTime ) AS datetime, count( * ) AS count FROM history GROUP BY date( createTime ) ) b ON a.createTime = b.datetime
+        ORDER BY
+            a.createTime ASC
+    </select>
+
+    <!--查询今天是否已经登录过小程序-->
+    <select id="findByOpenId" parameterType="java.lang.String" resultType="com.mengzhou.trashrecycling.model.History">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM history
+        where TO_DAYS(createTime) = TO_DAYS(NOW())
+        and openId =#{openId}
+    </select>
+
+</mapper>

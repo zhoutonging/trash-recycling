@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.mengzhou.trashrecycling.common.Dto.WecharDto;
 import com.mengzhou.trashrecycling.common.redis.RedisUtil;
 import com.mengzhou.trashrecycling.common.wechar.WeChatUtil;
+import com.mengzhou.trashrecycling.model.History;
+import com.mengzhou.trashrecycling.service.HistoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +38,9 @@ public class WecharController implements Serializable {
 
     @Autowired
     private RedisUtil redisUtil;
+
+    @Autowired
+    private HistoryService historyService;
 
     // 微信小程序ID
     @Value("${wx.appId}")
@@ -72,7 +78,14 @@ public class WecharController implements Serializable {
             //放入缓存
             redisUtil.set(sessionKey, openId, 172800L);
 
-            //TODO 添加小程序每日打开的人数
+            //添加每日打开小程序的人数
+            History history = historyService.findByOpenId(openId);
+            if (history == null) {
+                History history1 = new History();
+                history1.setOpenId(openId);
+                history1.setCreateTime(new Date());
+                historyService.save(history1);
+            }
 
             modelMap.put("success", true);
             modelMap.put("sessionKey", sessionKey);
