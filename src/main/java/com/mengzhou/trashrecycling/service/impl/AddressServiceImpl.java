@@ -62,7 +62,7 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
             String openId = redisUtil.get(sessionKey).toString();
 
             //判断是否是默认地址,如果是默认地址更改其他地址为非默认
-            if (address.getDefaultAddress() == 0) {
+            if (address.getDefaultAddress() == 1) {
                 List<Address> addressList = this.findByOpenId(openId);
                 for (Address address1 : addressList) {
                     address1.setDefaultAddress(AddressEnum.NO.getCode());
@@ -140,7 +140,7 @@ public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> impl
             }
 
             //判断是否是默认地址,如果是默认地址更改其他地址为非默认
-            if (address.getDefaultAddress() == 0) {
+            if (address.getDefaultAddress() == 1) {
                 Address addr = this.findById(address.getId());
                 List<Address> addressList = this.findByOpenId(addr.getOpenId());
                 for (Address address1 : addressList) {

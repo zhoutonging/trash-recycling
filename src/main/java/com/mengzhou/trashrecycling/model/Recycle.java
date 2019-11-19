@@ -28,6 +28,12 @@ public class Recycle extends Model<Recycle> {
      */
     @TableField("openId")
     private String openId;
+
+    /**
+     * 手机号
+     */
+    @TableField("mobile")
+    private String mobile;
     /**
      * 收货地址Id
      */

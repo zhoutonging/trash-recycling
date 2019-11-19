@@ -1,6 +1,7 @@
 package com.mengzhou.trashrecycling.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.mengzhou.trashrecycling.mapper.RecycleMapper;
 import com.mengzhou.trashrecycling.model.Recyclecategory;
 import com.mengzhou.trashrecycling.mapper.RecyclecategoryMapper;
 import com.mengzhou.trashrecycling.service.RecyclecategoryService;
@@ -30,6 +31,9 @@ public class RecyclecategoryServiceImpl extends ServiceImpl<RecyclecategoryMappe
     @Autowired
     private RecyclecategoryMapper recyclecategoryMapper;
 
+    @Autowired
+    private RecycleMapper recycleMapper;
+
     @Override
     public LayuiResult save(Recyclecategory recyclecategory) {
         try {
@@ -53,7 +57,7 @@ public class RecyclecategoryServiceImpl extends ServiceImpl<RecyclecategoryMappe
     public LayuiResult modifyById(Recyclecategory recyclecategory) {
         try {
             if (recyclecategory.getId() == null || recyclecategory.getId().equals("")) {
-                log.error("修改垃圾回收类别时出现异常:垃圾回收类别名称或Id为空");
+                log.error("修改垃圾回收类别时出现异常:垃圾回收类别名称或id为空");
                 return LayuiResult.fail("更新失败");
             }
             recyclecategoryMapper.updateById(recyclecategory);
@@ -115,8 +119,7 @@ public class RecyclecategoryServiceImpl extends ServiceImpl<RecyclecategoryMappe
         Map<String, Object> modelMap = new HashMap<>(16);
 
         try {
-            List<Recyclecategory> recyclecategoryList = recyclecategoryMapper.selectList(new EntityWrapper<Recyclecategory>()
-                    .orderBy("createTime", false));
+            List<Map<String, String>> recyclecategoryList = recycleMapper.list();
             modelMap.put("success", true);
             modelMap.put("data", recyclecategoryList);
             return modelMap;

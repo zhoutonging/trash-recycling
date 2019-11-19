@@ -8,8 +8,8 @@ public enum AddressEnum {
 
     //0.已支付 1.未支付 2.支付未发货 3.支付已经发货
 
-    DEFAULT(0, "默认地址"),
-    NO(1, "不是默认地址"),
+    NO(0, "不是默认地址"),
+    DEFAULT(1, "默认地址"),
     ;
 
     private Integer code;

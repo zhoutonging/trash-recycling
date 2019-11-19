@@ -291,7 +291,7 @@
         positionClass: "toast-top-right",//弹出的位置,
         showDuration: "300",//显示的时间
         hideDuration: "1000",//消失的时间
-        timeOut: "5000",//停留的时间
+        timeOut: "10000",//停留的时间
         extendedTimeOut: "1000",//控制时间
         showEasing: "swing",//显示时的动画缓冲方式
         hideEasing: "linear",//消失时的动画缓冲方式
@@ -303,8 +303,8 @@
     //判断当前浏览器是否支持WebSocket
     if ('WebSocket' in window) {
         //建立连接，这里的/websocket ，是Servlet中注解中的那个值
-        // websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
-        websocket = new WebSocket("ws://localhost:8080/websocket");
+        websocket = new WebSocket("ws://mengzhou.nat300.top/websocket");
+        // websocket = new WebSocket("ws://localhost:8080/websocket");
     } else {
         alert('当前浏览器 Not support websocket');
     }
