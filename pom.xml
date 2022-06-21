@@ -20,7 +20,7 @@
         <mybatis-plus.version>2.2.0</mybatis-plus.version>
         <pagehelper.version>1.2.5</pagehelper.version>
         <springboot-plugin>1.4.2.RELEASE</springboot-plugin>
-        <jdbc.version>8.0.15</jdbc.version>
+        <jdbc.version>8.0.28</jdbc.version>
         <skipTests>true</skipTests>
     </properties>
 
